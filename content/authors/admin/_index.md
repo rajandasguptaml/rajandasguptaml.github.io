@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Md Kishor Morol
+title: Rajan Das Gupta
 
 # Name pronunciation (optional)
 #name_pronunciation: Chien Shiung Wu
