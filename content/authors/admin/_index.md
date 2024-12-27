@@ -7,7 +7,7 @@ title: Rajan Das Gupta
 
 # Full name (for SEO)
 first_name: Rajan Das
-last_name: Gupta
+last_name: 
 
 # Status emoji
 status:
