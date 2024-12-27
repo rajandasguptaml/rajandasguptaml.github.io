@@ -20,12 +20,12 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: GenAI Practitioner || Adjunct Faculty
+role: Ux Researcher || Adjunct Faculty
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: St. Thomas University
-    url: https://www.stu.edu
+  - name: Jahangirnagar university
+    url: https://www.ju.edu
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
