@@ -6,8 +6,8 @@ title: Md Kishor Morol
 #name_pronunciation: Chien Shiung Wu
 
 # Full name (for SEO)
-first_name: Md Kishor
-last_name: Morol
+first_name: Rajan Das
+last_name: Gupta
 
 # Status emoji
 status:
