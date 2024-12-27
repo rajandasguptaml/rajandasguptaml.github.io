@@ -34,13 +34,13 @@ profiles:
     url: 'mailto:kishoremorol@gmail.com'
     label: E-mail Me
   - icon: brands/x
-    url: https://twitter.com/kishormorol
+    url: https://twitter.com/rajan_aidig
  # - icon: brands/instagram
   #  url: https://www.instagram.com/
   - icon: brands/github
-    url: https://github.com/kishormorol
+    url: https://github.com/rajandasguptaml
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/kishormorol
+    url: https://www.linkedin.com/in/rajandasgupta
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?hl=en&user=pjn3jg4AAAAJ
   - icon: academicons/orcid
