@@ -31,7 +31,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:kishoremorol@gmail.com'
+    url: 'mailto:rajandasgupta.me@gmail.com'
     label: E-mail Me
   - icon: brands/x
     url: https://twitter.com/rajan_aidig
@@ -181,4 +181,4 @@ awards:
 
 ## About Me
 
-Md Kishor Morol is an Adjunct Faculty member at [St. Thomas University](https://stu.edu/), Miami, FL, and a Machine Learning Engineer at [Deloitte](https://www2.deloitte.com/us/en.html), specializing in building advanced AI solutions like Generative AI (GenAI) and Explainable AI (xAI). With over 8 years of academic and industry experience, he leads [ELITE Lab](https://elitelab.ai/), focusing on cutting-edge NLP and ML research with real-world applications.
+Rajan Das Gupta is an Adjunct Faculty member at [St. Thomas University](https://stu.edu/), Miami, FL, and a Machine Learning Engineer at [Deloitte](https://www2.deloitte.com/us/en.html), specializing in building advanced AI solutions like Generative AI (GenAI) and Explainable AI (xAI). With over 8 years of academic and industry experience, he leads [ELITE Lab](https://elitelab.ai/), focusing on cutting-edge NLP and ML research with real-world applications.
