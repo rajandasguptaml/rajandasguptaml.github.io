@@ -65,17 +65,17 @@ education:
         - Human Computer Inteaction 
   - area: BSc in Computer Science
     institution: American International University-Bangladesh
-    date_start: 2013-01-01
-    date_end: 2016-12-31
+    date_start: 2018-01-01
+    date_end: 2021-12-31
     summary: |2-
-      - Team lead of ACM International Collegiate Programming Contest (ICPC), AIUB
+      - IT Team lead of AIUB Engineering Comunity & Socity(ACES), AIUB
       - Courses included:
         - Data Structure & Algorithms
         - Artificial Intelligence & Expert Systems
 work:
-  - position: Adjunct Faculty
-    company_name: St. Thomas University, Miami, FL
-    company_url: https://www.stu.edu
+  - position: Faculty of Computer Science
+    company_name: PLAYPEN, Dhaka, BD
+    company_url: https://www.playpen.edu.bd
     company_logo: ''
     date_start: 2024-01-01
     date_end: ''
