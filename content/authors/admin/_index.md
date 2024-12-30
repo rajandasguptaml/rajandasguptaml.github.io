@@ -55,9 +55,9 @@ interests:
 
 education:
   - area: MSc in Computer Science
-    institution: American International University-Bangladesh
-    date_start: 2017-05-01
-    date_end: 2018-12-31
+    institution: Jahangirnahgar University
+    date_start: 2023-05-01
+    date_end: 2022-04-01
     summary: |2-
       - Conducted research on ML and NLP applications, publishing papers in IEEE and Springer conferences/journals.
       - Courses included:
