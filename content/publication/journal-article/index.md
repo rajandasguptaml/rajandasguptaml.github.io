@@ -1,17 +1,5 @@
----
+/---
 title: "The Generative AI Landscape in Education: Mapping the Terrain of Opportunities, Challenges and Student Perception"
-authors:
-- Zishan Ahmed
-- Shakib Sadat Shanto
-- Most Humayra Khanom Rime
-- admin
-- Nafiz Fahad
-- Md Jakir Hossen
-- Md Abdullah-Al-Jubair
-
-author_notes:
-- ""
-- ""
 date: "2024-09-01T00:00:00Z"
 doi: ""
 

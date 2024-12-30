@@ -1,6 +1,6 @@
 ---
 title: Programming in Python
-summary: CSC 4162 Programming in Python
+summary: CI 9820 Programming in Python
 date: 2023-08-01
 type: docs
 math: false
@@ -12,7 +12,7 @@ image:
 
 **Python programming with a comprehensive curriculum!**
 
-[American International University-Bangladesh](https://www.aiub.edu/) offers **CSC 4162: Programming in Python**, a course designed to equip students with the skills to develop applications ranging from small scripts to large systems. Students will explore Python's extensive standard library and its applications in various domains.
+[PLAYPEN](https://playpen.edu.bd/) offers **Cambridge 4162: Programming in Python**, a course designed to equip students with the skills to develop applications ranging from small scripts to large systems. Students will explore Python's extensive standard library and its applications in various domains.
 
 
 ## Course Outline

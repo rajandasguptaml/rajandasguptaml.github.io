@@ -1,21 +1,21 @@
 ---
-title: 'MultiLangMemeNet: A Unified Multimodal Approach for Cross-Lingual Meme Sentiment Analysis'
+title: 'A deep learning and machine learning approach to predict neonatal death in the context of São Paulo'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - admin
-  - Shakib Sadat Shanto
-  - Zishan Ahmed
-  - Ahmed Shakib Reza
+  - Mohon Raihan
+  - Plabon Kumar Saha
+  - AZMT Kabir
 
 # Author notes (optional)
 author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2024-11-01T00:00:00Z'
+date: '2024-03-01T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
@@ -24,16 +24,31 @@ publishDate: '2017-01-01T00:00:00Z'
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
 # Enter a publication type from the CSL standard.
-publication_types: ['paper-conference']
+publication_types: ['paper-Journal']
 
 # Publication name and optional abbreviated publication name.
-publication: In *23rd International Conference on Machine Learning and Applications*
-publication_short: In *ICMLA'24*
+publication: In *International Journal of Public Health Science*
+publication_short: In *IJPHS*
 
-abstract: This study introduces MultiLangMemeNet, a novel, unified multimodal approach for meme sentiment classification across diverse languages. The proposed model integrates visual and textual components to effectively capture the multimodal nature of memes. Five language datasets—English, Bengali, Chinese, Hindi, and Tamil—were used for the experiments. In every language examined, MultiLangMemeNet performed consistently better than both state-of-the-art multimodal techniques and unimodal baselines. The accuracy gains ranged from 2.46% to 13.74%, indicating significant improvements over the top unimodal vision and text models achieved by the model. Furthermore, MultiLangMemeNet surpassed baseline multimodal techniques, achieving accuracy improvements of 6% in English (61% vs 55%), 2.68% in Bengali (66.02% vs 63.34%), 6% in Chinese (61% vs 55%), 4.2% in Hindi (73.28% vs 69.08%), and 2% in Tamil (47% vs 45%) compared to the next best multimodal approach. The study also explored early and late fusion strategies, revealing language-dependent variations in optimal fusion approaches. The findings indicate a significant advancement in multilingual meme sentiment analysis by demonstrating the efficacy of MultiLangMemeNet in capturing the complex interplay between visual and textual components in memes across various linguistic and cultural contexts.
+abstract: Neonatal death is still a concerning reality for underdeveloped and even for some of the developed countries. Worldwide data indicate that 26.693 babies out of 1,000 births according to Macro Trades. To reduce the death early prediction of endangered baby is crucial. An early prediction enables the opportunity to take ample care of the child and mother so that an early child death can be avoided. Machine learning was used to figure out whether a newborn baby is at risk. To train the predictive model historical data of 1.4 million newborn child data was used. Machine learning and deep learning techniques such as Logical regression, K nearest neighbor, Random Forest classifier, Extreme gradient boosting (XGboost), convolutional neural network, long short-term memory (LSTM). were implemented using the dataset to find out the most robust model which model is the most accurate to identify the mortality of a newborn. From all the machine learning algorithms, the XGboost and random classifier had the best accuracy with 94%, and from the deep learning model, the LSTM had the best outcome with 99% accuracy. Thus, using LSTM of the model shall be best suited to predict whether precaution for a child is necessary.
 
 # Summary. An optional shortened abstract.
-summary: MultiLangMemeNet achieves superior meme sentiment classification across five languages, outperforming state-of-the-art models by 2.46%–13.74%. It highlights effective fusion strategies and advances in multilingual visual-textual analysis.
+summary: Neonatal death is a major issue worldwide. Early prediction of at-risk babies can help prevent death. Using data from 1.4 million newborns, machine learning models like XGBoost, Random Forest, and LSTM were tested. XGBoost and Random Forest had 94% accuracy, while LSTM achieved 99% accuracy. LSTM is the most effective model for predicting neonatal mortality and guiding care.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 tags:

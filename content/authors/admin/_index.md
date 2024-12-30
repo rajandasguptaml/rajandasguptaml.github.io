@@ -20,11 +20,11 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Ux Researcher || Adjunct Faculty
+role: UX Researcher || Faculty
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Jahangirnagar university
+  - name: Jahangirnagar University
     url: https://www.ju.edu
 
 # Social network links
@@ -73,6 +73,16 @@ education:
         - Data Structure & Algorithms
         - Artificial Intelligence & Expert Systems
 work:
+  - position: UX Reseracher
+    company_name: APEX DMIT LTD.
+    company_url: ''
+    company_logo: ''
+    date_start: 2024-10-01
+    date_end: ''
+    summary: |
+      Responsibilities include:
+      - Developed an Automated Banking Audit and Mortgage Approval system with LLMs, reducing validation times by 50% and improving accuracy by 20%.
+      - Built a Multimodal Intelligent chatbot integrating GPT-4, ResNet, and BERT with RLHF for improved customer support.
   - position: Faculty of Computer Science
     company_name: PLAYPEN, Dhaka, BD
     company_url: https://www.playpen.edu.bd
@@ -83,8 +93,8 @@ work:
       Responsibilities include:
       - Taught Courses: COP 1800: Intro to Programming with Java, CGS 1060: Microcomputer Applications
       - Taught algorithms to CS students to solve computational problems so that they can participate in ACM ICPC.
-  - position: Machine Learning Engineer
-    company_name: Deloitte
+  - position: UX Lead & Project Co-Ordinator
+    company_name: Olivine Ltd.
     company_url: ''
     company_logo: ''
     date_start: 2023-11-01
@@ -181,4 +191,13 @@ awards:
 
 ## About Me
 
-Rajan Das Gupta is an Adjunct Faculty member at [St. Thomas University](https://stu.edu/), Miami, FL, and a Machine Learning Engineer at [Deloitte](https://www2.deloitte.com/us/en.html), specializing in building advanced AI solutions like Generative AI (GenAI) and Explainable AI (xAI). With over 8 years of academic and industry experience, he leads [ELITE Lab](https://elitelab.ai/), focusing on cutting-edge NLP and ML research with real-world applications.
+Rajan Das Gupta is an Adjunct Faculty and a UX Researcher with experience in both education and technology. He was a computer science teacher at Play Pen and is currently a UX Researcher at Apex DMIT Ltd.
+
+ Rajan specializes in advanced AI, including Generative AI and Explainable AI, with over  years of experience in academia and industry. His focus is on Natural Language Processing (NLP) and Machine Learning (ML), applying these technologies to real-world problems. He is committed to advancing AI innovation and bridging research with industry applications.
+
+
+
+
+
+
+

@@ -1,9 +1,10 @@
 ---
-title: "The Next Chapter in Wound Analysis: Introducing a Hybrid Model for Improved Segmentation With the help of Deep Convolutional Neural Network"
+title: "xFiTRNN: A hybrid self attent linearized phrase structured contextualized transformer based RNN for financial sentence analysis with sentence level explainability"
 authors:
-- admin
-- Nafiz Fahad
-- Abdullah Al Juabir
+- Md. Tanzib Hosain
+- Md. Kishor Morol
+- Admin
+- Jakir Hossen
 date: "2024-11-07T00:00:00Z"
 doi: ""
 
@@ -19,21 +20,20 @@ publication_types: ["article"]
 publication: ""
 publication_short: ""
 
-abstract: Advancements in wound healing and chronic wound analysis have highlighted key challenges in managing non-healing wounds, often linked to conditions such as diabetes, vascular deficiencies, hypertension, and chronic kidney disease. Non-healing wounds are marked by bacterial imbalances, disrupted growth factors, and heightened inflammatory responses that lead to tissue degradation rather than repair. Effective wound segmentation is essential for monitoring and promoting healing, and current methods range from traditional image processing techniques relying on handcrafted features to deep learning approaches that extract features autonomously. In this study, we propose a hybrid convolutional model combining VGG19, U-Net, and EfficientNet to achieve high accuracy in wound area segmentation. Utilizing a dataset of 2,000 foot ulcer images, we trained and evaluated the model, demonstrating its superior performance through extensive experiments and analysis compared to existing segmentation techniques.
+abstract: xFiTRNN is a hybrid model designed for financial sentence analysis, integrating the power of a self-attention mechanism, linearized phrase structures, and a contextualized transformer-based Recurrent Neural Network (RNN). The model leverages a novel architecture to enhance the understanding of financial sentences, enabling both high accuracy in sentiment classification and interpretability at the sentence level. By combining transformer-based contextualization with RNN’s sequential processing, xFiTRNN effectively captures the complex dependencies and semantic nuances in financial text. Additionally, the model provides sentence-level explainability, offering transparency in decision-making, which is crucial for applications in financial analysis and risk management.
 
 # Summary. An optional shortened abstract.
-summary: This study introduces a hybrid convolutional model combining VGG19, U-Net, and EfficientNet for accurate wound segmentation, addressing challenges in non-healing wound management. Trained on 2,000 foot ulcer images, the model outperforms existing methods in precision and effectiveness.
-
+summary: xFiTRNN is a hybrid model for financial sentence analysis, combining self-attention, linearized phrase structures, and a contextualized transformer-based RNN. It improves accuracy in sentiment classification while providing sentence-level explainability. This model is ideal for financial text analysis and decision-making transparency.
 
 tags:
-- CV
+- NLP
 
 featured: true
 
 links:
 - name: ''
   url: ''
-url_pdf: https://www.researchgate.net/publication/385682621_The_Next_Chapter_in_Wound_Analysis_Introducing_a_Hybrid_Model_for_Improved_Segmentation_With_the_help_of_Deep_Convolutional_Neural_Network
+url_pdf: https://www.researchgate.net/publication/387098793_xFiTRNN_A_hybrid_self_attent_linearized_phrase_structured_contextualized_transformer_based_RNN_for_financial_sentence_analysis_with_sentence_level_explainability
 url_code: ''
 url_dataset: ''
 url_poster: ''

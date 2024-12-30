@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/tags/nlp/</link>
+      <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <description>NLP</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>NLP</title>
+      <link>http://localhost:1313/tags/nlp/</link>
+    </image>
+    
+    <item>
+      <title>MultiLangMemeNet: A Unified Multimodal Approach for Cross-Lingual Meme Sentiment Analysis</title>
+      <link>http://localhost:1313/publication/conference-paper/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VisionX</title>
+      <link>http://localhost:1313/project/scikit/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/scikit/</guid>
+      <description>&lt;p&gt;A computer vision system that detects and classifies objects in real-time, optimized for healthcare and autonomous navigation, leveraging Explainable AI to interpret visual data.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ExplainBot</title>
+      <link>http://localhost:1313/project/pandas/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/pandas/</guid>
+      <description>&lt;p&gt;An AI-powered chatbot that delivers clear, understandable responses and explanations for complex queries, combining the strengths of NLP and XAI to enhance user interaction.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

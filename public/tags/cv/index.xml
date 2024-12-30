@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CV | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/tags/cv/</link>
+      <atom:link href="http://localhost:1313/tags/cv/index.xml" rel="self" type="application/rss+xml" />
+    <description>CV</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 07 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>CV</title>
+      <link>http://localhost:1313/tags/cv/</link>
+    </image>
+    
+    <item>
+      <title>The Next Chapter in Wound Analysis: Introducing a Hybrid Model for Improved Segmentation With the help of Deep Convolutional Neural Network</title>
+      <link>http://localhost:1313/publication/preprint/</link>
+      <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/preprint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VisionX</title>
+      <link>http://localhost:1313/project/scikit/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/scikit/</guid>
+      <description>&lt;p&gt;A computer vision system that detects and classifies objects in real-time, optimized for healthcare and autonomous navigation, leveraging Explainable AI to interpret visual data.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

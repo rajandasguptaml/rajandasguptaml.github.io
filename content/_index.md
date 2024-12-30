@@ -17,7 +17,7 @@ sections:
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
-        url: teching/rajandasgupta_cv.pdf
+        url: python/rajandasgupta_cv.pdf
     design:
       css_class: dark
       background:
@@ -32,14 +32,14 @@ sections:
           parallax: false
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: '📑 My Research'
       subtitle: ''
       text: |-
-        I’m a passionate AI researcher and educator with over 5 years of academic experience and more than 4 years in developing cutting-edge machine learning systems.
+        I am a dedicated AI researcher and educator with over five years of academic experience and four years developing advanced machine learning solutions. 
         
-        My work revolves around advancing Large Language Models (LLMs), multimodal NLP, and machine learning explainability and interpretability create intelligent, responsible AI systems.
+        My work focuses on elevating Large Language Models (LLMs), multimodal natural language processing, and improving interpretability in machine learning. By emphasizing explainability and responsible development, I aim to build intelligent, reliable AI systems.  
 
-        Let’s collaborate and make AI impactful! 😊
+        Let’s shape the future of AI together.⛑️
 
     design:
       columns: '1'

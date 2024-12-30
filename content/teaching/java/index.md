@@ -1,6 +1,6 @@
 ---
 title: Programming in Java
-summary: COP 1800 Intro to Programming with Java
+summary: CI 9618 Intro to Programming with Java
 date: 2024-08-16
 type: docs
 math: false
@@ -12,7 +12,7 @@ image:
 
 **Learn Java programming with an interactive approach!**  
 
-[St. Thomas University](https://stu.edu) offers **COP 1800 Intro to Programming with Java**, an engaging course designed to introduce students to the fundamentals of Java programming. This course utilizes interactive content from [zyBooks](https://www.zybooks.com/catalog/programming-in-java/) to enhance your learning experience.
+[PLAYPEN](https://playpen.edu.bd/) offers **CAMBRIDGE 2346: Intro to Programming with Java**, an engaging course designed to introduce students to the fundamentals of Java programming. This course utilizes interactive content from [zyBooks](https://www.cambridgeinternational.org/Images/518133-2021-2023-syllabus-update.pdf) to enhance your learning experience.
 
 ## Interactive Course Outline
 
