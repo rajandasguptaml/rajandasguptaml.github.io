@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: UX Researcher || Faculty
+role: UX Researcher || CS Faculty
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -54,7 +54,7 @@ interests:
   - Human AI Interaction
 
 education:
-  - area: MSc in Computer Science
+  - area: M.Sc in Computer Science
     institution: Jahangirnahgar University
     date_start: 2023-05-01
     date_end: 2022-04-01
@@ -63,7 +63,7 @@ education:
       - Courses included:
         - Advanced Natural Language Processing 
         - Human Computer Inteaction 
-  - area: BSc in Computer Science
+  - area: B.Sc in Computer Science
     institution: American International University-Bangladesh
     date_start: 2018-01-01
     date_end: 2021-12-31
@@ -191,7 +191,7 @@ awards:
 
 ## About Me
 
-Rajan Das Gupta is an Adjunct Faculty and a UX Researcher with experience in both education and technology. He was a computer science teacher at Play Pen and is currently a UX Researcher at Apex DMIT Ltd.
+Rajan Das Gupta is an Adjunct Faculty and UX Researcher with experience in both education and technology. He was a computer science teacher at Play Pen and is currently a UX Researcher at Apex DMIT Ltd.
 
  Rajan specializes in advanced AI, including Generative AI and Explainable AI, with over  years of experience in academia and industry. His focus is on Natural Language Processing (NLP) and Machine Learning (ML), applying these technologies to real-world problems. He is committed to advancing AI innovation and bridging research with industry applications.
 

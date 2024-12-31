@@ -1,4 +1,4 @@
-/---
+---
 title: "An test"
 authors:
 - admin

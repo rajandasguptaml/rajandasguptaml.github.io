@@ -1,4 +1,4 @@
-/---
+---
 title: "The Generative AI Landscape in Education: Mapping the Terrain of Opportunities, Challenges and Student Perception"
 date: "2024-09-01T00:00:00Z"
 doi: ""

@@ -58,6 +58,14 @@
     </item>
     
     <item>
+      <title>The Generative AI Landscape in Education: Mapping the Terrain of Opportunities, Challenges and Student Perception</title>
+      <link>http://localhost:1313/publication/journal-article/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/journal-article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Programming in Java</title>
       <link>http://localhost:1313/teaching/java/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
@@ -884,128 +892,11 @@ Parallel 4   :         des6, after des4, 1d
     </item>
     
     <item>
-      <title></title>
-      <link>http://localhost:1313/publication/journal-article/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/journal-article/</guid>
-      <description>&lt;p&gt;/&amp;mdash;
-title: &amp;ldquo;The Generative AI Landscape in Education: Mapping the Terrain of Opportunities, Challenges and Student Perception&amp;rdquo;
-date: &amp;ldquo;2024-09-01T00:00:00Z&amp;rdquo;
-doi: &amp;quot;&amp;quot;&lt;/p&gt;
-&lt;h1 id=&#34;schedule-page-publish-date-not-publications-date&#34;&gt;Schedule page publish date (NOT publication&amp;rsquo;s date).&lt;/h1&gt;
-&lt;p&gt;publishDate: &amp;ldquo;2017-01-01T00:00:00Z&amp;rdquo;&lt;/p&gt;
-&lt;h1 id=&#34;publication-type&#34;&gt;Publication type.&lt;/h1&gt;
-&lt;h1 id=&#34;accepts-a-single-type-but-formatted-as-a-yaml-list-for-hugo-requirements&#34;&gt;Accepts a single type but formatted as a YAML list (for Hugo requirements).&lt;/h1&gt;
-&lt;h1 id=&#34;enter-a-publication-type-from-the-csl-standard&#34;&gt;Enter a publication type from the CSL standard.&lt;/h1&gt;
-&lt;p&gt;publication_types: [&amp;ldquo;article-journal&amp;rdquo;]&lt;/p&gt;
-&lt;h1 id=&#34;publication-name-and-optional-abbreviated-publication-name&#34;&gt;Publication name and optional abbreviated publication name.&lt;/h1&gt;
-&lt;p&gt;publication: &amp;ldquo;IEEE Access&amp;rdquo;
-publication_short: &amp;quot;&amp;quot;&lt;/p&gt;
-&lt;p&gt;abstract: Generative AI (GAI) technologies like ChatGPT are permanently changing academic education. Their integration opens up vast opportunities for bespoke learning and better student interaction but also brings about academic honesty issues and the application of real-life educators. This study aims to fill the literature gap regarding the use of multiple GAI tools and their effect on academic outcomes via a comprehensive review. A systematic literature review was performed following PRISMA guidelines to synthesize results on the potential and drawbacks of GAI in educational domains. We included theoretical and empirical papers that used qualitative, quantitative, or mixed-methods study designs. We have also explored conceptual frameworks and the most creative AI applications with a special emphasis on uniqueness and practicability. Experiences, and Perceptions Concerning To compile the information needed we gathered insights into what students were going through by conducting the survey which contains 200 respondents of undergraduate university students gathering insights into the college students’ experiences and perceptions related to GAI used for educational purposes. At the basic level, GAI comprises areas like personalization, task automation, teacher assistance, and efficiency among others, and respective solutions for the immersion of a learner in learning processes to reform directions. However, it generates plenty of challenges such as the question of assessment integrity, the risk that too much automated grading could overwhelm educational value, and relevantly the veracity of AI-generated content as well as the potential disruption to skills like critical thinking, in addition to data privacy and ethical issues. Student Perception Survey the text also indicates that most students, as per the student perception survey found AI systems useful in academic support. However, they also know the other side of the coin and are very familiar with the technology constraints and challenges.&lt;/p&gt;
-&lt;h1 id=&#34;summary-an-optional-shortened-abstract&#34;&gt;Summary. An optional shortened abstract.&lt;/h1&gt;
-&lt;p&gt;summary: This study explores the impact of Generative AI on academic education, emphasizing its potential for personalized learning and efficiency. It also addresses challenges such as academic integrity, critical thinking, and ethical considerations.&lt;/p&gt;
-&lt;p&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GenAI
-featured: false&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;links&#34;&gt;links:&lt;/h1&gt;
-&lt;h1 id=&#34;--name-&#34;&gt;- name: &amp;quot;&amp;quot;&lt;/h1&gt;
-&lt;h1 id=&#34;url-&#34;&gt;url: &amp;quot;&amp;quot;&lt;/h1&gt;
-&lt;p&gt;url_pdf: &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10681094&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://ieeexplore.ieee.org/abstract/document/10681094&lt;/a&gt;
-url_code: &amp;rsquo;&#39;
-url_dataset: &amp;rsquo;&#39;
-url_poster: &amp;rsquo;&#39;
-url_project: &amp;rsquo;&#39;
-url_slides: &amp;rsquo;&#39;
-url_source: &amp;rsquo;&#39;
-url_video: &#39;&#39;&lt;/p&gt;
-&lt;h1 id=&#34;featured-image&#34;&gt;Featured image&lt;/h1&gt;
-&lt;h1 id=&#34;to-use-add-an-image-named-featuredjpgpng-to-your-pages-folder&#34;&gt;To use, add an image named &lt;code&gt;featured.jpg/png&lt;/code&gt; to your page&amp;rsquo;s folder.&lt;/h1&gt;
-&lt;p&gt;image:
-caption: &amp;rsquo;&#39;
-focal_point: &amp;quot;&amp;quot;
-preview_only: false&lt;/p&gt;
-&lt;h1 id=&#34;associated-projects-optional&#34;&gt;Associated Projects (optional).&lt;/h1&gt;
-&lt;h1 id=&#34;associate-this-publication-with-one-or-more-of-your-projects&#34;&gt;Associate this publication with one or more of your projects.&lt;/h1&gt;
-&lt;h1 id=&#34;simply-enter-your-projects-folder-or-file-name-without-extension&#34;&gt;Simply enter your project&amp;rsquo;s folder or file name without extension.&lt;/h1&gt;
-&lt;h1 id=&#34;eg-internal-project-references-contentprojectinternal-projectindexmd&#34;&gt;E.g. &lt;code&gt;internal-project&lt;/code&gt; references &lt;code&gt;content/project/internal-project/index.md&lt;/code&gt;.&lt;/h1&gt;
-&lt;h1 id=&#34;otherwise-set-projects-&#34;&gt;Otherwise, set &lt;code&gt;projects: []&lt;/code&gt;.&lt;/h1&gt;
-&lt;p&gt;projects: []&lt;/p&gt;
-&lt;h1 id=&#34;slides-optional&#34;&gt;Slides (optional).&lt;/h1&gt;
-&lt;h1 id=&#34;associate-this-publication-with-markdown-slides&#34;&gt;Associate this publication with Markdown slides.&lt;/h1&gt;
-&lt;h1 id=&#34;simply-enter-your-slide-decks-filename-without-extension&#34;&gt;Simply enter your slide deck&amp;rsquo;s filename without extension.&lt;/h1&gt;
-&lt;h1 id=&#34;eg-slides-example-references-contentslidesexampleindexmd&#34;&gt;E.g. &lt;code&gt;slides: &amp;quot;example&amp;quot;&lt;/code&gt; references &lt;code&gt;content/slides/example/index.md&lt;/code&gt;.&lt;/h1&gt;
-&lt;h1 id=&#34;otherwise-set-slides-&#34;&gt;Otherwise, set &lt;code&gt;slides: &amp;quot;&amp;quot;&lt;/code&gt;.&lt;/h1&gt;
-&lt;h2 id=&#34;slides-example&#34;&gt;slides: example&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>An test</title>
       <link>http://localhost:1313/publication/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/publication/test/</guid>
-      <description>&lt;p&gt;/&amp;mdash;
-title: &amp;ldquo;An test&amp;rdquo;
-authors:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;admin
-date: &amp;ldquo;2019-04-07T00:00:00Z&amp;rdquo;
-doi: &amp;quot;&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;schedule-page-publish-date-not-publications-date&#34;&gt;Schedule page publish date (NOT publication&amp;rsquo;s date).&lt;/h1&gt;
-&lt;p&gt;publishDate: &amp;ldquo;2017-01-01T00:00:00Z&amp;rdquo;&lt;/p&gt;
-&lt;h1 id=&#34;publication-type&#34;&gt;Publication type.&lt;/h1&gt;
-&lt;h1 id=&#34;accepts-a-single-type-but-formatted-as-a-yaml-list-for-hugo-requirements&#34;&gt;Accepts a single type but formatted as a YAML list (for Hugo requirements).&lt;/h1&gt;
-&lt;h1 id=&#34;enter-a-publication-type-from-the-csl-standard&#34;&gt;Enter a publication type from the CSL standard.&lt;/h1&gt;
-&lt;p&gt;publication_types: [&amp;ldquo;article&amp;rdquo;]&lt;/p&gt;
-&lt;h1 id=&#34;publication-name-and-optional-abbreviated-publication-name&#34;&gt;Publication name and optional abbreviated publication name.&lt;/h1&gt;
-&lt;p&gt;publication: &amp;quot;&amp;quot;
-publication_short: &amp;quot;&amp;quot;&lt;/p&gt;
-&lt;p&gt;abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;h1 id=&#34;summary-an-optional-shortened-abstract&#34;&gt;Summary. An optional shortened abstract.&lt;/h1&gt;
-&lt;p&gt;summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.&lt;/p&gt;
-&lt;p&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Large Language Models&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;featured: false&lt;/p&gt;
-&lt;p&gt;links:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;name: Custom Link
-url: &lt;a href=&#34;http://example.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://example.org&lt;/a&gt;
-url_pdf: &lt;a href=&#34;http://arxiv.org/pdf/1512.04133v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://arxiv.org/pdf/1512.04133v1&lt;/a&gt;
-url_code: &amp;lsquo;&lt;a href=&#34;https://github.com/HugoBlox/hugo-blox-builder%27&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/HugoBlox/hugo-blox-builder&#39;&lt;/a&gt;
-url_dataset: &amp;lsquo;#&amp;rsquo;
-url_poster: &amp;lsquo;#&amp;rsquo;
-url_project: &amp;rsquo;&amp;rsquo;
-url_slides: &amp;rsquo;&#39;
-url_source: &amp;lsquo;#&amp;rsquo;
-url_video: &amp;lsquo;#&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;featured-image&#34;&gt;Featured image&lt;/h1&gt;
-&lt;h1 id=&#34;to-use-add-an-image-named-featuredjpgpng-to-your-pages-folder&#34;&gt;To use, add an image named &lt;code&gt;featured.jpg/png&lt;/code&gt; to your page&amp;rsquo;s folder.&lt;/h1&gt;
-&lt;p&gt;image:
-caption: &amp;lsquo;Image credit: &lt;a href=&#34;https://unsplash.com/photos/s9CC2SKySJM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Unsplash&lt;/strong&gt;&lt;/a&gt;&amp;rsquo;
-focal_point: &amp;quot;&amp;quot;
-preview_only: false&lt;/p&gt;
-&lt;h1 id=&#34;associated-projects-optional&#34;&gt;Associated Projects (optional).&lt;/h1&gt;
-&lt;h1 id=&#34;associate-this-publication-with-one-or-more-of-your-projects&#34;&gt;Associate this publication with one or more of your projects.&lt;/h1&gt;
-&lt;h1 id=&#34;simply-enter-your-projects-folder-or-file-name-without-extension&#34;&gt;Simply enter your project&amp;rsquo;s folder or file name without extension.&lt;/h1&gt;
-&lt;h1 id=&#34;eg-internal-project-references-contentprojectinternal-projectindexmd&#34;&gt;E.g. &lt;code&gt;internal-project&lt;/code&gt; references &lt;code&gt;content/project/internal-project/index.md&lt;/code&gt;.&lt;/h1&gt;
-&lt;h1 id=&#34;otherwise-set-projects-&#34;&gt;Otherwise, set &lt;code&gt;projects: []&lt;/code&gt;.&lt;/h1&gt;
-&lt;p&gt;projects:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;internal-project&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;slides-optional&#34;&gt;Slides (optional).&lt;/h1&gt;
-&lt;h1 id=&#34;associate-this-publication-with-markdown-slides&#34;&gt;Associate this publication with Markdown slides.&lt;/h1&gt;
-&lt;h1 id=&#34;simply-enter-your-slide-decks-filename-without-extension&#34;&gt;Simply enter your slide deck&amp;rsquo;s filename without extension.&lt;/h1&gt;
-&lt;h1 id=&#34;eg-slides-example-references-contentslidesexampleindexmd&#34;&gt;E.g. &lt;code&gt;slides: &amp;quot;example&amp;quot;&lt;/code&gt; references &lt;code&gt;content/slides/example/index.md&lt;/code&gt;.&lt;/h1&gt;
-&lt;h1 id=&#34;otherwise-set-slides-&#34;&gt;Otherwise, set &lt;code&gt;slides: &amp;quot;&amp;quot;&lt;/code&gt;.&lt;/h1&gt;
-&lt;h2 id=&#34;slides-example&#34;&gt;slides: example&lt;/h2&gt;
-</description>
+      <description></description>
     </item>
     
   </channel>
