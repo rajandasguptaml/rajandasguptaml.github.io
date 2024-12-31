@@ -1,34 +1,52 @@
 ---
-title: "The Generative AI Landscape in Education: Mapping the Terrain of Opportunities, Challenges and Student Perception"
-date: "2024-09-01T00:00:00Z"
-doi: ""
+title: 'Large Language Models in Computer Science Education: A Systematic Literature Review'
+
+# Authors
+# If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
+# and it will be replaced with their full name and linked to their profile.
+authors:
+  - admin
+  # - Mohon Raihan
+  # - Plabon Kumar Saha
+  # - AZMT Kabir
+
+# Author notes (optional)
+author_notes:
+  - 'Equal contribution'
+  - 'Equal contribution'
+
+date: '2024-03-01T00:00:00Z'
+doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: '2023-01-01T00:00:00Z'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
 # Enter a publication type from the CSL standard.
-publication_types: ["article-journal"]
+publication_types: ['paper-Journal']
 
 # Publication name and optional abbreviated publication name.
-publication: "IEEE Access"
-publication_short: ""
+publication: In *SIGCSE'26*
+publication_short: In *SIGCSE'26*
 
-abstract: Generative AI (GAI) technologies like ChatGPT are permanently changing academic education. Their integration opens up vast opportunities for bespoke learning and better student interaction but also brings about academic honesty issues and the application of real-life educators. This study aims to fill the literature gap regarding the use of multiple GAI tools and their effect on academic outcomes via a comprehensive review. A systematic literature review was performed following PRISMA guidelines to synthesize results on the potential and drawbacks of GAI in educational domains. We included theoretical and empirical papers that used qualitative, quantitative, or mixed-methods study designs. We have also explored conceptual frameworks and the most creative AI applications with a special emphasis on uniqueness and practicability. Experiences, and Perceptions Concerning To compile the information needed we gathered insights into what students were going through by conducting the survey which contains 200 respondents of undergraduate university students gathering insights into the college students’ experiences and perceptions related to GAI used for educational purposes. At the basic level, GAI comprises areas like personalization, task automation, teacher assistance, and efficiency among others, and respective solutions for the immersion of a learner in learning processes to reform directions. However, it generates plenty of challenges such as the question of assessment integrity, the risk that too much automated grading could overwhelm educational value, and relevantly the veracity of AI-generated content as well as the potential disruption to skills like critical thinking, in addition to data privacy and ethical issues. Student Perception Survey the text also indicates that most students, as per the student perception survey found AI systems useful in academic support. However, they also know the other side of the coin and are very familiar with the technology constraints and challenges.
+abstract: Neonatal death is still a concerning reality for underdeveloped and even for some of the developed countries. Worldwide data indicate that 26.693 babies out of 1,000 births according to Macro Trades. To reduce the death early prediction of endangered baby is crucial. An early prediction enables the opportunity to take ample care of the child and mother so that an early child death can be avoided. Machine learning was used to figure out whether a newborn baby is at risk. To train the predictive model historical data of 1.4 million newborn child data was used. Machine learning and deep learning techniques such as Logical regression, K nearest neighbor, Random Forest classifier, Extreme gradient boosting (XGboost), convolutional neural network, long short-term memory (LSTM). were implemented using the dataset to find out the most robust model which model is the most accurate to identify the mortality of a newborn. From all the machine learning algorithms, the XGboost and random classifier had the best accuracy with 94%, and from the deep learning model, the LSTM had the best outcome with 99% accuracy. Thus, using LSTM of the model shall be best suited to predict whether precaution for a child is necessary.
 
 # Summary. An optional shortened abstract.
-summary: This study explores the impact of Generative AI on academic education, emphasizing its potential for personalized learning and efficiency. It also addresses challenges such as academic integrity, critical thinking, and ethical considerations.
-
+summary: Neonatal death is a major issue worldwide. Early prediction of at-risk babies can help prevent death. Using data from 1.4 million newborns, machine learning models like XGBoost, Random Forest, and LSTM were tested. XGBoost and Random Forest had 94% accuracy, while LSTM achieved 99% accuracy. LSTM is the most effective model for predicting neonatal mortality and guiding care.
 
 tags:
-- GenAI
-featured: false
+  - NLP
 
+# Display this page in the Featured widget?
+featured: False
+
+# Custom links (uncomment lines below)
 # links:
-# - name: ""
-#   url: ""
-url_pdf: https://ieeexplore.ieee.org/abstract/document/10681094
+# - name: Custom Link
+#   url: http://example.org
+
+url_pdf: 'https://www.researchgate.net/profile/Rajan-Das-Gupta'
 url_code: ''
 url_dataset: ''
 url_poster: ''
@@ -38,10 +56,10 @@ url_source: ''
 url_video: ''
 
 # Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder. 
+# To use, add an image named `featured.jpg/png` to your page's folder.
 image:
-  caption: ''
-  focal_point: ""
+  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
+  focal_point: ''
   preview_only: false
 
 # Associated Projects (optional).
@@ -49,7 +67,8 @@ image:
 #   Simply enter your project's folder or file name without extension.
 #   E.g. `internal-project` references `content/project/internal-project/index.md`.
 #   Otherwise, set `projects: []`.
-projects: []
+projects:
+  - example
 
 # Slides (optional).
 #   Associate this publication with Markdown slides.

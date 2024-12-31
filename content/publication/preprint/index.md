@@ -1,15 +1,15 @@
 ---
 title: "xFiTRNN: A hybrid self attent linearized phrase structured contextualized transformer based RNN for financial sentence analysis with sentence level explainability"
 authors:
-- Md. Tanzib Hosain
-- Md. Kishor Morol
+# - Md. Tanzib Hosain
+# - Md. Kishor Morol
 - Admin
-- Jakir Hossen
-date: "2024-11-07T00:00:00Z"
+# - Jakir Hossen
+date: "2024-12-07T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2024-12-01T00:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -17,7 +17,7 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["article"]
 
 # Publication name and optional abbreviated publication name.
-publication: ""
+publication: "In Scientific Nature"
 publication_short: ""
 
 abstract: xFiTRNN is a hybrid model designed for financial sentence analysis, integrating the power of a self-attention mechanism, linearized phrase structures, and a contextualized transformer-based Recurrent Neural Network (RNN). The model leverages a novel architecture to enhance the understanding of financial sentences, enabling both high accuracy in sentiment classification and interpretability at the sentence level. By combining transformer-based contextualization with RNN’s sequential processing, xFiTRNN effectively captures the complex dependencies and semantic nuances in financial text. Additionally, the model provides sentence-level explainability, offering transparency in decision-making, which is crucial for applications in financial analysis and risk management.

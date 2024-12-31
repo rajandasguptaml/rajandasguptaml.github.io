@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tags/nlp/</link>
       <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     <description>NLP</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 07 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
       <title>NLP</title>
@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>MultiLangMemeNet: A Unified Multimodal Approach for Cross-Lingual Meme Sentiment Analysis</title>
-      <link>http://localhost:1313/publication/conference-paper/</link>
-      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <title>xFiTRNN: A hybrid self attent linearized phrase structured contextualized transformer based RNN for financial sentence analysis with sentence level explainability</title>
+      <link>http://localhost:1313/publication/preprint/</link>
+      <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/preprint/</guid>
       <description></description>
     </item>
     
@@ -34,6 +34,14 @@
       <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/project/pandas/</guid>
       <description>&lt;p&gt;An AI-powered chatbot that delivers clear, understandable responses and explanations for complex queries, combining the strengths of NLP and XAI to enhance user interaction.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A deep learning and machine learning approach to predict neonatal death in the context of São Paulo</title>
+      <link>http://localhost:1313/publication/conference-paper/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <description></description>
     </item>
     
   </channel>

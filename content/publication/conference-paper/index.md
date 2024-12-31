@@ -6,20 +6,20 @@ title: 'A deep learning and machine learning approach to predict neonatal death 
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - admin
-  - Mohon Raihan
-  - Plabon Kumar Saha
-  - AZMT Kabir
+  # - Mohon Raihan
+  # - Plabon Kumar Saha
+  # - AZMT Kabir
 
 # Author notes (optional)
 author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2024-03-01T00:00:00Z'
+date: '2023-12-01T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2017-01-01T00:00:00Z'
+publishDate: '2024-01-01T00:00:00Z'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -34,22 +34,6 @@ abstract: Neonatal death is still a concerning reality for underdeveloped and ev
 
 # Summary. An optional shortened abstract.
 summary: Neonatal death is a major issue worldwide. Early prediction of at-risk babies can help prevent death. Using data from 1.4 million newborns, machine learning models like XGBoost, Random Forest, and LSTM were tested. XGBoost and Random Forest had 94% accuracy, while LSTM achieved 99% accuracy. LSTM is the most effective model for predicting neonatal mortality and guiding care.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 tags:
   - NLP

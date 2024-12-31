@@ -25,7 +25,7 @@ role: UX Researcher || CS Faculty
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: Jahangirnagar University
-    url: https://www.ju.edu
+    url: https://www.ju.edu.
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -40,11 +40,11 @@ profiles:
   - icon: brands/github
     url: https://github.com/rajandasguptaml
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/rajandasgupta
+    url: https://www.linkedin.com/in/rajandasgupta/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?hl=en&user=pjn3jg4AAAAJ
+    url: https://scholar.google.com/citations?view_op=list_works&hl=en&user=ipE0E-8AAAAJ
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-4468-8260
+    url: https://orcid.org/0000-0003-4065-743X
 
 interests:
   - Large Language Models (LLMs)
@@ -191,9 +191,9 @@ awards:
 
 ## About Me
 
-Rajan Das Gupta is an Adjunct Faculty and UX Researcher with experience in both education and technology. He was a computer science teacher at Play Pen and is currently a UX Researcher at Apex DMIT Ltd.
+Rajan Das Gupta is an Adjunct Faculty and UX Researcher with experience in both Education and Technology. He was a Computer Science teacher at PlaySPen and is currently a UX Researcher at Apex DMIT Ltd.
 
- Rajan specializes in advanced AI, including Generative AI and Explainable AI, with over  years of experience in academia and industry. His focus is on Natural Language Processing (NLP) and Machine Learning (ML), applying these technologies to real-world problems. He is committed to advancing AI innovation and bridging research with industry applications.
+ Rajan specializes in Advanced AI, including Generative AI and Explainable AI, with over  years of experience in Academia and Industry. His focus is on Natural Language Processing (NLP) and Machine Learning (ML), applying these technologies to real-world problems. He is committed to advancing AI innovation and bridging research with industry applications.
 
 
 

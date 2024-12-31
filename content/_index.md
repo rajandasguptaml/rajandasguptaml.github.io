@@ -17,7 +17,7 @@ sections:
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
-        url: python/rajandasgupta_cv.pdf
+        url: "/authors/rajandasgupta_cv.pdf"
     design:
       css_class: dark
       background:

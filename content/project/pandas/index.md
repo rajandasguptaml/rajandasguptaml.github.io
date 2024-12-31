@@ -1,13 +1,12 @@
 ---
-title: ExplainBot
+title: NeuroScan AI
 date: 2024-06-01
-external_link: https://elitelab.ai/our-projects/#See%20Project
+external_link: https://github.com/rajandasguptaml
 tags:
-  - NLP
-  - LLMs
+  - CV
+  - ML
   - xAI
 ---
 
-An AI-powered chatbot that delivers clear, understandable responses and explanations for complex queries, combining the strengths of NLP and XAI to enhance user interaction.
-
+NeuroScan AI is an AI-powered app that analyzes MRI scans to detect brain tumors and strokes. It provides quick results, clear explanations, and secure data sharing, improving early diagnosis and accessibility.
 <!--more-->
