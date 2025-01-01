@@ -191,7 +191,7 @@ awards:
 
 ## About Me
 
-Rajan Das Gupta is an Adjunct Faculty and UX Researcher with experience in both Education and Technology. He was a Computer Science teacher at PlaySPen and is currently a UX Researcher at Apex DMIT Ltd.
+Rajan Das Gupta is an Adjunct Faculty and UX Researcher with experience in both Education and Technology. He was a Computer Science teacher at PlayPen and is currently a UX Researcher at Apex DMIT Ltd.
 
  Rajan specializes in Advanced AI, including Generative AI and Explainable AI, with over  years of experience in Academia and Industry. His focus is on Natural Language Processing (NLP) and Machine Learning (ML), applying these technologies to real-world problems. He is committed to advancing AI innovation and bridging research with industry applications.
 
