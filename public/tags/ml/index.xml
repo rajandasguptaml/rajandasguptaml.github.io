@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ML | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/tags/ml/</link>
+      <atom:link href="http://localhost:1313/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+    <description>ML</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>ML</title>
+      <link>http://localhost:1313/tags/ml/</link>
+    </image>
+    
+    <item>
+      <title>NeoCare AI</title>
+      <link>http://localhost:1313/project/pytorch/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/pytorch/</guid>
+      <description>&lt;p&gt;NeoCare AI is an AI-powered app that analyzes pre-delivery data of mothers, such as weight and other health metrics, to predict and prevent neonatal death. It provides clear insights, personalized recommendations, and interactive support to improve maternal and infant health outcomes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NeuroScan AI</title>
+      <link>http://localhost:1313/project/pandas/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/pandas/</guid>
+      <description>&lt;p&gt;NeuroScan AI is an AI-powered app that analyzes MRI scans to detect brain tumors and strokes. It provides quick results, clear explanations, and secure data sharing, improving early diagnosis and accessibility.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

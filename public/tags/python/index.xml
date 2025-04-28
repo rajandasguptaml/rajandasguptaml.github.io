@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/tags/python/</link>
+      <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <description>Python</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+    </image>
+    
+    <item>
+      <title>Programming in Python</title>
+      <link>http://localhost:1313/teaching/python/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/teaching/python/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Python programming with a comprehensive curriculum!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://playpen.edu.bd/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PLAYPEN&lt;/a&gt; offers &lt;strong&gt;Cambridge 4162: Programming in Python&lt;/strong&gt;, a course designed to equip students with the skills to develop applications ranging from small scripts to large systems. Students will explore Python&amp;rsquo;s extensive standard library and its applications in various domains.&lt;/p&gt;
+&lt;h2 id=&#34;course-outline&#34;&gt;Course Outline&lt;/h2&gt;
+&lt;h3 id=&#34;1-introduction-to-python&#34;&gt;&lt;strong&gt;1. Introduction to Python&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Overview of Python programming language.&lt;/li&gt;
+&lt;li&gt;Setting up the development environment.&lt;/li&gt;
+&lt;li&gt;Writing and executing basic Python scripts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-python-basics&#34;&gt;&lt;strong&gt;2. Python Basics&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Variables, data types, and operators.&lt;/li&gt;
+&lt;li&gt;Control structures: conditionals and loops.&lt;/li&gt;
+&lt;li&gt;Functions and modules.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-data-structures&#34;&gt;&lt;strong&gt;3. Data Structures&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Lists, tuples, and dictionaries.&lt;/li&gt;
+&lt;li&gt;Sets and their operations.&lt;/li&gt;
+&lt;li&gt;Comprehensions and generators.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-file-handling&#34;&gt;&lt;strong&gt;4. File Handling&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Reading from and writing to files.&lt;/li&gt;
+&lt;li&gt;Working with different file formats.&lt;/li&gt;
+&lt;li&gt;Exception handling during file operations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-object-oriented-programming-oop-in-python&#34;&gt;&lt;strong&gt;5. Object-Oriented Programming (OOP) in Python&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Classes and objects.&lt;/li&gt;
+&lt;li&gt;Inheritance, polymorphism, and encapsulation.&lt;/li&gt;
+&lt;li&gt;Magic methods and operator overloading.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6-modules-and-packages&#34;&gt;&lt;strong&gt;6. Modules and Packages&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Importing and using standard libraries.&lt;/li&gt;
+&lt;li&gt;Creating and managing custom modules.&lt;/li&gt;
+&lt;li&gt;Understanding package structures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-error-and-exception-handling&#34;&gt;&lt;strong&gt;7. Error and Exception Handling&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Handling exceptions using try-except blocks.&lt;/li&gt;
+&lt;li&gt;Creating custom exceptions.&lt;/li&gt;
+&lt;li&gt;Debugging techniques and tools.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8-testing-and-debugging&#34;&gt;&lt;strong&gt;8. Testing and Debugging&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Writing unit tests using frameworks like &lt;code&gt;unittest&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Test-driven development practices.&lt;/li&gt;
+&lt;li&gt;Debugging tools and best practices.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;9-working-with-databases&#34;&gt;&lt;strong&gt;9. Working with Databases&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Connecting to databases using libraries like &lt;code&gt;sqlite3&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Performing CRUD operations.&lt;/li&gt;
+&lt;li&gt;Using Object-Relational Mappers (ORMs).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;10-web-development-with-python&#34;&gt;&lt;strong&gt;10. Web Development with Python&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction to web frameworks like Flask or Django.&lt;/li&gt;
+&lt;li&gt;Building simple web applications.&lt;/li&gt;
+&lt;li&gt;Handling HTTP requests and responses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;11-networking-and-multithreading&#34;&gt;&lt;strong&gt;11. Networking and Multithreading&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Socket programming basics.&lt;/li&gt;
+&lt;li&gt;Creating client-server applications.&lt;/li&gt;
+&lt;li&gt;Understanding multithreading and multiprocessing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-advanced-topics&#34;&gt;&lt;strong&gt;12. Advanced Topics&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction to data analysis with libraries like &lt;code&gt;NumPy&lt;/code&gt; and &lt;code&gt;pandas&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Basics of machine learning with &lt;code&gt;scikit-learn&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Exploring Python&amp;rsquo;s role in automation and scripting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;did-you-find-this-page-helpful-consider-sharing-it-&#34;&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

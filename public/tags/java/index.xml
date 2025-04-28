@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/tags/java/</link>
+      <atom:link href="http://localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <description>Java</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>Java</title>
+      <link>http://localhost:1313/tags/java/</link>
+    </image>
+    
+    <item>
+      <title>Programming in Java</title>
+      <link>http://localhost:1313/teaching/java/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/teaching/java/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Learn Java programming with an interactive approach!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://playpen.edu.bd/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PLAYPEN&lt;/a&gt; offers &lt;strong&gt;CAMBRIDGE 2346: Intro to Programming with Java&lt;/strong&gt;, an engaging course designed to introduce students to the fundamentals of Java programming. This course utilizes interactive content from &lt;a href=&#34;https://www.cambridgeinternational.org/Images/518133-2021-2023-syllabus-update.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zyBooks&lt;/a&gt; to enhance your learning experience.&lt;/p&gt;
+&lt;h2 id=&#34;interactive-course-outline&#34;&gt;Interactive Course Outline&lt;/h2&gt;
+&lt;h3 id=&#34;1-introduction-to-java&#34;&gt;&lt;strong&gt;1. Introduction to Java&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Overview of programming concepts.&lt;/li&gt;
+&lt;li&gt;Setting up the development environment.&lt;/li&gt;
+&lt;li&gt;Writing your first Java program.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-variables-and-assignments&#34;&gt;&lt;strong&gt;2. Variables and Assignments&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding variables and data types.&lt;/li&gt;
+&lt;li&gt;Performing arithmetic operations.&lt;/li&gt;
+&lt;li&gt;Utilizing constants and type conversions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-branches&#34;&gt;&lt;strong&gt;3. Branches&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing conditional statements.&lt;/li&gt;
+&lt;li&gt;Using logical operators.&lt;/li&gt;
+&lt;li&gt;Managing complex decision-making processes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-loops&#34;&gt;&lt;strong&gt;4. Loops&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Constructing while and for loops.&lt;/li&gt;
+&lt;li&gt;Handling nested loops.&lt;/li&gt;
+&lt;li&gt;Applying loops for data processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-arrays&#34;&gt;&lt;strong&gt;5. Arrays&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Declaring and initializing arrays.&lt;/li&gt;
+&lt;li&gt;Iterating through arrays.&lt;/li&gt;
+&lt;li&gt;Working with multidimensional arrays.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6-user-defined-methods&#34;&gt;&lt;strong&gt;6. User-Defined Methods&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Defining and invoking methods.&lt;/li&gt;
+&lt;li&gt;Understanding parameter passing.&lt;/li&gt;
+&lt;li&gt;Implementing method overloading.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-objects-and-classes&#34;&gt;&lt;strong&gt;7. Objects and Classes&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Exploring object-oriented programming principles.&lt;/li&gt;
+&lt;li&gt;Creating classes and objects.&lt;/li&gt;
+&lt;li&gt;Utilizing constructors and access modifiers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8-memory-management&#34;&gt;&lt;strong&gt;8. Memory Management&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding memory allocation.&lt;/li&gt;
+&lt;li&gt;Managing references and garbage collection.&lt;/li&gt;
+&lt;li&gt;Exploring stack and heap memory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;9-input-and-output&#34;&gt;&lt;strong&gt;9. Input and Output&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Handling input and output streams.&lt;/li&gt;
+&lt;li&gt;Reading from and writing to files.&lt;/li&gt;
+&lt;li&gt;Formatting output data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;10-inheritance&#34;&gt;&lt;strong&gt;10. Inheritance&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing class inheritance.&lt;/li&gt;
+&lt;li&gt;Overriding methods.&lt;/li&gt;
+&lt;li&gt;Utilizing polymorphism.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;11-recursion&#34;&gt;&lt;strong&gt;11. Recursion&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding recursive methods.&lt;/li&gt;
+&lt;li&gt;Solving problems using recursion.&lt;/li&gt;
+&lt;li&gt;Analyzing recursion performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-exceptions&#34;&gt;&lt;strong&gt;12. Exceptions&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Handling exceptions and errors.&lt;/li&gt;
+&lt;li&gt;Implementing try-catch blocks.&lt;/li&gt;
+&lt;li&gt;Creating custom exceptions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;13-generics&#34;&gt;&lt;strong&gt;13. Generics&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizing generic classes and methods.&lt;/li&gt;
+&lt;li&gt;Understanding type parameters.&lt;/li&gt;
+&lt;li&gt;Applying generics for type safety.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;14-collections&#34;&gt;&lt;strong&gt;14. Collections&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Exploring collection frameworks.&lt;/li&gt;
+&lt;li&gt;Working with lists, sets, and maps.&lt;/li&gt;
+&lt;li&gt;Iterating over collections.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;15-graphical-user-interfaces-guis&#34;&gt;&lt;strong&gt;15. Graphical User Interfaces (GUIs)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Building basic GUIs with JavaFX.&lt;/li&gt;
+&lt;li&gt;Handling user events.&lt;/li&gt;
+&lt;li&gt;Designing interactive applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;16-algorithms-and-data-structures&#34;&gt;&lt;strong&gt;16. Algorithms and Data Structures&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing searching and sorting algorithms.&lt;/li&gt;
+&lt;li&gt;Understanding algorithm complexity.&lt;/li&gt;
+&lt;li&gt;Exploring common data structures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;17-advanced-topics&#34;&gt;&lt;strong&gt;17. Advanced Topics&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Multithreading and concurrency.&lt;/li&gt;
+&lt;li&gt;Networking and socket programming.&lt;/li&gt;
+&lt;li&gt;Accessing databases with JDBC.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;did-you-find-this-page-helpful-consider-sharing-it-&#34;&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

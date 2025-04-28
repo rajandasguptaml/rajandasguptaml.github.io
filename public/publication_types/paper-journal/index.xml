@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paper-Journal | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/publication_types/paper-journal/</link>
+      <atom:link href="http://localhost:1313/publication_types/paper-journal/index.xml" rel="self" type="application/rss+xml" />
+    <description>Paper-Journal</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>Paper-Journal</title>
+      <link>http://localhost:1313/publication_types/paper-journal/</link>
+    </image>
+    
+    <item>
+      <title>Large Language Models in Computer Science Education: A Systematic Literature Review</title>
+      <link>http://localhost:1313/publication/journal-article/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/journal-article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A deep learning and machine learning approach to predict neonatal death in the context of São Paulo</title>
+      <link>http://localhost:1313/publication/conference-paper/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

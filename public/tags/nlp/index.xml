@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP | Rajan Das Gupta Academic</title>
+    <link>http://localhost:1313/tags/nlp/</link>
+      <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <description>NLP</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>NLP</title>
+      <link>http://localhost:1313/tags/nlp/</link>
+    </image>
+    
+    <item>
+      <title>xFiTRNN: A hybrid self attent linearized phrase structured contextualized transformer based RNN for financial sentence analysis with sentence level explainability</title>
+      <link>http://localhost:1313/publication/preprint/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/preprint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>InsightBot</title>
+      <link>http://localhost:1313/project/scikit/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/scikit/</guid>
+      <description>&lt;p&gt;SmartAnswer AI is an AI-powered app that uses LLM models like ChatGPT to analyze sentences and provide accurate answers with clear explanations. It enhances user interaction through natural conversations and simplifies complex queries for better understanding.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Large Language Models in Computer Science Education: A Systematic Literature Review</title>
+      <link>http://localhost:1313/publication/journal-article/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/journal-article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A deep learning and machine learning approach to predict neonatal death in the context of São Paulo</title>
+      <link>http://localhost:1313/publication/conference-paper/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
