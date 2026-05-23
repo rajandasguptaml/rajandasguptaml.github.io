@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from maria-antoniak.github.io/2023/06/26/llms-with-care.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Feb 2024 04:23:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+   <title>Online ML University | Blogs | Azmine Toushik Wasi</title>
+    <!-- <title>Using LLMs With Care</title> -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Azmine Toushik Wasi, CV, Machine Learning, Research">
+    <meta name="author" content="Azmine Toushik Wasi">
+    <link rel="shortcut icon" type="image/webp" href="../resources/images/browser.jpg"/>
+    
+    
+    
+    
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rumii2luqs");
+</script>
+    
+    <meta name="description" content="Azmine Toushik Wasi | ML Research (Medical AI, AI4Science, GNN, HAI, NLP) | Kaggle GM | Explorer">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    
+    <!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/syntax.css" rel="stylesheet" >
+    <link rel="preload" href="../css/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    
+    <!-- Facebook Open Graph -->
+    <meta name="og:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="og:title" content="Online ML University | Blogs | Azmine Toushik Wasi">
+    <meta name="og:type" content="article">
+    <meta property="og:image" content="img/8-online-ml-uni.webp">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="1200">
+    
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Online ML University | Blogs | Azmine Toushik Wasi">
+    <meta name="twitter:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="twitter:image" content="img/8-online-ml-uni.webp">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            <span id="author-name" class="alignable pull-left">
+                <a href="index.html" style="text-decoration:none">  Azmine Toushik Wasi</a>
+            </br><span style="font-size: 11pt; font-weight: 400; padding-bottom: 2px;">Aspiring AI Researcher and Engineering Student</span></span>
+                <ul class="alignable pull-right navbar-ul">
+                        <li class="alignable pull-right nav-list"><b><a href="../others.html">Blog</a></b></li>
+                        <li class="alignable pull-right nav-list"><a href="../experiences.html">Experience</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../education.html">Education</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../publications.html">Publications</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../index.html">Research</a></li>
+                </ul>
+            </div>
+        <div style="clear:both"></div>
+        <hr>
+        
+            <div class="container content">
+                <h1>Online ML University</h1>
+
+<h2>ML Resources from Top Universities</h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<p></br></p>
+
+
+<p>Many students have questions about where to start with Machine Learning. There are learning paths out there that suggest what to learn, they often miss the main question - 'where do I learn?' Luckily, there are tons of free courses available from top universities like Stanford, Harvard, MIT, and CMU - covering basic to advanced topics. </br>
+    Now, the best part is that these courses not only provide lectures but also class slides, codes, and detailed lecture plans. To make things even easier, I've compiled a list of these courses in a repository. You'll find all links of different courses on different topics from top universities. And the best part? It's all free and accessible to anyone.</br>
+    So what are you waiting for?  Check out the repository and take your first step towards mastering this exciting field!
+</p>
+
+<blockquote>This collection contains a curated list of top AI courses offered by renowned universities.</blockquote>
+
+<div class="post-media mb-30">
+    <img alt="" src="img/8-online-ml-uni.webp">
+</div>
+<p></p>
+<hr>
+
+<style>
+    table {
+    border-collapse: collapse; /* Ensures that the borders are collapsed into a single border */
+    width: 100%; /* Optional: makes the table take up the full width of its container */
+}
+
+th, td {
+    border: 1px solid black; /* Adds a 1px solid black border to table headers and cells */
+    padding: 8px; /* Adds some padding inside the table cells */
+    text-align: center; /* Aligns text to the left */
+}
+
+/* Optional: Add background color to the table headers */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Optional: Add hover effect for table rows */
+tr:hover {
+    background-color: #f0ffea;
+}
+</style>
+
+
+
+<h1 id="-machine-learning-and-artificial-intelligence-"><strong>Machine Learning and Artificial Intelligence</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS229</td>
+<td>Machine Learning</td>
+<td>Spring 2022</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS229</td>
+<td>Machine Learning Full Course taught by Andrew Ng</td>
+<td>Autumn 2018</td>
+<td>⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=jGwO_UgTS7I&amp;list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS221</td>
+<td>Artificial Intelligence: Principles and Techniques</td>
+<td>Autumn 2021</td>
+<td>⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=ZiwogMtbjr4&amp;list=PLoROMvodv4rOca_Ovz1DvdtWuz8BfSWL2&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS229M</td>
+<td>Machine Learning Theory</td>
+<td>Fall 2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=I-tmjGFaaBg&amp;list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS229</td>
+<td>Machine Learning Course</td>
+<td>Summer 2019</td>
+<td>⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=KzH1ovd4Ots&amp;list=PLoROMvodv4rNH7qL6-efu_q2_bPuy0adh&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford University</td>
+<td>Stanford EE104</td>
+<td>Introduction to Machine Learning Full Course</td>
+<td>N/A</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rPh6wa6PGcHH6vMG9sEIPxL">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.034</td>
+<td>Artificial Intelligence</td>
+<td>Fall 2010</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=TjZBTDzGeGg&amp;list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>CS 188</td>
+<td>Introduction to Artificial Intelligence</td>
+<td>Fal 2018</td>
+<td>⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLsOUugYMBBJENfZ3XAToMsg44W7LeUVhF">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS/LTI 11-777</td>
+<td>Multimodal Machine Learning</td>
+<td></td>
+<td>⭐⭐⭐</td>
+<td><a href="https://lnkd.in/gKFJDbU4">Youtube</a></td>
+</tr>
+<tr>
+<td>Google</td>
+<td></td>
+<td>Machine Learning Crash Course</td>
+<td></td>
+<td></td>
+<td><a href="https://learndigital.withgoogle.com/digitalunlocked/course/machine-learning-crash-course">URL</a></td>
+</tr>
+<tr>
+<td>Harvard</td>
+<td>CS197</td>
+<td>AI Research Experiences</td>
+<td>-</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.cs197.seas.harvard.edu/">Course Website</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The State of Competitive Machine Learning</td>
+<td>-</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://mlcontests.com/state-of-competitive-machine-learning-2022/?ref=mlctwitter%E2%80%A6#winning-solutions">Website</a></td>
+</tr>
+<tr>
+<td>National University of Singapore</td>
+<td></td>
+<td>Uncertainty Modeling in AI</td>
+<td>-</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLxg0CGqViygOb9Eyc8IXM27doxjp2SK0H">Youtube</a></td>
+</tr>
+<tr>
+<td>Google</td>
+<td></td>
+<td>Basics of Machine Learning</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://learndigital.withgoogle.com/digitalunlocked/course/learn-python-basics-for-data-analysis">URL</a></td>
+</tr>
+<tr>
+<td>Kaggle</td>
+<td></td>
+<td>Intro to AI Ethics</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.kaggle.com/learn/intro-to-ai-ethics">URL</a></td>
+</tr>
+<tr>
+<td>Class Central</td>
+<td></td>
+<td>Elements of AI</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.classcentral.com/course/independent-elements-of-ai-12469?utm_source=online-ml-university">URL</a></td>
+</tr>
+<tr>
+<td>Udacity</td>
+<td></td>
+<td>Intro to TensorFlow for Deep Learning</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187">URL</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>CSCI-UA.0473-​001</td>
+<td>Introduction to Machine Learning</td>
+<td>-</td>
+<td>⭐</td>
+<td><a href="https://docs.google.com/document/d/1LKtE2DsNL85iM8JKjc9ourlNX4U_pyrHq1hYWa_m_nU/edit#heading=h.62f44hystje1">Website</a></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>Machine Learning Bookcamp by Alexey Grigorev</td>
+<td>-</td>
+<td>⭐</td>
+<td><a href="https://github.com/alexeygrigorev/mlbookcamp-code">GitHub</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Probabilistic ML by Prof. Dr. Philipp Hennig</td>
+<td>2023</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/watch?v=TTo2kjrAuTo&amp;list=PL05umP7R6ij2YE8rRJSb-olDNbntAQ_Bx">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Statistical Machine Learning — Ulrike von Luxburg</td>
+<td>2020</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij2XCvrRzLokX6EoHWaGA2cC">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Mathematics for Machine Learning — Ulrike von Luxburg</td>
+<td>2020</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij1a6KdEy8PVE9zoCv6SlHRS">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Neural Data Science — Philipp Berens</td>
+<td>2021</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij3SxudmSWFL_zGh0BMrRdrx">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Introduction to Machine Learning — Dmitry Kobak</td>
+<td>2020/21</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij35ShKLDqccJSDntugY4FQT">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Data Compression With Deep Probabilistic Models</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij0Mp1dW2HuXlb-UQIYnv8xK">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-computer-science-"><strong>Computer Science</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford University</td>
+<td>CS105</td>
+<td>Introduction to Computers Full Course</td>
+<td>N/A</td>
+<td>⭐</td>
+<td><a href="https://youtube.com/watch?v=Qpw-udshXdM&amp;list=PLoROMvodv4rPzLcXBhbCFt8ahPrQGFSmN&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.0001</td>
+<td>Introduction to Computer Science and Programming in Python</td>
+<td>Fall 2016</td>
+<td>⭐</td>
+<td><a href="https://youtube.com/watch?v=nykOeWgQcHM&amp;list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.0002</td>
+<td>Introduction to Computational Thinking and Data Science</td>
+<td>Fall 2016</td>
+<td>⭐</td>
+<td><a href="https://youtube.com/watch?v=C1lhuz6pZC0&amp;list=PLUl4u3cNGP619EG1wp0kT-7rDE_Az5TNd&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.006</td>
+<td>Introduction to Algorithms</td>
+<td>Spring 2020</td>
+<td>⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=ZA-tUyM_y7s&amp;list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.042J</td>
+<td>Mathematics for Computer Science</td>
+<td>Spring 2015</td>
+<td>⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=wIq4CssPoO0&amp;list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Harvard</td>
+<td></td>
+<td>Introduction to Computer Science</td>
+<td>2015</td>
+<td>⭐</td>
+<td><a href="https://www.youtube.com/watch?v=zFenJJtAEzE&amp;list=PL2SOU6wwxB0u5DBbFA2cjpKfdPzL3ruC1">Youtube</a></td>
+</tr>
+<tr>
+<td>Princeton University</td>
+<td></td>
+<td>Algorithms, Part I</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/algorithms-part1">Coursera - Free Audit</a></td>
+</tr>
+<tr>
+<td>Princeton University</td>
+<td></td>
+<td>Algorithms, Part II</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.coursera.org/learn/algorithms-part2">Coursera - Free Audit</a></td>
+</tr>
+<tr>
+<td>Microsoft and Linkedin Learning</td>
+<td></td>
+<td>Career Essentials in Software Development</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.linkedin.com/learning/paths/career-essentials-in-software-development-by-microsoft-and-linkedin">Link (Free)</a></td>
+</tr>
+<tr>
+<td>Harvard</td>
+<td></td>
+<td>CS50&#39;s Introduction to Programming with Scratch</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://pll.harvard.edu/course/cs50s-introduction-programming-scratch">Course Website</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-deep-learning-"><strong>Deep Learning</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UCL x DeepMind</td>
+<td></td>
+<td>Deep Learning Course</td>
+<td>2018</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=iOh7QUZGyiU&amp;list=PLqYmG7hTraZCkftCvihsG2eCTH2OyGScc">Youtube</a></td>
+</tr>
+<tr>
+<td>UCL x DeepMind</td>
+<td></td>
+<td>Deep Learning Lecture Series</td>
+<td>2020</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=7R52wiUgxZI&amp;list=PLqYmG7hTraZCDxZ44o4p3N5Anz3lLRVZF">Youtube</a></td>
+</tr>
+<tr>
+<td>UCL x DeepMind</td>
+<td></td>
+<td>Deep Learning Lecture Series</td>
+<td>2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=TCCjZe0y4Qc&amp;list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm">Youtube</a></td>
+</tr>
+<tr>
+<td>New York University</td>
+<td></td>
+<td>Deep Learning by Yann LeCun</td>
+<td>Spring, 2021</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI">Youtube</a></td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>STAT-157</td>
+<td>Deep Learning</td>
+<td>2019</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLZSO_6-bSqHQHBCoGaObUljoXAyyqhpFW">Youtube</a></td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>CS 182</td>
+<td>Deep Learning</td>
+<td>Spring 2021</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS/LTI 11-785</td>
+<td>Introduction to Deep Learning</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://lnkd.in/gVp96GdB">Youtube</a></td>
+</tr>
+<tr>
+<td>Kaggle</td>
+<td></td>
+<td>Intro to Deep Learning</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.kaggle.com/learn/intro-to-deep-learning">URL</a></td>
+</tr>
+<tr>
+<td>Fast.ai</td>
+<td></td>
+<td>Practical Deep Learning for Coders</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://course.fast.ai/">URL</a></td>
+</tr>
+<tr>
+<td>Lightning.AI</td>
+<td></td>
+<td>Deep Learning Fundamentals</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://lightning.ai/pages/courses/deep-learning-fundamentals/">URL</a></td>
+</tr>
+<tr>
+<td>UC Berkley/ The Full Stack</td>
+<td></td>
+<td>Reproducible Deep Learning by Simone Scardapane</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.sscardapane.it/teaching/reproducibledl/">URL</a></td>
+</tr>
+<tr>
+<td>The Full Stack</td>
+<td></td>
+<td>Full Stack Deep Learning - 2022 Course</td>
+<td>2022</td>
+<td>⭐⭐</td>
+<td><a href="https://fullstackdeeplearning.com/course/2022/">URL</a></td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>CS324W</td>
+<td>Foundation Models and their Applications</td>
+<td>Winter 2023</td>
+<td>⭐⭐</td>
+<td><a href="https://stanford-cs324.github.io/winter2023/syllabus/">Website</a></td>
+</tr>
+<tr>
+<td>Calmcode</td>
+<td>-</td>
+<td>Embedding Course (<strong>Highly Recommended!!</strong>)</td>
+<td>Winter 2023</td>
+<td>⭐</td>
+<td><a href="https://calmcode.io/embeddings/introduction.html?utm_source=azminewasionlinemluniversity">Website</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Neural Data Science — Philipp Berens</td>
+<td>2021</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij3SxudmSWFL_zGh0BMrRdrx">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Deep Learning — Andreas Geiger</td>
+<td>2022</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij3NTWIdtMbfvX7Z-4WEXRqD">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Math for Deep Learning — Andreas Geiger</td>
+<td>2020</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij0bo4UtMdzEJ6TiLOqj4ZCm">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-generative-ai-"><strong>Generative AI</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Name</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft and Linkedin Learning</td>
+<td>Career Essentials in Generative AI by Microsoft and LinkedIn</td>
+<td>⭐</td>
+<td><a href="https://www.linkedin.com/learning/paths/career-essentials-in-generative-ai-by-microsoft-and-linkedin">Link (Free)</a></td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Generative AI learning path</td>
+<td>⭐</td>
+<td><a href="https://www.cloudskillsboost.google/journeys/118">Link (Free)</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-diffusion-models-"><strong>Diffusion Models</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Name</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepLearning.AI</td>
+<td>How Diffusion Models Work</td>
+<td>⭐</td>
+<td><a href="https://learn.deeplearning.ai/">Link (Free)</a></td>
+</tr>
+<tr>
+<td>Hugging Face</td>
+<td>Diffusion Models Course</td>
+<td>⭐⭐</td>
+<td><a href="https://github.com/huggingface/diffusion-models-class">Youtube</a></td>
+</tr>
+<tr>
+<td>Fast.ai</td>
+<td>From Deep Learning Foundations to Stable Diffusion</td>
+<td>⭐⭐</td>
+<td><a href="https://course.fast.ai/Lessons/part2.html">Website</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-graph-neural-networks-"><strong>Graph Neural Networks</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS224W</td>
+<td>Machine Learning with Graphs</td>
+<td>N/A</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=JAB_plj2rbA&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>DeepFindr</td>
+<td>-</td>
+<td>Graph Neural Networks</td>
+<td>N/A</td>
+<td>⭐</td>
+<td><a href="https://www.youtube.com/watch?v=fOctJB4kVlM&amp;list=PLV8yxwGOxvvoNkzPfCx2i8an--Tkt7O8Z">Youtube</a></td>
+</tr>
+<tr>
+<td>WelcomeAIOverlords</td>
+<td>-</td>
+<td>Graph Neural Networks</td>
+<td>N/A</td>
+<td>⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLSgGvve8UweGx4_6hhrF3n4wpHf_RV76_">Youtube</a></td>
+</tr>
+<tr>
+<td>ML Explained - Aggregate Intellect - AI.SCIENCE</td>
+<td>-</td>
+<td>Graph Neural Networks (Hands On)</td>
+<td>N/A</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLB1nTQo4_y6sfLtCrGAKG_l7xOHjtYqBk">Youtube</a></td>
+</tr>
+<tr>
+<td>Aleksa Gordić - The AI Epiphany</td>
+<td>-</td>
+<td>Graph Neural Networks</td>
+<td>N/A</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLBoQnSflObckArGNhOcNg7lQG_f0ZlHF5">Youtube</a></td>
+</tr>
+<tr>
+<td>African Master in Machine Intelligence</td>
+<td></td>
+<td>Geometric Deep Learning Oxford-NYU-Qualcomm-DeepMind</td>
+<td>2022</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-data-analysis-data-science-"><strong>Data Analysis + Data Science</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>University of Michigan</td>
+<td></td>
+<td>Data Science Ethics</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/data-science-ethics">Coursera (Free)</a></td>
+</tr>
+<tr>
+<td>Harvard</td>
+<td></td>
+<td>Data Science: Machine Learning</td>
+<td>-</td>
+<td>⭐</td>
+<td><a href="https://pll.harvard.edu/course/data-science-machine-learning">Course Website</a></td>
+</tr>
+<tr>
+<td>Stanford University</td>
+<td>Stanford CS472</td>
+<td>Data science and AI for COVID-19</td>
+<td>N/A</td>
+<td>⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL3FW7Lu3i5JsodzX9fwRbn39fGmGQMp3_">Youtube</a></td>
+</tr>
+<tr>
+<td>University of London</td>
+<td>Data Science</td>
+<td>Foundations of Data Science: K-Means Clustering in Python</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/data-science-k-means-clustering-python">Coursera - Free Audit</a></td>
+</tr>
+<tr>
+<td>Microsoft and Linkedin Learning</td>
+<td></td>
+<td>Career Essentials in Data Analysis by Microsoft and LinkedIn</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.linkedin.com/learning/paths/career-essentials-in-data-analysis-by-microsoft-and-linkedin">Link (Free)</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft and Linkedin Learning</td>
+<td></td>
+<td>Career Essentials in Business Analysis by Microsoft and LinkedIn</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.linkedin.com/learning/paths/career-essentials-in-business-analysis-by-microsoft-and-linkedin">Link (Free)</a></td>
+</tr>
+<tr>
+<td>Google</td>
+<td></td>
+<td>Data Science with Python</td>
+<td></td>
+<td></td>
+<td><a href="https://learndigital.withgoogle.com/digitalunlocked/course/data-science-foundations">URL</a></td>
+</tr>
+<tr>
+<td>Harvard</td>
+<td></td>
+<td>High-Dimensional Data Analysis</td>
+<td>-</td>
+<td>⭐</td>
+<td><a href="https://pll.harvard.edu/course/data-analysis-life-sciences-4-high-dimensional-data-analysis">Course Website</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Neural Data Science — Philipp Berens</td>
+<td>2021</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij3SxudmSWFL_zGh0BMrRdrx">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-natural-language-processing-"><strong>Natural Language Processing</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford</td>
+<td>Stanford CS224N</td>
+<td>Natural Language Processing with Deep Learning</td>
+<td>Winter 2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=rmVRLeJRkl4&amp;list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>Stanford XCS224U</td>
+<td>Natural Language Understanding</td>
+<td>Spring 2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>Stanford CS224U</td>
+<td>Natural Language Understanding</td>
+<td>Spring 2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=rha64cQRLs8&amp;list=PLoROMvodv4rPt5D0zs3YhbWSZA8Q_DyiJ&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>Stanford CS25</td>
+<td>Transformers United</td>
+<td>N/A</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS/LTI 11-711</td>
+<td>Advanced NLP</td>
+<td></td>
+<td>⭐⭐⭐</td>
+<td><a href="https://lnkd.in/gSt29ZVt">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS/LTI 11-747</td>
+<td>Neural Networks for NLP</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://lnkd.in/gRRrY8uq">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS/LTI 11-737</td>
+<td>Multilingual NLP</td>
+<td></td>
+<td>⭐⭐⭐</td>
+<td><a href="https://lnkd.in/g8QkaTfy">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS/LTI Bootcamp</td>
+<td>Low Resource NLP Bootcamp 2020 by Graham Neubig</td>
+<td></td>
+<td>⭐⭐⭐</td>
+<td><a href="https://lnkd.in/grYqa3YZ">Youtube</a></td>
+</tr>
+<tr>
+<td>Hugging Face</td>
+<td></td>
+<td>NLP</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://huggingface.co/learn/nlp-course/chapter1/1">Link (Free)</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>LING-UA 52, DS-UA 203</td>
+<td>Machine Learning for Language Understanding (Sam Bowman)</td>
+<td>Spring 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://docs.google.com/document/d/1EsKTFDOJ0DksxkC5tnCNjkqCM_3UB1Q2MbYY4OHQkB0/edit?pli=1">Website - Google Docs</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>DS-GA 1012</td>
+<td>Natural Language Understanding and Computational Semantics  (Sam Bowman)</td>
+<td>Spring 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://docs.google.com/document/d/e/2PACX-1vRydPvLp9tNw1-45pp6IIl-jppX-tUfu0TQDVXRAiGA3CjIuJzBTzJo7cerQV08K8FqfUOYHBCPAggx/pub">Website - Google Docs</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>CS-GA 3033</td>
+<td>Mathematics of Deep Learning (Joan Bruna)</td>
+<td>Spring 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://ballistic-fender-541.notion.site/Mathematics-of-Deep-Learning-Spring-22-1fbb28cb14ea4c8caf3e30c1d7e15381">Website-Notion</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>DS-GA 1011</td>
+<td>Natural Language Processing with Representation Learning</td>
+<td>Fall 2020</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://docs.google.com/document/d/1xelBTEAzqmjNXj5revi8N8R7TKy4aG7AtZfFrwO1sRs/edit">Website - Google Docs</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>LING-GA 3340</td>
+<td>Seminar in Semantics</td>
+<td>-</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://docs.google.com/document/d/1QaEP0mX-V64iJmMkosf9De2YKIXDmjn1Cx1pY0uIkkI/edit#heading=h.4ktdvnm8gp3l">Website</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-computer-vision-"><strong>Computer Vision</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford</td>
+<td>N/A</td>
+<td>Convolutional Neural Networks for Visual Recognition</td>
+<td>N/A</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.801</td>
+<td>Machine Vision</td>
+<td>Fall 2020</td>
+<td>⭐⭐</td>
+<td><a href="https://youtube.com/watch?v=tY2gczObpfU&amp;list=PLUl4u3cNGP63pfpS1gV5P9tDxxL_e4W8O&amp;pp=iAQB">Youtube</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.S192</td>
+<td>Deep Learning for Art, Aesthetics, and Creativity by Ali Jahanian</td>
+<td>N/A</td>
+<td>⭐⭐</td>
+<td><a href="https://lnkd.in/gEyRbEZx">Youtube</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>16-385</td>
+<td>Computer Vision</td>
+<td>Spring 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="http://16385.courses.cs.cmu.edu/spring2022/">Website</a></td>
+</tr>
+<tr>
+<td>University of Michigan</td>
+<td>-</td>
+<td>Deep Learning for Computer Vision</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r">Youtube</a></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>An Invitation to 3D Vision: A Tutorial for Everyone</td>
+<td>-</td>
+<td>⭐⭐</td>
+<td><a href="https://github.com/mint-lab/3dv_tutorial">Github</a></td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>NIPS 2016</td>
+<td>Deep Learning for Action and Interaction Workshop</td>
+<td>2016</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL_iWQOsE6TfVCLmikLdaQOBntJuCZLwQY">Youtube</a></td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>CS 198-126</td>
+<td>Modern Computer Vision</td>
+<td>Fal 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5">Youtube</a></td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>CS194-26/294-26</td>
+<td>Intro to Computer Vision and Computational Photography</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa20/">Website</a></td>
+</tr>
+<tr>
+<td>Roboflow</td>
+<td></td>
+<td>Computer Vision in Practice</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLZCA39VpuaZajiCtgDDwU8ghchtqx347R">Youtube</a></td>
+</tr>
+<tr>
+<td>National University Singapore</td>
+<td></td>
+<td>3D Computer Vision</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLxg0CGqViygP47ERvqHw_v7FVnUovJeaz">Youtube</a></td>
+</tr>
+<tr>
+<td>Columbia University in New York</td>
+<td></td>
+<td>3D Reconstruction - Single Viewpoint</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.coursera.org/learn/3d-reconstruction---single-viewpoint">Coursera (Audit)</a></td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>CS231A</td>
+<td>Computer Vision, From 3D Reconstruction to Recognition</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://web.stanford.edu/class/cs231a/course_notes.html">Website (Slides)</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>16-889</td>
+<td>Learning for 3D Vision</td>
+<td>Spring 2023</td>
+<td>⭐⭐</td>
+<td><a href="https://learning3d.github.io/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>15-463, 15-663, 15-862</td>
+<td>Computational photography</td>
+<td>Fall 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="http://graphics.cs.cmu.edu/courses/15-463/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>15-468, 15-668, 15-868</td>
+<td>Physics-based rendering</td>
+<td>Spring 2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="http://graphics.cs.cmu.edu/courses/15-468/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>16-726</td>
+<td>Learning-Based Image Synthesis</td>
+<td>Spring 2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://learning-image-synthesis.github.io/sp23/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>16-822</td>
+<td>Geometry-based Methods in Vision</td>
+<td>Fall 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://geometric3d.github.io/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CSCI 5980</td>
+<td>Multiview 3D Geometry in Computer Vision</td>
+<td>Spring 2018</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www-users.cse.umn.edu/~hspark/CSci5980/csci5980_3dvision.html">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>CS 598</td>
+<td>3D Vision</td>
+<td>Fall 2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://courses.engr.illinois.edu/cs598dwh/fa2021/">Website</a></td>
+</tr>
+<tr>
+<td>UNIVERSITY OF ILLINOIS URBANA-CHAMPAIGN</td>
+<td>16-823</td>
+<td>Physics based Methods in Vision</td>
+<td>Spring 2020</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.cs.cmu.edu/~motoole2/16823-s20/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>16-824</td>
+<td>Visual Learning and Recognition</td>
+<td>Spring 2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://visual-learning.cs.cmu.edu/">Website</a></td>
+</tr>
+<tr>
+<td>Cornell Tech</td>
+<td>CS5670</td>
+<td>Introduction to Computer Vision</td>
+<td>Spring 2022</td>
+<td>⭐⭐</td>
+<td><a href="http://www.cs.cornell.edu/courses/cs5670/2022sp/">Website</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>6.819/6.869</td>
+<td>Advances in Computer Vision</td>
+<td>Spring 2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="http://6.869.csail.mit.edu/sp21/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td>16-721</td>
+<td>Learning-Based Methods in Vision</td>
+<td>Spring 2007</td>
+<td>⭐⭐⭐</td>
+<td><a href="http://www.cs.cmu.edu/~efros/courses/LBMV07//">Website</a></td>
+</tr>
+<tr>
+<td></td>
+<td>CSCI 1430, Spring 2023</td>
+<td>Computer Vision</td>
+<td>Spring 2023</td>
+<td>⭐⭐</td>
+<td><a href="https://browncsci1430.github.io/webpage/index.html">Website</a></td>
+</tr>
+<tr>
+<td>University of Taxus</td>
+<td>CS 378</td>
+<td>Computer Vision</td>
+<td>Fall 2009</td>
+<td>⭐⭐</td>
+<td><a href="https://www.cs.utexas.edu/~grauman/courses/fall2009/schedule.htm">Website</a></td>
+</tr>
+<tr>
+<td>IMPA</td>
+<td>-</td>
+<td>Fundamentals and Trends in Vision and Image Processing</td>
+<td>August-November 2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://lvelho.impa.br/ip21/">Website</a></td>
+</tr>
+<tr>
+<td>Carnegie Mellon University</td>
+<td></td>
+<td>Learning for 3D Vision</td>
+<td>Spring 2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://learning3d.github.io/">Website</a></td>
+</tr>
+<tr>
+<td>University of Michigan</td>
+<td>EECS 442</td>
+<td>Computer Vision</td>
+<td>Winter 2021</td>
+<td>⭐⭐</td>
+<td><a href="https://web.eecs.umich.edu/~justincj/teaching/eecs442/WI2021/">Website</a></td>
+</tr>
+<tr>
+<td>Georgia Tech</td>
+<td>CS 4476</td>
+<td>Introduction to Computer Vision</td>
+<td>Fall 2019</td>
+<td>⭐⭐</td>
+<td><a href="https://dellaert.github.io/19F-4476/schedule.html">Website</a></td>
+</tr>
+<tr>
+<td>EPFL</td>
+<td>CS-442</td>
+<td>Computer Vision</td>
+<td>2020/2021</td>
+<td>⭐⭐</td>
+<td><a href="https://moodle.epfl.ch/course/view.php?id=472">Website</a></td>
+</tr>
+<tr>
+<td>New York University</td>
+<td>CSCI-GA.2271-001</td>
+<td>Computer Vision</td>
+<td>Fall 2022</td>
+<td>⭐⭐</td>
+<td><a href="https://cs.nyu.edu/~fergus/teaching/vision/index.html">Website</a></td>
+</tr>
+<tr>
+<td>UCF Center for Research in Computer Vision</td>
+<td>CAP6412</td>
+<td>Advanced Computer Vision</td>
+<td>Spring 2023</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?app=desktop&amp;list=PLd3hlSJsX_In7qup928HaHmilugBGctuF">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Computer Vision — Andreas Geiger</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij35L2MHGzis8AEHz7mg381_">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-robotics-and-autonomous-systems-"><strong>Robotics and Autonomous Systems</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NYU</td>
+<td>CSCI-UA.480-072</td>
+<td>Robot Intelligence (Lerrel Pinto)</td>
+<td>Spring 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://nyu-robot-learning.github.io/robot-intel-class/">Website</a></td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>-</td>
+<td>Introduction To Robotics</td>
+<td>Fall 2005</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://ocw.mit.edu/courses/2-12-introduction-to-robotics-fall-2005/pages/lecture-notes/">Website</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Self-Driving Cars — Andreas Geiger</td>
+<td>2020</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij321zzKXK6XCQXAaaYjQbzr">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-ai-for-optimization-"><strong>AI for Optimization</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Institute for Advances in Optimization</td>
+<td>-</td>
+<td>Causal Inference Course</td>
+<td>2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLcip-Gs_jEK_l2pNG8V_0UDK9jyPtLyuq">Yoututbe</a></td>
+</tr>
+<tr>
+<td>AI4OPT Seminar Series</td>
+<td>-</td>
+<td>Causal Inference Course</td>
+<td>Spring 2023</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLcip-Gs_jEK9D75DHIxrhm0Au6eToBdcl">Yoututbe</a></td>
+</tr>
+<tr>
+<td>AI Institute for Advances in Optimization</td>
+<td>-</td>
+<td>AI4OPT Tutorial Lectures</td>
+<td>2021</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLcip-Gs_jEK9qKEXiqM0Y8TlrqLhJxkl7">Yoututbe</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-mlops-"><strong>MLOps</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Name</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weights and Biases</td>
+<td>Effective MLOps: Model Development</td>
+<td><a href="https://www.wandb.courses/courses/effective-mlops-model-development">URL</a></td>
+</tr>
+<tr>
+<td>Weights and Biases</td>
+<td>CI/CD for Machine Learning (GitOps)</td>
+<td><a href="https://www.wandb.courses/courses/ci-cd-for-machine-learning">URL</a></td>
+</tr>
+<tr>
+<td>Weights and Biases</td>
+<td>Data Validation in Production ML Pipelines</td>
+<td><a href="https://www.wandb.courses/courses/data-validation-for-machine-learning">URL</a></td>
+</tr>
+<tr>
+<td>DeepLearning.AI</td>
+<td>Machine Learning Engineering for Production (MLOps)</td>
+<td><a href="https://www.youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-computational-neuroscience-and-ml-"><strong>Computational Neuroscience and ML</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Imperial College, London</td>
+<td>-</td>
+<td>Neuroscience for machine learners</td>
+<td>2023</td>
+<td>⭐</td>
+<td><a href="https://neuro4ml.github.io/">Website</a> <a href="https://www.youtube.com/playlist?list=PL09WqqDbQWHErc8xOyWdKpNEk78Jjk0EL">Youtube</a></td>
+</tr>
+<tr>
+<td>Neuromatch</td>
+<td>-</td>
+<td>Computational Neuroscience</td>
+<td>-</td>
+<td>⭐</td>
+<td><a href="https://compneuro.neuromatch.io/tutorials/intro.html">Website</a></td>
+</tr>
+<tr>
+<td>CAJAL Advanced Neuroscience Training</td>
+<td>-</td>
+<td>Computational Neuroscience</td>
+<td>-</td>
+<td>⭐⭐</td>
+<td><a href="https://training.incf.org/course/cajal-course-computational-neuroscience">Website</a></td>
+</tr>
+<tr>
+<td>INCF</td>
+<td></td>
+<td>Computational Neuroscience</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://training.incf.org/course/computational-neuroscience-basics">Website</a></td>
+</tr>
+<tr>
+<td>University of Washington</td>
+<td></td>
+<td>Computational Neuroscience</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/computational-neuroscience?action=enroll">Coursera (Free Audit)</a></td>
+</tr>
+<tr>
+<td>Human Information Processing Lab</td>
+<td></td>
+<td>How to build a brain from scratch</td>
+<td>-</td>
+<td>⭐⭐</td>
+<td><a href="https://humaninformationprocessing.com/teaching/">Website</a></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>Data Science and Data Skills for Neuroscientists</td>
+<td>-</td>
+<td>⭐⭐</td>
+<td><a href="https://neuronline.sfn.org/scientific-research/data-science-and-data-skills-for-neuroscientists">Website</a></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>Cosyne Tutorial 2022 - Spiking Neural Networks</td>
+<td>2022</td>
+<td>⭐⭐</td>
+<td><a href="https://neural-reckoning.github.io/cosyne-tutorial-2022/">Website</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-cognitive-modeling-"><strong>Cognitive Modeling</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NYU</td>
+<td>PSYCH-GA 3405.004 / DS-GS 1016</td>
+<td>Computational cognitive modeling (Brenden Lake)</td>
+<td>Spring 2022</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://github.com/brendenlake/CCM-site">Website</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>PSYCH-GA 3405.001</td>
+<td>Categories and Concepts (Brenden Lake)</td>
+<td>Fall 2021</td>
+<td>⭐⭐</td>
+<td><a href="https://brendenlake.github.io/CC-site/">Website</a></td>
+</tr>
+<tr>
+<td>NYU</td>
+<td>PSYCH-UA.46</td>
+<td>LAB IN COGNITION AND PERCEPTION (Brenden Lake)</td>
+<td>Fall 2021</td>
+<td>⭐⭐</td>
+<td><a href="https://cims.nyu.edu/~brenden/courses/labincp/intro.html">Website</a></td>
+</tr>
+<tr>
+<td>Unversity of Washington</td>
+<td></td>
+<td>Computational Neuroscience</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.coursera.org/learn/computational-neuroscience">Coursera</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-trustworthiness-and-fairness-in-machine-learning-"><strong>Trustworthiness and Fairness in Machine Learning</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Trustworthy Machine Learning</td>
+<td>Winter 2023/2024</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij0FDHxle4CQLkzOfN-PAt7b">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-time-series-audio-speech-processing-"><strong>Time Series/Audio/Speech Processing</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hugging Face</td>
+<td></td>
+<td>Audio Processing</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://huggingface.co/learn/audio-course/chapter0/introduction">Link (Free)</a></td>
+</tr>
+<tr>
+<td>The State Unversity of New York</td>
+<td></td>
+<td>Practical Time Series Analysis</td>
+<td></td>
+<td>⭐⭐</td>
+<td><a href="https://www.coursera.org/learn/practical-time-series-analysis">Coursera</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-statistics-"><strong>Statistics</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford</td>
+<td>-</td>
+<td>Introduction to Statistics</td>
+<td>N/A</td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/stanford-statistics">Coursera (Free)</a></td>
+</tr>
+<tr>
+<td>Harvard</td>
+<td></td>
+<td>Statistics 110</td>
+<td>2015</td>
+<td>⭐</td>
+<td><a href="https://www.youtube.com/watch?v=KbB0FjPg0mw&amp;list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo">Youtube</a></td>
+</tr>
+<tr>
+<td>University of London</td>
+<td>Probability and Statistics</td>
+<td>Probability and Statistics: To p or not to p?</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/probability-statistics">Coursera - Free Audit</a></td>
+</tr>
+<tr>
+<td>University of Zurich</td>
+<td></td>
+<td>An Intuitive Introduction to Probability</td>
+<td></td>
+<td>⭐</td>
+<td><a href="https://www.coursera.org/learn/introductiontoprobability">Coursera - Free Audit</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Essential Statistics – Philipp Berens</td>
+<td>2020/21</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij0Gw5SLIrOA1dMYScCx4oXT">Youtube</a></td>
+</tr>
+<tr>
+<td>University of Tübingen</td>
+<td>-</td>
+<td>Statistical Machine Learning — Ulrike von Luxburg</td>
+<td>2020</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PL05umP7R6ij2XCvrRzLokX6EoHWaGA2cC">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-unsupervised-learning-"><strong>Unsupervised learning</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC Berkeley</td>
+<td>CS 294</td>
+<td>Deep Unsupervised Learning</td>
+<td>Spring 2020</td>
+<td>⭐⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLwRJQ4m4UJjPiJP3691u-qWwPGVKzSlNP">Youtube</a></td>
+</tr>
+<tr>
+<td>Serrano.Academy</td>
+<td>-</td>
+<td>Unsupervised Learning</td>
+<td>-</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLs8w1Cdi-zvZGyT2Rt0ieA0G6xGUqn3Xw">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="-explainable-ai-xai-"><strong>Explainable AI (XAI)</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>Session</th>
+<th>Difficulty</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harvard</td>
+<td>-</td>
+<td>Explainable Artificial Intelligence</td>
+<td>Spring 2023</td>
+<td>⭐</td>
+<td><a href="https://interpretable-ml-class.github.io/">Course Website</a></td>
+</tr>
+<tr>
+<td>Kaggle</td>
+<td></td>
+<td>Machine Learning Explainability</td>
+<td>Extract human-understandable insights from any model.</td>
+<td></td>
+<td><a href="https://www.kaggle.com/learn/machine-learning-explainability">URL</a></td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td></td>
+<td>Workshop</td>
+<td>ML Explainability by Professor Hima Lakkaraju</td>
+<td>⭐⭐</td>
+<td><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rPh6wa6PGcHH6vMG9sEIPxL">Youtube</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<p></p>
+<hr>
+<h2 style="font-size: 22px; font-weight: 800; padding-bottom: 10px;">📃 <strong>Other Resources</strong> 📃</h2>
+<ul>
+<li><a style="font-size: 14px; font-weight: 600;" href="https://github.com/azminewasi/Curated-Reinforcement-Learning-Resources">🗸  Reinforcement Learning</a></li>
+<li><a style="font-size: 14px; font-weight: 600;" href="https://github.com/azminewasi/DataCamp-Courses-MegaCollection">🗸  DataCamp Mega Collection</a></li>
+</ul>
+<p></p>
+<hr>
+<h2 style="font-size: 22px; font-weight: 800; padding-bottom: 10px;">👋 <strong>Want to contribute?</strong> 👋</h2>
+<p>Hey there! We are building something awesome, and we want you to be a part of it! Our goal is to create the ultimate resource hub for learning machine learning, data science and artificial intelligence. But we can&#39;t do it alone - we need your help!</br>
+Feel free to <a href="https://github.com/azminewasi/awsome-ml-courses-from-topuniversities/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=new-resource-addition-request.md&amp;title="><strong>open an issue</strong></a>, and let&#39;s build something amazing together. Check out our contribution guide for more information.</br>
+Join us and let&#39;s make the best DS-ML-AI resource hub on the planet! 🚀</p>
+<p></p>
+
+
+<h4><a class="but" target="_blank" 
+    href="https://github.com/azminewasi/online-ml-university">Click Here to View on Github</a>	
+</h4>
+<p></br></p>
+
+<div class="block-share">
+
+    <h5>Share this article</h5>
+    <ul class="social mt-20">
+    <li><a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-facebook"></i></a></li>
+    <li><a onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-twitter"></i></a></li>
+    <li><a onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-linkedin"></i></a></li>
+</ul>
+</div>
+
+<p></br></br></br></p>
+
+
+<p>Copyright &copy; 2025 Azmine Toushik Wasi. All rights reserved.<br /><br /></p>
+
+
+
+            </div>
+        
+    </div>
+    
+    
+    <script type="text/javascript" async src='../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJaxb198.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP8GJQMDNP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SP8GJQMDNP');
+</script>
+
+<!-- Google analytics -->
+</body>

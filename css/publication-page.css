@@ -1,0 +1,104 @@
+/* Publication page enhancements: filter buttons, selected state, layout */
+
+.selector {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.selector .button-pdfxx,
+.selector .button-pdf {
+  margin-right: 4px;
+  margin-bottom: 4px;
+  border: 2px solid transparent;
+  transition: transform 0.08s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+/* Match filter controls to the site's base text size. */
+.selector .button-pdfxx,
+.selector .button-pdf {
+  font-size: var(--site-text-size) !important;
+  padding: 1px 5px !important;
+  line-height: 1.25;
+  font-family: "Linux Libertine", "Linux Libertine O", Georgia, serif !important;
+  text-transform: none !important;
+}
+
+.selector #ClinicalAI,
+.selector #RAG {
+  background-color: rgb(4, 49, 94) !important;
+}
+
+.selector #XAI,
+.selector #HCI {
+  background-color: rgb(4, 58, 40) !important;
+}
+
+.selector #NLP,
+.selector #LowResource {
+  background-color: rgb(31, 36, 99) !important;
+}
+
+.selector #Forecasting {
+  background-color: rgb(3, 58, 80) !important;
+}
+
+.selector #Energy {
+  background-color: rgb(18, 83, 45) !important;
+}
+
+.selector #AppliedML {
+  background-color: rgb(42, 34, 96) !important;
+}
+
+.selector .button-pdfxx:hover,
+.selector .button-pdf:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  opacity: 0.92;
+}
+
+.selector .button-pdfxx:active {
+  transform: translateY(0);
+}
+
+/* Strong visual feedback for the active filter */
+.button-pdfxx.selected,
+.selector .selected {
+  border: 2px solid #ffd700 !important;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  outline: none;
+  transform: translateY(-1px);
+  font-weight: 700;
+}
+
+#toggleHiddenPapers {
+  margin-left: 4px;
+}
+
+.hidden-paper {
+  opacity: 0.85;
+}
+
+.single-paper-f.hidden-paper::before {
+  content: "[hidden] ";
+  color: #888;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.core-section ol {
+  padding-left: 1.5%;
+  margin-left: 1.5%;
+}
+
+.core-section li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .selector .button-pdfxx,
+  .selector .button-pdf {
+    margin-bottom: 6px;
+  }
+}

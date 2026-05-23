@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from maria-antoniak.github.io/2023/06/26/llms-with-care.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Feb 2024 04:23:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+   <title>এ আই কীভাবে কাজ করে? — ০১ | মেশিনের পড়ালেখা | Blogs | Azmine Toushik Wasi</title>
+    <!-- <title>Using LLMs With Care</title> -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Azmine Toushik Wasi, CV, Machine Learning, Research">
+    <meta name="author" content="Azmine Toushik Wasi">
+    <link rel="shortcut icon" type="image/webp" href="./resources/images/browser.jpg"/>
+    
+    
+    
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rumii2luqs");
+</script>
+    
+    
+    <meta name="description" content="Azmine Toushik Wasi | ML Research (Medical AI, AI4Science, GNN, HAI, NLP) | Kaggle GM | Explorer">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    
+    <!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/syntax.css" rel="stylesheet" >
+    <link rel="preload" href="../css/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    
+    <!-- Facebook Open Graph -->
+    <meta name="og:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="og:title" content="এ আই কীভাবে কাজ করে? — ০১ | মেশিনের পড়ালেখা">
+    <meta name="og:type" content="article">
+    <meta property="og:image" content="img\2-how-ai-1.webp">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="1200">
+    
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="এ আই কীভাবে কাজ করে? — ০১ | মেশিনের পড়ালেখা">
+    <meta name="twitter:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="twitter:image" content="img\2-how-ai-1.webp">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            <span id="author-name" class="alignable pull-left">
+                <a href="index.html" style="text-decoration:none">  Azmine Toushik Wasi</a>
+            </br><span style="font-size: 11pt; font-weight: 400; padding-bottom: 2px;">Aspiring AI Researcher and Engineering Student</span></span>
+                <ul class="alignable pull-right navbar-ul">
+                        <li class="alignable pull-right nav-list"><b><a href="../others.html">Blog</a></b></li>
+                        <li class="alignable pull-right nav-list"><a href="../experiences.html">Experience</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../education.html">Education</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../publications.html">Publications</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../index.html">Research</a></li>
+                </ul>
+            </div>
+        <div style="clear:both"></div>
+        <hr>
+        
+            <div class="container content">
+                <p></br></p>
+                <h1>এ আই কীভাবে কাজ করে? — ০১ | মেশিনের পড়ালেখা</h1>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <p></br></p>
+
+                <p style="font-weight: 800;">এআই কীভাবে কাজ করে?</p>
+                <p >আমার মতে উত্তর হলো, “এআই মানুষের মতোই কাজ করে”। তাহলে, এআই কেন ইফিশিয়েন্ট অনেক ক্ষেত্রে? উত্তর হল যে, তারা ইজিলি অনেক তথ্য মনে রাখতে পারে, (আমাদের মত বসে বসে মুখস্ত করা লাগেনা), বিশ্রাম-ঘুম লাগে না (কারেন্ট দিলে আর কুলিং সিস্টেম রাখলেই হয়), আর মেইনলি জীবন নাই। তাই মরা-জীবিত এসব ক্যাচালও নাই। সপ্তাহে ৪০ ঘন্টার ঝামেলা নাই।</p>
+                
+                <p>এআই কীভাবে কাজ করে বোঝার জন্য প্রথমেই লস ফাংশন কী বুঝে নেই।</p>
+                <hr>
+                <h3 id="-" style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;">লস ফাংশন</h3>
+                <p>দৈনন্দিন লাইফ থেকে উদাহরণ দিতে গেলে, লস ফাংশন হচ্ছে একটা এক্সামিনার, অর্থাৎ পরীক্ষার খাতা দেখে। এক্সামিনারের কাজ কী? পরীক্ষায় আমরা কে কতটা ভুল করছি, ও এ ভুলের জন্য কীভাবে মার্কস কাটতে হবে — এসব দেখা।<br>লস ফাংশন ঠিক এ কাজটাই করে — মানুষের না, এআই এর। লস ফাংশন এটা বের করে যে, আসল বা সঠিক উতরের চেয়ে এআই এর দেয়া উত্তরটা কতটুকু ভুল, এবং এসব এজন্য পানিসমেন্ট কেমন হবে?</p>
+                <h4 id="-" style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;">কীভাবে বের করে?</h4>
+                <p>লস ফাংশনের কাছে সাধারণত দুটো জিনিস দেয়া হয়। ট্রু ভ্যালু আর এস্টিমেটেড ভ্যালু।<br>ট্রু ভ্যালু হচ্ছে, যেটা ঠিক বা আসল। আর এস্টিমেটেড ভ্যালু বা প্রিডিক্টেড ভ্যালু হলো আমাদের এআই বা মেশিন লার্নিং মডেলের আউটপুট।<br>একটা উদাহরণ দিয়ে বুঝাই,<br>ধরলাম আমরা বাসাভাড়া বের করার মডেল বানাচ্ছি। তো, একটা বাসার জন্য সব ইনপুট (কয় রুম, কয় তলা, কয় স্কয়ার ফিট, বেডরুম কয়টা, টয়লেট কয়টা এসব যা যা আছে) দেয়ার পর আমার মডেল দেখালো ১০,৪০০ টাকা মাসে ভাড়া হবে। কিন্তু, বাড়িওয়ালা বলতেসে ১০,৫০০ টাকা। এখানে ১০,৪০০ হল এস্টিমেটেড ভ্যালু বা প্রিডিক্টেড ভ্যালু; আর ১০,৫০০ হল ট্রু ভ্যালু।<br>এটার কস্ট ফাংশনটা হতে পারে এমন, যে, দুটোর মধ্যে ডিফারেন্স এর স্কয়ার ভ্যালু। মানে, ১০০ স্কয়ার = ১০,০০০। অর্থাৎ, এটা ভুল পেল ১০০ (১০,৫০০-১০,৪০০), কিন্তু পানিশমেন্ট দিল ১০,০০০!<br>একেক টাইপের মডেলে কস্ট ফাংশন একেকরকম হয়। কিন্তু মূল কাজটা সেইম- ভুল হিসাব করে পানিশমেন্ট দেয়া।</p>
+                <h4 id="-" style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;">লস ফাংশনের বৈশিষ্ট্য</h4>
+                <p>লস ফাংশনের একটা প্রধান বৈশিষ্ট্য হল লস ফাংশন ডিফারেনশিয়েবল হতে হবে। ডিফারেনশিয়েশন করা না গেলে লস ফাংশন হবেনা। কেন?<br>লস ফাংশন দিয়ে আমরা ভুল তো বের করলাম, এখন ভুল থেকে শিখতেও তো হবে? আর এই শিখতে লাগে ডিফারেন্সিয়েশন। লস ফাংশন ডিফারেনশিয়েবল না হলে সেই ভুল থেকে আমার মডেল কিছু শিখতে পারবেনা। না শিখলে পরে কাজ করবে কীভাবে?</p>
+                <p>২য় বৈশিষ্ট্য হল, লস ফাংশন অবশ্যই নন-লিনিয়ার হতে হবে। কেন? উত্তরটা উপরেই লুকিয়ে আছে। লিনিয়ার ফাংশন এর ডিফারেন্সিয়েশন কি হয়? কনস্ট্যান্ট। ডিফারেন্সিয়েশনের পর কনস্ট্যান্ট ভ্যালু মানে, মডেল নতুন কিছু শিখতে পারবেনা। জাস্ট একটা ভ্যালুই সে পাবে। মডেলে কি হচ্ছে না হচ্ছে বুঝবে না। তাই লস ফাংশন অবশ্যই নন-লিনিয়ার হতে হবে।</p>
+                <hr>
+                <p>আগেই বলেছিলাম, এআই মানুষের মতোই কাজ করে!</p>
+                <h4 id="-" style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;">মানুষের মত কীভাবে?</h4>
+                <p>ধরি, একটা রচনা লিখতে হবে। টপিক একদম নতুন, বাইরের কোনো সোর্স ইউজ করা যাবেনা। কেউ হয়তো ভালোভাবে জানিও না টপিকটা নিয়ে। ২০ মার্কস। আমরা কীভাবে কাজ করবো এটা একটু ভাবি। আরেকটা শর্ত, কেউ কারো থেকে দেখে লিখবেনা। তবে ম্যাম, খাতা দেয়ার পর নিজেরা এনালাইসিস করতে পারবো।   </p>
+                <p>এখন ক্লাসে যদি টিচার লিখতে দেয়, তাহলে কি হবে? সবাই নিজের মত লিখবো আমরা। যার যা মনে হয় লিখব। তাইনা?</p>
+                <p>যারা পারে ভালো হবে হয়তো, যারা কিছুই জানেনা তাদের খারাপ হবে কিছুটা। তারপর টিচার এসে মার্কিং করবে। হায়েস্ট ২০ এ ১২, লোয়েস্ট ৩-৪ আসবে ধরলাম। এখন সবাই যদি শিখতে চাই, তাহলে কি করবো? যে ভালো মার্কস পাইসে তার খাতা নিয়ে দেখবো। কী লিখলে ভালো মার্কস আসে তা দেখবো। যে আগেই ভালো লিখসিলো, সে বুঝবে যে, না আরেকটু ভালো লিখা যাবে এখন। আমি এই এই জিনিস বাদ দিসিলাম। তাইনা?</p>
+                <p>পরেরদিন যদি সেম জিনিস লিখতে দেয়? তখন আরো ভালো মার্কস আসবে। টপার ১২ থেকে ২ বেড়ে ১৪। আর লোয়েস্ট ১০ এ চলে আসবে। কারণ সবাই টুকটাক জানি এখন কি নিয়ে লিখা লাগবে। তারপর সেম — ভালো মার্কড খাতাগুলা নিয়ে দেখবো সবাই যে আর কীভাবে লিখলে ভালো হয়। সবাই আরেকটু শিখবো।<br>পরেরদিন লিখতে দিলে আবার? ১২-১৭ এর মধ্যে আসবে। এভাবে এভাবে সবাই ১৭-১৮ পর্যন্ত মার্কসে চলে আসবে। ২০ এ তো ১৯/২০ স্বপ্নেও দেয়না আমাদের!<br>সবাই যখন ১৭-১৮ করে পাবে, তখন আমরা বুঝব যে না, আমাদের সবাই এ টপিকটা ভালোই শিখে ফেলেছে।</p>
+                <p>এবার যদি বলি, মেশিন লার্নিং ঠিক এভাবেই কাজ করে! আর, এভাবে স্টেপ বাই স্টেপ শেখার কাজটাই করে অপ্টিমাইজেশন!</p>
+                <h4 id="-" style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;">এআই এর প্রসেস</h4>
+                <p>এআই এর প্রসেসটাই উপরের এক্সাম্পল দিয়ে বুঝাই। আগের পর্বে কী শিখসিলাম? লস ফাংশনের কাজ। লস ফাংশন হল আমাদের এখানে টিচার। তার কাজ খাতা দেখে মার্ক করা। রাইট?</p>
+                <p>তো, আমাদের বাসা-ভাড়ার মডেলে আসি। কয়েকটা বাসার জন্য সব ইনপুট (কয় রুম, কয় তলা, কয় স্কয়ার ফিট, বেডরুম কয়টা, টয়লেট কয়টা, সুইমিং পুল আছে কিনা, মেইন রাস্তা থেকে কত দূরে — এসব যা যা আছে) দেয়ার পর সবগুলার জন্য আলাদা আলাদা কিছু আউটপুট আসবে প্রথমে। সে আউটপুট গুলা হিসাব করবে কীভাবে?<br>সে একটা ফাংশন নিবে — এমন &gt; ভাড়া = রুম সংখ্যা * W1 + b<br>[W1,b এসব হল প্যারামিটার । W1-কে বলে ওয়েট (Weight)। মানে, রুমের সংখ্যাকে কত দিয়ে গুণ করলে ভাড়াটা আসে। b মানে Bias (বায়াস)। যেমন ১ রুমের বাসা আর ২ রুমের বাসার কথা যদি ভাবি, আমরা দেখব যে একটা বেইস ভাড়া থাকে, তারপর রুমভেদে এড হয়। সো, অইরকম ফিক্সড টাইপ ভ্যালুগুলা থাকবে বায়াস এ ]<br>পরে লস ফাংশন এসে মার্কিং করে চলে যাবে। এখন মডেল কি করবে? টপারের কাছে যাবে! মানে, যার টায় পানিশমেন্ট বা ভুল কম হইসে। এরকম ৫-৬ জন টপারের মার্কস আর প্রিডিকশনস দেখবো। তো, প্রাথমিকভাবে মনে হল, পার রুমে ১৫০০ করে বাড়ে ভাড়া। আর বেস ভাড়া ১২০০। তাহলে, W1 = 1500, b = 1200। তাহলে, ভাড়া = রুম সংখ্যা * 1500 + 1200।</p>
+                <p>তো, সবাই পরেরবার এভাবে প্রিডিক্ট করলো। আগের চেয়ে ভালো হল। তাও ভুল ত আছেই। আবারও ভালো মার্কসের গুলা এনালাইজ করলো।। মনে হচ্ছে, মেইন রাস্তা থেকে যত দূরে ভাড়া তত কমে।<br>আবার ফাংশন নিবে — এমন &gt; ভাড়া = রুম সংখ্যা * W1 + মেইনরোড থেকে দুরত্ব * W2 + b<br>নেক্সটবার এটা আমলে নিয়ে হিসাব করবে।<br>এভাবে বেশ কিছু স্টেপ পর আরো কিছু জিনিস মিলায়ে মডেল মোটামুটি পারফেক্ট একটা ভাড়া বলতে শিখে যাবে।<br>এ পুরা প্রসেসটা হচ্ছে <strong>অপ্টিমাইজেশন।</strong></p>
+                <h4 id="-" style="text-align: left; font-size: 16px; font-weight: 800; padding-bottom: 10px;">লস ফাংশন — নন লিনিয়ার আর ডিফারেনশিয়েবল কেন?</h4>
+                <p>লস ফাংশন-কে নন লিনিয়ার আর ডিফারেনশিয়েবল হতে হয়। আর ডিফারেনশিয়েশন থেকে মডেল শিখে।<br>কেনো ও কীভাবে?<br>মডেলের কাজ কি? ভুল কমানো। ভুল কত এটা কে বলে দেয়? লস ফাংশন। তাহলে, ভুল সবচেয়ে কম কোথায়? লস ফাংশনটা গ্রাফে প্লট করলে সবচেয়ে নিচের পয়েন্টে, তাইনা?<br>এখন নিচে যাবো কীভাবে? বা কোনটা নিচে সেটা বুঝব কীভাবে? ডিফারেনশিয়েশন এর সাহায্যে!</p>
+                <p>ডিফারেন্সিয়েশন কী দেয়? ঢাল। একটা ফাংশনের ঢাল বা Slope। এখন ঢাল থেকে আমরা কী পেতে পারি? কীভাবে কোনদিকে নামলে সেই ফাগশনের লোয়েস্ট পজিশনে যেতে পারবো। যেমন পজেটিভ স্লোপ মানে বাম থেকে ডানে যেতে হবে। প্যারামিটারগুলার মান একটু বাড়াবে। নেগেটিভ মানে মানগুলা ডান থেকে বামে যাবে, একটু কমবে। এমন চলতে থাকবে যতক্ষণ না একদম লোয়েস্ট পয়েন্টে আসে, যেখান থেকে আর নিচে যাওয়া পসিবল না। তখন প্যারামিটারগুলার মান ফিক্সড হয়ে যাবে।<br>তখন আমার লস ফাংশনের মান হবে লোয়েস্ট, মানে ভুল সবচেয়ে কম। অর্থাৎ আমাদের মডেল শিখে যাবে যে, এই এই ভাবে হিসাব করলে ভুল সবচেয়ে কম হয়।</p>
+                <p>উদাহরণ দেই,<br>যেমন, ভাড়া পার রুমে ২০০০ করে বাড়ে । এটা শুরুতে ২০০০ হবেনা, হয়তো ১৫০০ থাকবে (W1), তারপর ১৬০০, ১৮০০ হয়ে বাড়বে, আবারও ২০৫০ হয়ে যেতে পারে, তখন আবার কমে ২০০০-এ এসে ফিক্সড হবে।<br>এই যে সে শুরু থেকে স্টেপ বাই স্টেপ শিখলো যে কি করলে ভুল কম হয়, এটাই অপ্টিমাইজেশন। এটাই সে-ই আমাদের রচনা লিখার এক্সাম্পলে যাকে মার্কস বেশি দিসে, তার খাতা দেখে দেখে রচনা লিখতে শিখা।</p>
+                <p>তারপর আমরা যখন নতুন বাসার ইনফো দিব, তখন যে, এসব প্যারামিটার এর ভ্যালুর সাথে যোগ বিয়োগ গুন ভাগ করে রেজাল্ট বলে দিবে। যেমন, ৩ রুমের বাসা, ২০০ মিটার দূরে হলে — ৩*২০০০-২০০*১০+১৫০০ = ৬৫০০!</p>
+                <p>এই হলো অপ্টিমাইজেশন। সব মডেলেই এই দুটো জিনিস কমন। লস ফাংশন ও এটাকে অপ্টিমাইজ করা।  </p>
+               
+                
+
+
+    <p></br></br></br></p>
+
+    <div class="block-share">
+    
+        <h5>Share this article</h5>
+        <ul class="social mt-20">
+        <li><a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-facebook"></i></a></li>
+        <li><a onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-twitter"></i></a></li>
+        <li><a onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-linkedin"></i></a></li>
+    </ul>
+    </div>
+    
+    <p></br></br></br></p>
+    
+<p>Copyright &copy; 2025 Azmine Toushik Wasi. All rights reserved.<br /><br /></p>
+                </div>
+            
+        </div>
+    
+    
+    <script type="text/javascript" async src='../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJaxb198.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP8GJQMDNP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SP8GJQMDNP');
+</script>
+
+<!-- Google analytics -->
+</body>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from maria-antoniak.github.io/2023/06/26/llms-with-care.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Feb 2024 04:23:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>চয়েজ আর্কিটেকচার - আমাদের সিদ্ধান্তগুলো কি আমরাই নিচ্ছি? | Blogs | Azmine Toushik Wasi</title>
+    <!-- <title>Using LLMs With Care</title> -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Azmine Toushik Wasi, CV, Machine Learning, Research">
+    <meta name="author" content="Azmine Toushik Wasi">
+    <link rel="shortcut icon" type="image/webp" href="../resources/images/browser.jpg"/>
+    
+    
+    
+    <meta name="description" content="Azmine Toushik Wasi | ML Research (Medical AI, AI4Science, GNN, HAI, NLP) | Kaggle GM | Explorer">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    
+    <!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/syntax.css" rel="stylesheet" >
+    <link rel="preload" href="../css/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    
+    <!-- Facebook Open Graph -->
+    <meta name="og:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="og:title" content="চয়েজ আর্কিটেকচার - আমাদের সিদ্ধান্তগুলো কি আমরাই নিচ্ছি? | Blogs | Azmine Toushik Wasi">
+    <meta name="og:type" content="article">
+    <meta property="og:image" content="img/choice-architechture.webp">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="627">
+    
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="চয়েজ আর্কিটেকচার - আমাদের সিদ্ধান্তগুলো কি আমরাই নিচ্ছি? | Blogs | Azmine Toushik Wasi">
+    <meta name="twitter:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="twitter:image" content="/img/choice-architechture.webp">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            <span id="author-name" class="alignable pull-left">
+                <a href="index.html" style="text-decoration:none">  Azmine Toushik Wasi</a>
+            </br><span style="font-size: 11pt; font-weight: 400; padding-bottom: 2px;">Aspiring AI Researcher and Engineering Student</span></span>
+                <ul class="alignable pull-right navbar-ul">
+                        <li class="alignable pull-right nav-list"><b><a href="../others.html">Blog</a></b></li>
+                        <li class="alignable pull-right nav-list"><a href="../experiences.html">Experience</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../education.html">Education</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../publications.html">Publications</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../index.html">Research</a></li>
+                </ul>
+            </div>
+        <div style="clear:both"></div>
+        <hr>
+        
+            <div class="container content">
+                <h1>চয়েজ আর্কিটেকচার</h1>
+
+<h2>আমাদের সিদ্ধান্তগুলো কি আমরাই নিচ্ছি?</h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<p></br></p>
+
+<p>বাইরে খুব রোদ, জ্যামে বসে থেকে ঘেমে ভিজে বাসায় যাচ্ছেন। সামনে একটা গ্রোসারি শপ দেখে মনে হল, “নাহ! এবারে গলাটা একটু ভিজিয়ে নেয়া যাক!” আপনি কোক কিনতে গেলেন। দেখলেন, ২৫০ মিলি এক বোতলের দাম ১৮টাকা, যেখানে ২৫ টাকাতেই একই কোম্পানির একই কোক ৪০০ মিলি পাওয়া যাচ্ছে। আপনার প্রয়োজন একটু গলা ভেজানো। কোনটা নিবেন? ২৫০ মিলি নাকি ৪০০মিলি? বেশিরভাগ মানুষই ৪০০ মিলি নিবেন। কেননা, মাত্র ৭ টাকায় ১৫০ মিলি কোক, বেশি পাচ্ছি! লাভ না? হ্যা, তা হয়তো লাভ। কিন্তু, ১৮ টাকার প্রয়োজনে যে ২৫ টাকা খরচ করতে হলো?</p>
+<p>আরো কয়েকটা ঘটনার কথা বলা যাক, ধরুন, আপনি কোনো একটা ফাস্ট ফুড চেইনে খেতে গিয়েছেন। শুধু একটা বার্গার হলেই চলে আপনার, কিন্তু দেখলেন যে, একটা বিশেষ অফার চলছে। একটা বার্গার — এক প্যাকেট ফ্রেঞ্চ ফ্রাই আর একটা কোক — মাত্র ৩০০টাকা। আপনি আবার কোকের দারুন ফ্যান! আর স্পেশাল অফার মানেই তো অনেক অনেক ডিস্কাউন্ট! সাদা মনে এতকিছু না দেখে নিয়ে নিলেন সেই কম্বো প্যাক। পরে বিল দেয়ার সময় দেখলেন যে, ৩টা আলাদা নিলে দাম পড়তো ৩০৫টাকা, আর আপনি যেটার জন্য এসেছেন — বার্গার, সেটার দাম ২০০টাকা। অর্থাৎ, ১০০টাকা বেশি খরচ করলেন ৫টাকা বাঁচানোর জন্য! এরকম আরো বহু ঘটনা আমাদের দৈনন্দিন জীবনে প্রতিনিয়তই হয়। এরকম ঘটনাগুলো এনালাইজ করে ‘চয়েজ আর্কিটেকচার’।</p>
+
+<div class="post-media mb-30" style="padding: 20px 20px 20px 20px;">
+	<img alt="" style="  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;" src="./img/choice-architechture.webp">
+</div>
+<p></p>
+<h2 style="font-size: 20; text-align: left; font-weight: 800; ">চয়েজ আর্কিটেকচার</h2>
+<p>আমরা প্রতিনিয়ত জীবনে চলার ক্ষেত্রে নানা ক্ষেত্রে যে নানারকম সিদ্ধান্ত নেই, এগুলো আমাদের সামনে কীভাবে উপস্থাপন করা হচ্ছে , পারিপাশ্বিক পরিবেশসহ আরো কিছু ফ্যাক্টর দ্বারা নিয়ন্ত্রিত হয় — আর, এভাবে বিভিন্ন ফ্যাক্টরগুলো এনালাইসিস করে আমাদের সামনে প্রশ্নের উত্তরের অপশনগুলো সাজানোর কাজটাই হলো ‘চয়েজ আর্কিটেকচার’। চয়েস আর্কিটেক্ট এমনভাবে এরকম ভিন্ন ভিন্ন অপশন, পারিপাশ্বিক পরিবেশ বা সিচ্যুএশনগুলো তৈরি করেন; যাতে তিনি যেরকম চাচ্ছেন, আমরা সেরকম সিদ্ধান্ত নেই বা, উনার চাহিদামতো আমরা রিএক্ট করি!</p>
+<p>২০০৮ সালে Richard Thaler ও Cass Sunstein একটি বই প্রকাশ করেন, যার নাম — “Nudge: Improving Decisions about Health, Wealth, and Happiness”। সেখানে থেলার “Nudge theory” নামে একটা থিউরি দেন, যেটা বিহেভিওরিয়াল সায়েন্স ও ইকোনমিক্সে খুব জনপ্রিয় একটি থিউরি, এবং এজন্য তিনি ২০১৭ সালে নোবেল পুরস্কার পান। বইতে তিনি চয়েজ আর্কিটেকচার ব্যাখ্যা করেন, কীভাবে এটা বিহেভিওরিয়াল ইকোনমিক্স ব্যবহার করে আমাদের দৈনন্দিন জীবনে নেয়া বিভিন্ন সিদ্ধান্তকে ইনফ্লুয়েন্স করতে পারে। বিভিন্ন স্টাইলে করা একই প্রশ্নের উত্তর, প্রশ্ন করার ধরন, অপশনের বিন্যাস ও পারিপাশ্বিকের উপর ভিত্তি করে বিভিন্ন হতে পারে — একই মানুষের বেলায়।</p>
+<p>আপনি যদি মনে করেন, আপনি স্বাধীন, আপনি যা সিদ্ধান্ত নিচ্ছেন, তা সম্পূর্ণই আপনার ব্যক্তিগত — এতে কারো কোনো প্রভাব নেই, এটা একটা ভুল ধারণা।
+গবেষণায় দেখা যায়, প্রায় ৭০% মানুষই এরকমে একটা ভুল ধারণায় বিশ্বাসী। কিন্তু, সত্য হচ্ছে, সরকারি-বেসরকারি নানা ক্ষেত্রে বিভিন্ন রকম সিদ্ধান্ত গ্রহণ যেমন, রিটায়ারমেন্টের সেভিংস, বীমার স্কিম ঠিক করা, পলিসি মেকিং সহ নানারকম কাজে চয়েজ আর্কিটেকচার এর প্রভাব আছে, আপনি কীভাবে কি নিবেন — সেটাকে বিভিন্নভাবে ইনফ্লুয়েন্স করা হচ্ছে। বিহেভিওরিয়াল ইকোনমিস্টরা প্রধানত বিভিন্ন রকম বায়াস (বৈষম্য)কমানোর জন্য বা জনগণকে ভালো সুবিধা দিতে চয়েস আর্কিটেকচার ব্যবহার করেন। আবার, অনেক কোম্পানি এটাকে তাদের নিজেদের লাভের জন্যও ব্যবহার করে।</p>
+<hr>
+<p>আমরা চয়েস আর্কিটেকচার এর বিভিন্ন এলিমেন্টস ও তাদের ব্যবহার — প্রয়োগ এসব বিস্তারিত দেখবো।</p>
+<h1 style="font-weight: 800; font-size: 18; text-align: left; ">চয়েস আর্কিটেকচার এর এলিমেন্টস গুলো হলোঃ</h1>
+<h2 style="font-weight: 800; font-size: 16; text-align: left; ">১। চয়েজ / অপশনের সংখ্যাঃ</h2>
+<p>ক্লাসিকাল ইকোনমিক্স মনে করে, বেশি অপশন দিলে কাস্টমারদের সুবিধা হয়, তারা সবগুলো অপশন যাচাই বাছাই করে তাদের জন্য সবচেয়ে ভালো সিদ্ধান্তটা নিতে পারে। কিন্তু, সমস্যা হলো, এ সিদ্ধান্ত নেয়ার জন্য অতিরিক্ত সময়, প্রয়োজনীয় জ্ঞান — বুদ্ধিমত্তা ও মানসিক শ্রমেরও প্রয়োজন, যেটা সবার নেই। তাই সবসময় এটা ঠিক নয়। বিহেভিওরিয়াল ইকোনমিক্স আমাদের টার্গেট অনুসারে এ সংখ্যাটা চেঞ্জ করতে বলে। এখন এটাকে দু-ভাবেই ব্যবহার করা যায়। মোবাইল ডেটা কেনার সময় আমরা প্রায়ই বুঝে উঠতে পারিনা কোন প্যাকেজটা আমাদের জন্য সবচেয়ে ভালো হবে — এত্তো প্যাকেজ — এত্তো ডেটা — ডেডলাইন — প্রাইসের কম্বিনেশন! ফলাফল কি হয়? ৬৮% সময়ই আমরা প্রয়োজনের চেয়ে বেশি টাকা খরচ করি — এবং মেয়াদ শেষে অনেক ডেটা খালি পড়ে থাকে! এভাবে মোবাইল অপারেটররা আমাদের চয়েজকে বিভ্রান্ত করে নিজেরা পকেটে টাকা পুরে নিচ্ছে! এবার আরেকটা উদাহরণে আসি, সরকারি একটা স্বাস্থবীমা। দুটো প্যাকেজ আছে — একটায় নরমাল, আরেকটা প্রিমিয়াম। এবং তাদের সুবিধা অসুবিধা দেয়া আছে। তাহলে আপনি আপনার উপযোগী একটা বেছে নিতে আগের চেয়ে সহজ হবে না? অবশ্যই! এতে আপনি লাভবান বেশি হবেন না? অবশ্যই!</p>
+<h2 style="font-weight: 800; font-size: 16; text-align: left; ">২। পারিপাশ্বিক পরিবেশঃ</h2>
+<p>আমেরিকায় একদল গবেষক একবার নিজেরা এনভায়রনমেন্ট এক্টিভিস্ট সেজে বিভিন্ন এলাকায় মানুষকে কল দিয়ে তাদের কাছে ‘গ্লোবাল ওয়ার্মিং’ নিয়ে কথা বলেন। তারা কথা বলার পর, মতামত ও দান সংগ্রহের জন্য একটি ফর্ম দেন । ‘গ্লোবাল ওয়ার্মিং’ নিয়ে আমাদের সবারই সমান পরিমাণে চিন্তিত হওয়া উচিত, কেননা এর ফলাফল আমাদের সবাইকেই ভোগ করতে হবে। কিন্ত, আমরা সবাই কি সমানভাবে সচেতন? তারা ওই ফর্মে পূরণকারীর মতামত, তাঁর বাসার পোস্টকোড ও ডোনেশনের তথ্য নেন। এবং পরে, পোস্টকোড থেকে তারা অইদিন অই সময়ে অই এলাকায় আবহাওয়া (তাপমাত্রা ও অন্যান্য) বের করেন। দেখা যায়, যেখানে তাপমাত্রা যত বেশি সেসব এরিয়াতে ‘গ্লোবাল ওয়ার্মিং’ নিয়ে মানুষের চিন্তাভাবনা ও ডোনেশনের পরিমাণ ততবেশি! অনলাইন ফর্মপূরণ ও কাগজে প্রিন্ট করা ফর্মের মাঝেও পার্থক্য আছে। কাগজে দেয়া ফর্মে মানুষের আগ্রহ, চিন্তাভাবনা ও দান করা ইচ্ছা অনেকটাই কমে যায়। তারপর ছোট কাগজে পিচ্চি পিচি ফন্ট হলে তো কথাই নেই! দান তো দূরে, পারলে কিছু কথা শুনিয়ে দেই আমরা!</p>
+<h2 style="font-weight: 800; font-size: 16; text-align: left; ">৩। ডিফল্টঃ (DEFAULT OPTION)</h2>
+<p>এটা চয়েস আর্কিটেকচারে অনেক গুরুত্বপূর্ণ। ডিফল্ট হচ্ছে, এমন একটা কন্ডিশন বা অপশন, যেটা চুজ করলে হয়তো আপনাকে অনেক তথ্য আর নিজে থেকে দিতে হবেনা, বরং আজ্ঞে থেকে সেট করা কিছু তথ্য এখানে আপনাআপনি বসে যাবে। এমন আমরা প্রায়ই দেখি দৈনন্দিন জীবনে। মানুষ যখন অনেকগুলো অপশনের কারণে বুঝতে পারেনা, বা, পারিপাশ্বিক কারণে বিভ্রান্ত বা সিদ্ধান্ত নেয়ার মতো অবস্থায় থাকেনা — তখন বেশিরভাগ মানুষই একটা কাজ করে — ডিফল্ট অপশন। যেমন, আপনাকে একটা ফর্ম পূরণ করতে হবে ৩ মাইল দূরে ইউনিয়ন অফিসে গিয়ে। আপনি গিয়ে দেখলেন, ফর্মে নাম-ঠিকানা দেয়ার পর ২ পেজের একটা ইন্সট্রাকশন, তারপর ৫ পেজের ফর্ম। আর কোণায় লিখা — ‘Choose defaults’, পাশে ছোট্ট একটা টিকবক্স। কি করবেন? এরকম আরেকটা জিনিস হলো, “Recommended” । আমরা ভাবি, আমাদের জন্য যেটা বেস্ট হবে, সেটাই সম্ভবত ডিফল্ট/ রিকোমেন্ডেড এ রাখা হয়, কিন্তু এমনটা হয়না সবসময়।
+আমরা প্রতিনিয়তই বিভিন্ন ওয়েবসাইটে একাউন্ট খুলি বা কুকিজ ব্যবহারের পারমিশন দেই, বা প্রাইভেসি পলিসি। আমরা কতজন পুরোটা পড়ে দেখি? একজনও না। Just — “Accept All”
+আমেরিকায় একবার সরকারি গাড়িবীমায় দেখা যায়, এক প্রদেশের মানুষ অন্য প্রদেশের মানুষের তুলনায় ১০-১৫ বিলিয়ন ডলার বেশি খরচ করেছে। কেননা, তাদের ডিফল্ট ছিলো — ‘প্রিমিয়াম প্যাকেজ’ টা, আর অন্যদের ডিফল্ট ছিলো ‘বেসিক প্যাকেজ’। অর্থের পরিমাণটা কিন্তু নেহায়েত কম নয়!
+তাই সব জায়গায় ঠুস করেই ডিফল্ট/রিকোমেন্ডেড এ টিক দিয়ে দেয়া মোটেও বুদ্ধিমানের কাজ নয়!</p>
+<h2 style="font-weight: 800; font-size: 16; text-align: left; ">৪। সময় নিয়ে বিভ্রান্তিঃ</h2>
+<p>ভবিষ্যতে হবে এমন কিছু জিনিস/চিন্তাভাবনার কারণেও আমরা নানাভাবে ইনফ্লুয়েন্সড হই। বেশিরভাগ সময়ই আমরা বর্তমানে ভালো হবে, বা শর্ট টার্ম বেনিফিটের কথাই ভাবি ।
+ট্রাইনোমিয়াল পডকাস্টে একটা ঘটনা বলি, খালিদ ফারহান ভাই এনায়েত ভাই এর সাথে একটা ডিল করেন, সেখানে তিনি অপশন দেন দুটো — ইন্সট্যান্ট ফিক্সড এমাউন্ট ও প্রফিট থেকে বা এফিলিয়েট হিসাবে পার্সেন্টেজ এমাউন্ট, এবং তিনি জানিয়েও দেন যে, এফিলিয়েট হলে তিনি বেশি টাকা পাবেন, কিন্তু দেরি হবে ও কিছুটা আনসার্টেইনিটি আছে। কিন্তু, তাও এনায়েত ভাই ইন্সট্যান্ট ফিক্সড এমাউন্ট এর অপশনটাই নেন। কেনো? আমরা সবসময়ই ভবিষ্যতে কিছু হবে — এটা নিয়ে অনিশ্চয়তায় ভুগি, নিজের ক্ষতি হওয়ার ভয়ে থাকি। </p>
+<h2 style="font-weight: 800; font-size: 16; text-align: left; ">৫। ইন্সট্যান্ট ডোপামিনঃ</h2>
+<p>এদিকে একটা মজার বিষয় আছে। আর্থিক কিছু নিয়ে কাজ করার সময় আমরা ভাবি যে, হয়তো ভবিষ্যতে আমাদের হাতে টাকা থাকবেনা — আমরা সেভ করার বা সেফ থাকার ট্রাই করি।
+কিন্তু, অর্থের চেয়েও আমাদের আনন্দ/ইচ্ছার প্রেফারেন্স বেশি এমন জিনিস, যেমন, ট্যুর দেয়া-খাওয়া এসব সময়ে আমরা অর্থ নিয়ে কম ভাবি, “হ্যাঁ খরচ করি, প্যারা নাই, টাকা এসে যাবে হাতে! কতো টাকা আসে যায়!” শরীর খারাপ হতে পারে জেনেও ফুটপাতের ফুচকা আমরা সবাই বেশ মজা করেই খাই!</p>
+<hr>
+<p>আরো অনেকগুলো বিষয় জড়িত চয়েস আর্কিটেকচার বা চয়েস ইঞ্জিনিয়ারিং এর সাথে। মোট কথা, আমাদের জীবনে যা কিছু হচ্ছে, কোনোকিছুরই পুরো কন্ট্রোল আমাদের হাতে নেই — আমাদেরকে চারপাশ থেকে বিভিন্নভাবে ইনফ্লুয়েন্স করা হচ্ছে। ভালো সিদ্ধান্ত নিতে হলে এসব জানা বোঝা বেশ গুরুত্বপূর্ণ সবার জন্য।</p>
+
+
+<p></br></br></br></p>
+
+<div class="block-share">
+
+    <h5>Share this article</h5>
+    <ul class="social mt-20">
+    <li><a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-facebook"></i></a></li>
+    <li><a onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-twitter"></i></a></li>
+    <li><a onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-linkedin"></i></a></li>
+</ul>
+</div>
+
+<p></br></br></br></p>
+
+<p>Copyright &copy; 2025 Azmine Toushik Wasi. All rights reserved.<br /><br /></p>
+            </div>
+        
+    </div>
+    
+    
+    <script type="text/javascript" async src='../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJaxb198.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP8GJQMDNP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SP8GJQMDNP');
+</script>
+
+<!-- Google analytics -->
+</body>

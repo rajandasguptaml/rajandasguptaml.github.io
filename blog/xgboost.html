@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from maria-antoniak.github.io/2023/06/26/llms-with-care.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Feb 2024 04:23:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+   <title>Extreme Gradient Boosting (XGBoost) | Wrangling with Hyperparameters | Detailed Guide | Azmine Toushik Wasi</title>
+    <!-- <title>Using LLMs With Care</title> -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Azmine Toushik Wasi, CV, Machine Learning, Research">
+    <meta name="author" content="Azmine Toushik Wasi">
+    <link rel="shortcut icon" type="image/webp" href="./resources/images/browser.jpg"/>
+    
+    
+    
+    
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rumii2luqs");
+</script>
+    
+    <meta name="description" content="Azmine Toushik Wasi | ML Research (Medical AI, AI4Science, GNN, HAI, NLP) | Kaggle GM | Explorer">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    
+    <!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/syntax.css" rel="stylesheet" >
+    <link rel="preload" href="../css/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    
+    <!-- Facebook Open Graph -->
+    <meta name="og:description" content="XGBoost | Wrangling with Hyperparameters | Detailed Guide | Azmine Toushik Wasi">
+    <meta name="og:title" content="Extreme Gradient Boosting (XGBoost) | Wrangling with Hyperparameters | Detailed Guide | Azmine Toushik Wasi">
+    <meta name="og:type" content="article">
+    <meta property="og:image" content="img\xgb-2.webp">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="627">
+    
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="XGBoost | Wrangling with Hyperparameters | Detailed Guide | Azmine Toushik Wasi">
+    <meta name="twitter:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    
+    <meta name="twitter:image" content="img\xgb-cover.webp">
+   
+    <style>
+        .sourceCode {
+         background-color: rgb(240, 240, 240);
+         overflow: visible;
+         border-color: rgb(240, 240, 240);
+        }
+        pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    .cell{
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+    </style>
+    
+
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            <span id="author-name" class="alignable pull-left">
+                <a href="index.html" style="text-decoration:none">  Azmine Toushik Wasi</a>
+            </br><span style="font-size: 11pt; font-weight: 400; padding-bottom: 2px;">Aspiring AI Researcher and Engineering Student</span></span>
+                <ul class="alignable pull-right navbar-ul">
+                        <li class="alignable pull-right nav-list"><b><a href="../others.html">Blog</a></b></li>
+                        <li class="alignable pull-right nav-list"><a href="../experiences.html">Experience</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../education.html">Education</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../publications.html">Publications</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../index.html">Research</a></li>
+                </ul>
+            </div>
+        <div style="clear:both"></div>
+        <hr>
+        
+            <div class="container content">
+                <p></br></p>
+                <h1>Extreme Gradient Boosting (XGBoost)</h1>
+                <h3>Wrangling with Hyperparameters | Detailed Guide</h3>
+                
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <p></br></p>
+
+                <div id="14e8bda5" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.7139e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.296142&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.279003&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div id="a3c5ea35" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3388e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.323331&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.309943&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:20px;color:black;margin:0;font-size:200%;text-align:center;display:fill;border-radius:5px;background-color:#f0eea1;overflow:hidden;font-weight:500">Extreme Gradient Boosting (XGBoost)</div>
+                </div>
+                <div id="b28a03dc" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3782e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.350633&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.336851&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="-1-extreme-gradient-boosting-xgboost">🧾 1. Extreme Gradient
+                Boosting (XGBoost)</h1>
+                </div>
+                <div id="b4769295" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.2875e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.400469&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.377594&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <p>XGBoost is an open-source software library which provides a
+                regularizing gradient boosting framework for C++, Java, Python, R,
+                Julia, Perl, and Scala. It works on Linux, Windows, and macOS. From the
+                project description, it aims to provide a "Scalable, Portable and
+                Distributed Gradient Boosting Library".</p>
+                <p>Extreme Gradient Boosting Algorithm. Gradient boosting refers to
+                <strong>a class of ensemble machine learning algorithms that can be used
+                for classification or regression predictive modeling problems</strong>.
+                <strong>Ensembles are constructed from decision tree
+                models</strong>.</p>
+                <p><strong>XGBoost is a more regularized form of Gradient
+                Boosting</strong>. XGBoost uses advanced regularization (L1 &amp; L2),
+                which improves model generalization capabilities. XGBoost delivers high
+                performance as compared to Gradient Boosting. Its training is very fast
+                and can be parallelized across clusters.</p>
+                
+                <div style="margin:20px">
+                  <img alt="" style="width:100%;" src="img\xgb-2.webp">
+                  <p style="text-align: center; font-size:small;">XGBoost | Wrangling with Hyperparameters | Detailed Guide</p>
+              </div>
+                <p>Extreme Gradient Boosting (xgboost) is similar to gradient boosting
+                framework but more efficient. It has both linear model solver and tree
+                learning algorithms. So, what makes it fast is its capacity to do
+                parallel computation on a single machine...</p>
+                </div>
+                <div id="5ae9f831" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3556e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.473840&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.460284&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:20px;color:black;margin:0;font-size:200%;text-align:center;display:fill;border-radius:5px;background-color:#d9d9d9;overflow:hidden;font-weight:500"> Introduction to Hyperparameters</div>
+                </div>
+                <div id="1d128857" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3463e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.501081&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.487618&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="-2-hyperparameters">🛠 2. Hyperparameters</h1>
+                </div>
+                <div id="5407b021" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4542e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.529694&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.515152&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="what-is-meant-by-hyperparameter-tuning">What is meant by
+                hyperparameter tuning?</h3>
+                <p>In machine learning, <strong>hyperparameter optimization or tuning is
+                the problem of choosing a set of optimal hyperparameters for a learning
+                algorithm</strong>. A hyperparameter is a parameter whose value is used
+                to control the learning process. By contrast, the values of other
+                parameters (typically node weights) are learned. The hyper-parameter
+                tuning process is a tightrope walk to achieve a balance between
+                underfitting and overfitting. Underfitting is when the machine learning
+                model is unable to reduce the error for either the test or training
+                set.</p>
+                <h3 id="what-is-hyperparameter-tuning-example">What is hyperparameter
+                tuning example?</h3>
+                <p>Some examples of model hyperparameters include: The penalty in
+                Logistic Regression Classifier i.e. L1 or L2 regularization. The
+                learning rate for training a neural network. The C and sigma
+                hyperparameters for support vector machines.</p>
+                <h3 id="why-do-we-use-hyperparameter-tuning">Why do we use
+                hyperparameter tuning?</h3>
+                <p>Hyperparameter tuning is an essential part of controlling the
+                behavior of a machine learning model. If we don't correctly tune our
+                hyperparameters, our estimated model parameters produce suboptimal
+                results, as they don't minimize the loss function. This means our model
+                makes more errors.</p>
+                </div>
+                <div id="271794c9" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.1213e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.618343&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.597130&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:20px;color:black;margin:0;font-size:200%;text-align:center;display:fill;border-radius:5px;background-color:#d9d9d9;overflow:hidden;font-weight:500"> XGBoost Parameters - Classification</div>
+                </div>
+                <div id="c24fcd58" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.335e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.647651&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.634301&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="️-3-xgboost-hyperparameters-for-classification">⌛️ 3. XGBoost
+                Hyperparameters for Classification</h1>
+                </div>
+                <div id="dab0658d" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3445e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.676578&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.663133&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>XGBoost Boosters</b></div>
+                <h4 id="--gbtree-">-&gt; gbtree :</h4>
+                <ul>
+                <li><strong>gbtree</strong> for <strong>tree-based models</strong>;</li>
+                </ul>
+                <h4 id="--gblinear-">-&gt; gblinear :</h4>
+                <ul>
+                <li><strong>gblinear</strong> for <strong>linear models</strong> to run
+                at each iteration.</li>
+                </ul>
+                <h4 id="--dart-">-&gt; dart :</h4>
+                <ul>
+                <li><strong>dart</strong> is also a tree based model.</li>
+                <li>XGBoost mostly combines a huge number of regression trees with a
+                small learning rate. In this situation, trees added early are
+                significant and trees added late are unimportant. <em>Vinayak and
+                Gilad-Bachrach</em> proposed a new method to add dropout techniques from
+                the deep neural net community to boosted trees, and reported better
+                results in some situations - it s called dart. It drops trees in order
+                to solve the over-fitting. Trivial trees (to correct trivial errors) may
+                be prevented. Because of the randomness introduced in the training,
+                expect the following few differences: Training can be slower than gbtree
+                because the random dropout prevents usage of the prediction buffer. The
+                early stop might not be stable, due to the randomness.</li>
+                </ul>
+                </div>
+                <div id="da3e67d0" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3494e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.703627&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.690133&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>General parameters</b></div>
+                <p>It relates to which booster we are using to do boosting, commonly
+                tree or linear model</p>
+                <h4 id="1-booster-defaultgbtree">1. booster [default=gbtree]</h4>
+                <ul>
+                <li><strong>gbtree</strong> for <strong>tree-based models</strong>;
+                <strong>gblinear</strong> for <strong>linear models</strong> to run at
+                each iteration.</li>
+                </ul>
+                <h4 id="2-silent-default0">2. silent [default=0]:</h4>
+                <ul>
+                <li><strong>To activate Silent silent mode, set it to 1,meaning off; so,
+                no messages will be printed.</strong></li>
+                </ul>
+                <p>It’s generally a good idea, to keep it 0 as the messages might help
+                in understanding the model; and how the metrics are going.</p>
+                <h4
+                id="3-nthread-default-to-maximum-number-of-threads-available-if-not-set">3.
+                nthread [default to maximum number of threads available if not set]</h4>
+                <p>This is used for parallel processing and number of cores in the
+                system should be entered If you wish to run on all cores, value should
+                not be entered and algorithm will detect automatically</p>
+                </div>
+                <div id="ba37dca2" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3378e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.730644&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.717266&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Booster parameters</b></div>
+                <p>depend on which booster you have chosen. We will discuss about tree
+                based boosters here.</p>
+                <h4 id="1-eta-default03">1. eta [default=0.3]</h4>
+                <ul>
+                <li>Similiar to <strong>learning_rate</strong>; works with
+                geeneralization.</li>
+                <li><strong>Typical final values to be used:</strong> 0.01-0.2</li>
+                </ul>
+                <h4 id="2-min_child_weight-default1">2. min_child_weight
+                [default=1]</h4>
+                <ul>
+                <li>Defines the <strong>minimum sum of weights of all observations
+                required in a child</strong>. It is <strong>used to control
+                over-fitting</strong>. Higher values prevent a model from learning -
+                relations which might be highly specific to the particular sample
+                selected for a tree.</li>
+                <li>Too high values can lead to under-fitting hence, it should be tuned
+                using CV.</li>
+                </ul>
+                <h4 id="3-max_depth-default6">3. max_depth [default=6]</h4>
+                <ul>
+                <li>The <strong>maximum depth of a tree</strong>, it is also used
+                <strong>to control over-fitting</strong> as higher depth will allow
+                model to learn relations very specific to a particular sample. Should be
+                tuned using CV.</li>
+                <li><strong>Typical values:</strong> 3-10</li>
+                </ul>
+                <h4 id="4-max_leaf_nodes">4. max_leaf_nodes</h4>
+                <ul>
+                <li>The <strong>maximum number of terminal nodes</strong> or leaves in a
+                tree.</li>
+                <li>Since binary trees are created, a depth of ‘n’ would produce a
+                maximum of 2^n leaves. If this is defined, GBM will ignore
+                max_depth.</li>
+                </ul>
+                <h4 id="5-gamma-default0">5. gamma [default=0]</h4>
+                <ul>
+                <li>A node is split only when the resulting split gives a positive
+                reduction in the loss function. <strong>Gamma specifies the minimum loss
+                reduction required for a split to occur.</strong></li>
+                <li>Makes the algorithm conservative. The values can vary depending on
+                the loss function and should be tuned. <strong>Can be used to control
+                overfitting.</strong></li>
+                </ul>
+                <h4 id="6-max_delta_step-default0">6. max_delta_step [default=0]</h4>
+                <ul>
+                <li>In <strong>maximum delta step we allow each tree’s weight estimation
+                to be</strong>. If the value is set to 0, it means there is no
+                constraint. If it is set to a positive value, it can help making the
+                update step more conservative.</li>
+                <li>This is generally not used.</li>
+                </ul>
+                <h4 id="7-subsample-default1">7. subsample [default=1]</h4>
+                <ul>
+                <li>It denotes the <strong>fraction of observations to be randomly
+                samples for each tree</strong>.</li>
+                <li><strong>Lower values make the algorithm more conservative and
+                prevents overfitting</strong> but too small values might lead to
+                under-fitting.</li>
+                <li><strong>Typical values:</strong> 0.5-1</li>
+                </ul>
+                <h4 id="8-colsample_bytree-default1">8. colsample_bytree
+                [default=1]</h4>
+                <ul>
+                <li>Denotes the <strong>fraction of columns to be randomly samples for
+                each tree</strong>. Smaller colsample_bytree povides additional
+                regulerization.</li>
+                <li><strong>Typical values:</strong> 0.5-1</li>
+                </ul>
+                <h4 id="9-colsample_bylevel-default1">9. colsample_bylevel
+                [default=1]</h4>
+                <ul>
+                <li>Denotes <strong>the subsample ratio of columns for each split, in
+                each level</strong>.</li>
+                </ul>
+                <h4 id="10-alpha-default0">10. alpha [default=0]</h4>
+                <ul>
+                <li><strong>L1 regularization term</strong>.</li>
+                <li>L1 regularization forces the weights of uninformative features to be
+                zero by substracting a small amount from the weight at each iteration
+                and thus making the weight zero, eventually. It is also called
+                regularization for simplicity. Applies on leaf weights (rather than
+                feature weights); larger value mean more regularization.</li>
+                </ul>
+                <h4 id="11-lambda-default1">11. lambda [default=1]</h4>
+                <ul>
+                <li><strong>L2 regularization term</strong>.</li>
+                <li>This used to handle the regularization part of XGBoost. It should be
+                explored to reduce overfitting.</li>
+                <li>L2 regularization acts like a force that removes a small percentage
+                of weights at each iteration. Therefore, weights will never be equal to
+                zero. L2 regularization penalizes (weight)² There is an additional
+                parameter to tune the L2 regularization term which is called
+                regularization rate (lambda).</li>
+                <li>Smoother than alpha. Also, applies on leaf weights.</li>
+                </ul>
+                <h4 id="12-scale_pos_weight-default1">12. scale_pos_weight
+                [default=1]</h4>
+                <ul>
+                <li>A value <strong>greater than 0 should be used</strong> in case of
+                high class imbalance as it helps in faster convergence.</li>
+                </ul>
+                </div>
+                <div id="d546891e" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.336e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.757896&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.744536&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Learning task parameters</b></div>
+                <p>decide on the learning scenario. For example, regression tasks may
+                use different parameters with ranking tasks.</p>
+                <h4 id="1-objective-defaultreglinear">1. objective
+                [default=reg:linear]</h4>
+                <ul>
+                <li>This <strong>defines the loss function to be
+                minimized</strong>.</li>
+                <li>Mostly used values are:</li>
+                <li><strong>reg:linear</strong> - used for regressions</li>
+                <li><strong>reg:logistic</strong> - used for classification, when you
+                want the decision only, not the probability.</li>
+                <li><strong>binary:logistic</strong> –logistic regression for binary
+                classification, returns predicted probability (rather than decision
+                class)</li>
+                <li><strong>multi:softmax</strong> –multiclass classification using the
+                softmax objective, returns predicted class (not probabilities); you also
+                need to set an additional num_class (number of classes) parameter
+                defining the number of unique classes</li>
+                <li><strong>multi:softprob</strong> –same as softmax, but returns
+                predicted probability of each data point belonging to each class.</li>
+                </ul>
+                <h4 id="2-eval_metric--default-according-to-objective-">2. eval_metric [
+                default according to objective ]</h4>
+                <ul>
+                <li>The metric to be used for validation data.</li>
+                <li>The default values are rmse for regression and error for
+                classification.</li>
+                <li><strong>Typical values are:</strong></li>
+                <li><strong>rmse</strong> – root mean square error</li>
+                <li><strong>mae</strong> – mean absolute error</li>
+                <li><strong>logloss</strong> – negative log-likelihood</li>
+                <li><strong>error</strong> – Binary classification error rate (0.5
+                threshold)</li>
+                <li><strong>merror</strong> – Multiclass classification error rate</li>
+                <li><strong>mlogloss</strong> – Multiclass logloss</li>
+                <li><strong>auc</strong> – Area under the curve</li>
+                </ul>
+                <h4 id="3-seed-default0">3. seed [default=0]</h4>
+                <ul>
+                <li>for reproducibility.</li>
+                </ul>
+                </div>
+                <div id="ee084640" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3442e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.784915&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.771473&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Command line parameters</b></div>
+                <ul>
+                <li>relate to behavior of CLI version of XGBoost.</li>
+                </ul>
+                </div>
+                <div id="cf07a339" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3373e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.811900&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.798527&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:20px;color:black;margin:0;font-size:200%;text-align:center;display:fill;border-radius:5px;background-color:#d9d9d9;overflow:hidden;font-weight:500">Understanding Bias-Variance Tradeoff</div>
+                </div>
+                <div id="5fd999e1" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3776e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.839194&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.825418&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="-4-understanding-bias-variance-tradeoff">🧮 4. Understanding
+                Bias-Variance Tradeoff</h1>
+                </div>
+                <div id="3108cf50" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3429e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.867114&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.853685&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <p>If you take a machine learning or statistics course, this is likely
+                to be one of the most important concepts. When we allow the model to get
+                more complicated (e.g. more depth), the model has better ability to fit
+                the training data, resulting in a less biased model. However, such
+                complicated model requires more data to fit.</p>
+                <p>Most of parameters in XGBoost are about bias variance tradeoff. The
+                best model should trade the model complexity with its predictive power
+                carefully. Parameters Documentation will tell you whether each parameter
+                will make the model more conservative or not. This can be used to help
+                you turn the knob between complicated model and simple model.</p>
+                <h2 id="more-resources-">More Resources :</h2>
+                <ul>
+                <li><a
+                href="https://www.kaggle.com/code/azminetoushikwasi/bias-variance-tradeoff-with-numpy-seaborn">📋
+                Bias-Variance Tradeoff ➡️ with NumPy &amp; Seaborn</a></li>
+                <li><a
+                href="https://medium.com/@azmine_wasi/mastering-bias-variance-tradeoff-with-polynomials-part-02-29f9bb53bb26">Mastering
+                Bias-Variance Tradeoff wih Polynomials</a></li>
+                </ul>
+                </div>
+                <div id="24ac5b98" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3418e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.894109&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.880691&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:20px;color:black;margin:0;font-size:200%;text-align:center;display:fill;border-radius:5px;background-color:#d9d9d9;overflow:hidden;font-weight:500">Approch to XGBoost Hyperparameter Tuning</div>
+                </div>
+                <div id="1cf91276" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3448e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.921121&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.907673&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="-6-best-approch-to-hyper-parameter-tuning">📑 6. Best approch to
+                Hyper parameter tuning</h1>
+                </div>
+                <div id="0d856851" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3503e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:06.948647&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.935144&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Importing Necessary Modules and Functions</b></div>
+                </div>
+                <div id="99efb4e0" class="cell code" data-execution_count="1"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:06.978374Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:06.977816Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:08.179400Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:08.178453Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.219361,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.182013&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:06.962652&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb1"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+                <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+                <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+                <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+                <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+                <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+                <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+                <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+                <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> manifold</span>
+                <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+                <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OrdinalEncoder</span>
+                <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+                <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RandomizedSearchCV, GridSearchCV</span>
+                <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> StratifiedKFold</span>
+                <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_auc_score</span>
+                <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
+                <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score, KFold</span>
+                <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+                <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> plot_tree</span>
+                <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">&#39;ignore&#39;</span>)</span></code></pre></div>
+                </div>
+                <div id="9849d261" class="cell code" data-execution_count="2"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:08.225523Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:08.225046Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:08.230070Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:08.229147Z&quot;}"
+                data-papermill="{&quot;duration&quot;:3.6055e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.232035&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.195980&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb2"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">&#39;ignore&#39;</span>)</span></code></pre></div>
+                </div>
+                <div id="9c605e8c" class="cell code" data-execution_count="3"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:08.294476Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:08.293897Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:08.319435Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:08.318313Z&quot;}"
+                data-papermill="{&quot;duration&quot;:6.0839e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.324381&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.263542&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb3"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_df(df):</span>
+                <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    df<span class="op">=</span>df.drop([<span class="st">&#39;Name&#39;</span>,<span class="st">&#39;PassengerId&#39;</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+                <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df<span class="op">=</span>df.dropna()</span>
+                <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>df[<span class="st">&#39;Transported&#39;</span>]</span>
+                <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    df<span class="op">=</span>df.drop([<span class="st">&#39;Transported&#39;</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+                <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    target <span class="op">=</span> target.astype(<span class="bu">int</span>)</span>
+                <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">&#39;Cabin_1&#39;</span>]<span class="op">=</span> df[<span class="st">&#39;Cabin&#39;</span>].<span class="bu">str</span>[<span class="dv">0</span>]</span>
+                <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">&#39;Cabin_2&#39;</span>]<span class="op">=</span> df[<span class="st">&#39;Cabin&#39;</span>].<span class="bu">str</span>[<span class="dv">2</span>]</span>
+                <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">&#39;Cabin_3&#39;</span>]<span class="op">=</span> df[<span class="st">&#39;Cabin&#39;</span>].<span class="bu">str</span>[<span class="dv">5</span>]</span>
+                <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    df<span class="op">=</span>df.drop([<span class="st">&#39;Cabin&#39;</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+                <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                                             </span>
+                <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the training and test datasets</span></span>
+                <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(df, </span>
+                <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                                    target, </span>
+                <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                                                    test_size <span class="op">=</span> <span class="fl">0.2</span>, </span>
+                <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                                                    random_state<span class="op">=</span><span class="dv">100</span>,</span>
+                <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                                                    stratify<span class="op">=</span>target)</span>
+                <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    numaric_columns<span class="op">=</span><span class="bu">list</span>(df.select_dtypes(include<span class="op">=</span>np.number).columns)</span>
+                <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Numaric columns (&quot;</span><span class="op">+</span><span class="bu">str</span>(<span class="bu">len</span>(numaric_columns))<span class="op">+</span><span class="st">&quot;) :&quot;</span>,<span class="st">&quot;, &quot;</span>.join(numaric_columns))</span>
+                <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    cat_columns<span class="op">=</span>df.select_dtypes(include<span class="op">=</span>[<span class="st">&#39;object&#39;</span>]).columns.tolist()</span>
+                <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Categorical columns (&quot;</span><span class="op">+</span><span class="bu">str</span>(<span class="bu">len</span>(cat_columns))<span class="op">+</span><span class="st">&quot;) :&quot;</span>,<span class="st">&quot;, &quot;</span>.join(cat_columns))</span>
+                <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    X_train_n<span class="op">=</span>X_train[numaric_columns]</span>
+                <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    X_test_n<span class="op">=</span>X_test[numaric_columns]</span>
+                <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    X_train_c<span class="op">=</span>X_train[cat_columns]</span>
+                <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    X_test_c<span class="op">=</span>X_test[cat_columns]</span>
+                <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                               </span>
+                <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>   </span>
+                <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    encoder<span class="op">=</span>OrdinalEncoder()</span>
+                <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    X_train_c <span class="op">=</span> encoder.fit_transform(X_train_c)</span>
+                <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    X_train_c<span class="op">=</span>pd.DataFrame(X_train_c)</span>
+                <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    X_test_c <span class="op">=</span> encoder.transform(X_test_c)</span>
+                <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    X_test_c<span class="op">=</span>pd.DataFrame(X_test_c)</span>
+                <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    i<span class="op">=</span><span class="dv">1</span></span>
+                <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> column <span class="kw">in</span> X_train_c:</span>
+                <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        X_train_n[<span class="st">&quot;cat_&quot;</span><span class="op">+</span><span class="bu">str</span>(i)]<span class="op">=</span>X_train_c[column]</span>
+                <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        X_test_n[<span class="st">&quot;cat_&quot;</span><span class="op">+</span><span class="bu">str</span>(i)]<span class="op">=</span>X_test_c[column]</span>
+                <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        i<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span></span>
+                <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">#X_train=pd.concat([X_train_n,X_train_c],axis=1,ignore_index=True)</span></span>
+                <span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">#X_test=pd.concat([X_test_n,X_test_c],axis=1,ignore_index=True)</span></span>
+                <span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    X_train_n<span class="op">=</span>X_train_n.fillna(X_train_n.mean())</span>
+                <span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    X_test_n<span class="op">=</span>X_test_n.fillna(X_test_n.mean())</span>
+                <span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X_train_n, X_test_n, y_train, y_test</span></code></pre></div>
+                </div>
+                <div id="ced70f2d" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.1725e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.370029&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.348304&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Preparing the Data</b></div>
+                </div>
+                <div id="c7075fd4" class="cell code" data-execution_count="4"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:08.414530Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:08.414149Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:08.501759Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:08.500928Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.11258,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.504405&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.391825&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb4"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> pd.read_csv(<span class="st">&quot;/kaggle/input/spaceship-titanic/train.csv&quot;</span>)</span>
+                <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="4">
+                <div>
+                <style scoped>
+                    .dataframe tbody tr th:only-of-type {
+                        vertical-align: middle;
+                    }
+                
+                    .dataframe tbody tr th {
+                        vertical-align: top;
+                    }
+                
+                    .dataframe thead th {
+                        text-align: right;
+                    }
+                </style>
+                <table border="1" class="dataframe">
+                  <thead>
+                    <tr style="text-align: right;">
+                      <th></th>
+                      <th>PassengerId</th>
+                      <th>HomePlanet</th>
+                      <th>CryoSleep</th>
+                      <th>Cabin</th>
+                      <th>Destination</th>
+                      <th>Age</th>
+                      <th>VIP</th>
+                      <th>RoomService</th>
+                      <th>FoodCourt</th>
+                      <th>ShoppingMall</th>
+                      <th>Spa</th>
+                      <th>VRDeck</th>
+                      <th>Name</th>
+                      <th>Transported</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>0</th>
+                      <td>0001_01</td>
+                      <td>Europa</td>
+                      <td>False</td>
+                      <td>B/0/P</td>
+                      <td>TRAPPIST-1e</td>
+                      <td>39.0</td>
+                      <td>False</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>Maham Ofracculy</td>
+                      <td>False</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td>0002_01</td>
+                      <td>Earth</td>
+                      <td>False</td>
+                      <td>F/0/S</td>
+                      <td>TRAPPIST-1e</td>
+                      <td>24.0</td>
+                      <td>False</td>
+                      <td>109.0</td>
+                      <td>9.0</td>
+                      <td>25.0</td>
+                      <td>549.0</td>
+                      <td>44.0</td>
+                      <td>Juanna Vines</td>
+                      <td>True</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td>0003_01</td>
+                      <td>Europa</td>
+                      <td>False</td>
+                      <td>A/0/S</td>
+                      <td>TRAPPIST-1e</td>
+                      <td>58.0</td>
+                      <td>True</td>
+                      <td>43.0</td>
+                      <td>3576.0</td>
+                      <td>0.0</td>
+                      <td>6715.0</td>
+                      <td>49.0</td>
+                      <td>Altark Susent</td>
+                      <td>False</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td>0003_02</td>
+                      <td>Europa</td>
+                      <td>False</td>
+                      <td>A/0/S</td>
+                      <td>TRAPPIST-1e</td>
+                      <td>33.0</td>
+                      <td>False</td>
+                      <td>0.0</td>
+                      <td>1283.0</td>
+                      <td>371.0</td>
+                      <td>3329.0</td>
+                      <td>193.0</td>
+                      <td>Solam Susent</td>
+                      <td>False</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td>0004_01</td>
+                      <td>Earth</td>
+                      <td>False</td>
+                      <td>F/1/S</td>
+                      <td>TRAPPIST-1e</td>
+                      <td>16.0</td>
+                      <td>False</td>
+                      <td>303.0</td>
+                      <td>70.0</td>
+                      <td>151.0</td>
+                      <td>565.0</td>
+                      <td>2.0</td>
+                      <td>Willy Santantines</td>
+                      <td>True</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                <div id="d7dadc0d" class="cell code" data-execution_count="5"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:08.550913Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:08.550596Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:08.663840Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:08.662312Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.139571,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.667169&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.527598&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb5"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> process_df(df)</span>
+                <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape, X_test.shape, y_train.shape, y_test.shape)</span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>Numaric columns (6) : Age, RoomService, FoodCourt, ShoppingMall, Spa, VRDeck
+                Categorical columns (7) : HomePlanet, CryoSleep, Destination, VIP, Cabin_1, Cabin_2, Cabin_3
+                (5411, 13) (1353, 13) (5411,) (1353,)
+                </code></pre>
+                </div>
+                </div>
+                <div id="d8d5a975" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.1769e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.712114&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.690345&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Preparing functions for making things easier later</b></div>
+                </div>
+                <div id="2d75ae56" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.104e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.761556&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.740516&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h4 id="base-parameters-">Base parameters :</h4>
+                <ul>
+                <li>booster = "gbtree", <strong>as it is a classification
+                problem</strong></li>
+                <li>objective = "binary:logistic", <strong>as per the
+                problem</strong></li>
+                <li>tree_method="gpu_hist" <strong>using GPU</strong></li>
+                </ul>
+                </div>
+                <div id="c402e0d0" class="cell code" data-execution_count="6"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:08.791286Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:08.790920Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:08.798410Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:08.797449Z&quot;}"
+                data-papermill="{&quot;duration&quot;:2.4879e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.800418&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.775539&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb7"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span><span class="va">False</span>,V_PARAM_VALUES<span class="op">=</span><span class="va">False</span>,BR<span class="op">=</span><span class="dv">10</span>):</span>
+                <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    temp_dmatrix <span class="op">=</span>xgb.DMatrix(data<span class="op">=</span>X_train, label<span class="op">=</span>y_train)</span>
+                <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> V_PARAM_VALUES<span class="op">==</span><span class="va">False</span>:</span>
+                <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        cv_results <span class="op">=</span> xgb.cv(dtrain<span class="op">=</span>temp_dmatrix, nfold<span class="op">=</span><span class="dv">5</span>,num_boost_round<span class="op">=</span>BR,params<span class="op">=</span>PARAMETERS, as_pandas<span class="op">=</span><span class="va">True</span>, seed<span class="op">=</span><span class="dv">123</span> )</span>
+                <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cv_results</span>
+                <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+                <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        results<span class="op">=</span>[]</span>
+                <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        </span>
+                <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v_param_value <span class="kw">in</span> V_PARAM_VALUES:</span>
+                <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            PARAMETERS[V_PARAM_NAME]<span class="op">=</span>v_param_value</span>
+                <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            cv_results <span class="op">=</span> xgb.cv(dtrain<span class="op">=</span>temp_dmatrix, nfold<span class="op">=</span><span class="dv">5</span>,num_boost_round<span class="op">=</span>BR,params<span class="op">=</span>PARAMETERS, as_pandas<span class="op">=</span><span class="va">True</span>, seed<span class="op">=</span><span class="dv">123</span>)</span>
+                <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            results.append((cv_results[<span class="st">&quot;train-auc-mean&quot;</span>].tail().values[<span class="op">-</span><span class="dv">1</span>],cv_results[<span class="st">&quot;test-auc-mean&quot;</span>].tail().values[<span class="op">-</span><span class="dv">1</span>]))</span>
+                <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            </span>
+                <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(V_PARAM_VALUES, results))</span>
+                <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(pd.DataFrame(data,columns<span class="op">=</span>[V_PARAM_NAME,<span class="st">&quot;auc&quot;</span>]))</span>
+                <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        </span>
+                <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cv_results</span></code></pre></div>
+                </div>
+                <div id="33811f20" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3775e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:08.828110&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.814335&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Create a general base model and evaluate performance</b></div>
+                </div>
+                <div id="337b326a" class="cell code" data-execution_count="7"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:08.857853Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:08.857020Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:11.669284Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:11.668469Z&quot;}"
+                data-papermill="{&quot;duration&quot;:2.829489,&quot;end_time&quot;:&quot;2023-01-09T11:31:11.671563&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:08.842074&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb8"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>}</span>
+                <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>xgb_helper(PARAMETERS)</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="7">
+                <div>
+                <style scoped>
+                    .dataframe tbody tr th:only-of-type {
+                        vertical-align: middle;
+                    }
+                
+                    .dataframe tbody tr th {
+                        vertical-align: top;
+                    }
+                
+                    .dataframe thead th {
+                        text-align: right;
+                    }
+                </style>
+                <table border="1" class="dataframe">
+                  <thead>
+                    <tr style="text-align: right;">
+                      <th></th>
+                      <th>train-auc-mean</th>
+                      <th>train-auc-std</th>
+                      <th>test-auc-mean</th>
+                      <th>test-auc-std</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>0</th>
+                      <td>0.858413</td>
+                      <td>0.002187</td>
+                      <td>0.821862</td>
+                      <td>0.005628</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td>0.870282</td>
+                      <td>0.001689</td>
+                      <td>0.828690</td>
+                      <td>0.004939</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td>0.876322</td>
+                      <td>0.000856</td>
+                      <td>0.835879</td>
+                      <td>0.002703</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td>0.880106</td>
+                      <td>0.001456</td>
+                      <td>0.838758</td>
+                      <td>0.004261</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td>0.884137</td>
+                      <td>0.001624</td>
+                      <td>0.838674</td>
+                      <td>0.003967</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td>0.887057</td>
+                      <td>0.001697</td>
+                      <td>0.841544</td>
+                      <td>0.003510</td>
+                    </tr>
+                    <tr>
+                      <th>6</th>
+                      <td>0.889695</td>
+                      <td>0.002341</td>
+                      <td>0.842214</td>
+                      <td>0.005057</td>
+                    </tr>
+                    <tr>
+                      <th>7</th>
+                      <td>0.891214</td>
+                      <td>0.002497</td>
+                      <td>0.842708</td>
+                      <td>0.005743</td>
+                    </tr>
+                    <tr>
+                      <th>8</th>
+                      <td>0.892886</td>
+                      <td>0.002178</td>
+                      <td>0.843644</td>
+                      <td>0.005887</td>
+                    </tr>
+                    <tr>
+                      <th>9</th>
+                      <td>0.893928</td>
+                      <td>0.002417</td>
+                      <td>0.844092</td>
+                      <td>0.005543</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                <div id="c53a2bed" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5179e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:11.701999&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:11.686820&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Optimizing number of boosting rounds</br>(as we will be using DMatrix from xgb)</b></div>
+                </div>
+                <div id="fed07b15" class="cell code" data-execution_count="8"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:11.732064Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:11.731753Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:13.226012Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:13.224591Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.512118,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.228920&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:11.716802&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb9"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the DMatrix: housing_dmatrix</span></span>
+                <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>housing_dmatrix <span class="op">=</span>xgb.DMatrix(data<span class="op">=</span>X_train, label<span class="op">=</span>y_train)</span>
+                <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the parameter dictionary for each tree: params </span></span>
+                <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {<span class="st">&quot;objective&quot;</span>:<span class="st">&quot;binary:logistic&quot;</span>, <span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>}</span>
+                <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create list of number of boosting rounds</span></span>
+                <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>num_rounds <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>]</span>
+                <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Empty list to store final round rmse per XGBoost model</span></span>
+                <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>final_rmse_per_round <span class="op">=</span> []</span>
+                <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over num_rounds and build one model per num_boost_round parameter</span></span>
+                <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> curr_num_rounds <span class="kw">in</span> num_rounds:</span>
+                <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Perform cross-validation: cv_results</span></span>
+                <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    cv_results <span class="op">=</span> xgb.cv(dtrain<span class="op">=</span>housing_dmatrix, params<span class="op">=</span>params, nfold<span class="op">=</span><span class="dv">5</span>, num_boost_round<span class="op">=</span>curr_num_rounds, metrics<span class="op">=</span><span class="st">&quot;auc&quot;</span>, as_pandas<span class="op">=</span><span class="va">True</span>, seed<span class="op">=</span><span class="dv">123</span>)</span>
+                <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    </span>
+                <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Append final round RMSE</span></span>
+                <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    final_rmse_per_round.append(cv_results[<span class="st">&quot;test-auc-mean&quot;</span>].tail().values[<span class="op">-</span><span class="dv">1</span>])</span>
+                <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the resultant DataFrame</span></span>
+                <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>num_rounds_rmses <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(num_rounds, final_rmse_per_round))</span>
+                <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.DataFrame(num_rounds_rmses,columns<span class="op">=</span>[<span class="st">&quot;num_boosting_rounds&quot;</span>,<span class="st">&quot;auc&quot;</span>]))</span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   num_boosting_rounds       auc
+                0                    5  0.840033
+                1                   10  0.843594
+                2                   15  0.845747
+                3                   20  0.845400
+                4                   25  0.844094
+                </code></pre>
+                </div>
+                </div>
+                <div id="9026612f" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4313e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.258759&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.244446&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking num_boosting_rounds = 10; to avoid overfitting</li>
+                </ul>
+                </div>
+                <div id="b69472f7" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.3835e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.286806&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.272971&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>   1. Choose the learning rate. Maybe you can start with a higher one. 0.5 - 0.1 is ok for starting in most cases.</b></div>
+                </div>
+                <div id="f33a95fb" class="cell code" data-execution_count="9"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:13.315999Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:13.315693Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:13.573946Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:13.573224Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.275341,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.576137&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.300796&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb11"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>}</span>
+                <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>xgb_helper(PARAMETERS)</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="9">
+                <div>
+                <style scoped>
+                    .dataframe tbody tr th:only-of-type {
+                        vertical-align: middle;
+                    }
+                
+                    .dataframe tbody tr th {
+                        vertical-align: top;
+                    }
+                
+                    .dataframe thead th {
+                        text-align: right;
+                    }
+                </style>
+                <table border="1" class="dataframe">
+                  <thead>
+                    <tr style="text-align: right;">
+                      <th></th>
+                      <th>train-auc-mean</th>
+                      <th>train-auc-std</th>
+                      <th>test-auc-mean</th>
+                      <th>test-auc-std</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>0</th>
+                      <td>0.858413</td>
+                      <td>0.002187</td>
+                      <td>0.821862</td>
+                      <td>0.005628</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td>0.872958</td>
+                      <td>0.002187</td>
+                      <td>0.831666</td>
+                      <td>0.004109</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td>0.879817</td>
+                      <td>0.001506</td>
+                      <td>0.836776</td>
+                      <td>0.005321</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td>0.884087</td>
+                      <td>0.002211</td>
+                      <td>0.838199</td>
+                      <td>0.005545</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td>0.888099</td>
+                      <td>0.002316</td>
+                      <td>0.840862</td>
+                      <td>0.006667</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td>0.890920</td>
+                      <td>0.002014</td>
+                      <td>0.841520</td>
+                      <td>0.005769</td>
+                    </tr>
+                    <tr>
+                      <th>6</th>
+                      <td>0.893914</td>
+                      <td>0.001330</td>
+                      <td>0.842223</td>
+                      <td>0.005199</td>
+                    </tr>
+                    <tr>
+                      <th>7</th>
+                      <td>0.896395</td>
+                      <td>0.002359</td>
+                      <td>0.842609</td>
+                      <td>0.005717</td>
+                    </tr>
+                    <tr>
+                      <th>8</th>
+                      <td>0.897477</td>
+                      <td>0.002852</td>
+                      <td>0.842670</td>
+                      <td>0.005631</td>
+                    </tr>
+                    <tr>
+                      <th>9</th>
+                      <td>0.900422</td>
+                      <td>0.002209</td>
+                      <td>0.842716</td>
+                      <td>0.005787</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                <div id="9607474e" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4219e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.605624&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.591405&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>A good starting Classifier, with <strong>train-auc-mean of 0.900422,
+                test-auc-mean of 0.842716. Let;s keep tuning and reduce
+                overfitting.</strong></li>
+                </ul>
+                </div>
+                <div id="4bca2320" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4069e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.634024&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.619955&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  2. Using CV, tune max_depth and min_child_weight next.</b></div>
+                </div>
+                <div id="5c4257ff" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4352e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:13.662647&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.648295&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  2.1. Tuning max_depth.</b></div>
+                <p><strong>Tips:</strong> Keep it around 3-10.</p>
+                </div>
+                <div id="73c4771e" class="cell code" data-execution_count="10"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:13.693050Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:13.692159Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:15.447424Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:15.446186Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.773868,&quot;end_time&quot;:&quot;2023-01-09T11:31:15.450731&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:13.676863&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb12"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>}</span>
+                <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME<span class="op">=</span><span class="st">&quot;max_depth&quot;</span></span>
+                <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES<span class="op">=</span><span class="bu">range</span>(<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
+                <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   max_depth                                       auc
+                0          3  (0.8643899441624237, 0.8434407018878254)
+                1          4  (0.8762391828253827, 0.8432457875673736)
+                2          5  (0.8898517716460612, 0.8449580853400329)
+                3          6  (0.9004222967227931, 0.8427158084686912)
+                4          7  (0.9107993432039982, 0.8379593667718235)
+                5          8  (0.9233976130022082, 0.8309442810154544)
+                6          9  (0.9331601626845524, 0.8328975608830239)
+                </code></pre>
+                </div>
+                </div>
+                <div id="2bc79282" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4183e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:15.481056&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:15.466873&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking max_depth 5, as per the score.</li>
+                </ul>
+                </div>
+                <div id="041389b1" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4408e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:15.509790&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:15.495382&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  2.2. Tuning min_child_weigh.</b></div>
+                <p><strong>Tips:</strong> Keep it small for imbalanced datasets,good for
+                balanced</p>
+                </div>
+                <div id="74ad5509" class="cell code" data-execution_count="11"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:15.539725Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:15.539403Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:16.577002Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:16.576289Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.055158,&quot;end_time&quot;:&quot;2023-01-09T11:31:16.579207&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:15.524049&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb14"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>}</span>
+                <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME<span class="op">=</span><span class="st">&quot;min_child_weight&quot;</span></span>
+                <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">1</span>)</span>
+                <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   min_child_weight                                       auc
+                0                 0  (0.8923932136315347, 0.8400307515925263)
+                1                 1  (0.8898517716460612, 0.8449580853400329)
+                2                 2  (0.8878844356167308, 0.8430174554684318)
+                3                 3   (0.8842988914848681, 0.842868768786811)
+                4                 4  (0.8841976959835126, 0.8426672020116197)
+                </code></pre>
+                </div>
+                </div>
+                <div id="e499fe71" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.424e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:16.609025&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:16.594785&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking min_child_weight 1, as per the score.</li>
+                </ul>
+                </div>
+                <div id="2f9f1b7c" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4109e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:16.637457&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:16.623348&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  3. Its time for gamma.</b></div>
+                <p><strong>Tips:</strong> Keep it small like 0.1-0.2 forstarting. Will
+                be tuned later.</p>
+                </div>
+                <div id="cbeb08dc" class="cell code" data-execution_count="12"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:16.669185Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:16.668892Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:17.904000Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:17.903239Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.254558,&quot;end_time&quot;:&quot;2023-01-09T11:31:17.906300&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:16.651742&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb16"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>}</span>
+                <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;gamma&quot;</span></span>
+                <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> [<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">2</span>]</span>
+                <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   gamma                                       auc
+                0    0.1   (0.889994877151358, 0.8443115370456209)
+                1    0.2  (0.8908020107961383, 0.8447684831269007)
+                2    0.5   (0.888948000423167, 0.8450077335411604)
+                3    1.0   (0.888184172336776, 0.8451616022595031)
+                4    1.5  (0.8875863399894248, 0.8435783340359313)
+                5    2.0  (0.8861811009373095, 0.8449147712912233)
+                </code></pre>
+                </div>
+                </div>
+                <div id="add629b7" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4455e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:17.936454&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:17.921999&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking gamma t 1, as per the score.</li>
+                </ul>
+                </div>
+                <div id="a45bfb5d" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4291e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:17.965679&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:17.951388&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  4. Tune subsample and colsample_bytree.</b></div>
+                </div>
+                <div id="3d90ea4e" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4261e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:17.994601&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:17.980340&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  4.1. Tuning subsample.</b></div>
+                <p><strong>Tips:</strong> Keep it small in range 0.5-0.9.</p>
+                </div>
+                <div id="e050c6e9" class="cell code" data-execution_count="13"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:18.025913Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:18.024964Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:19.594510Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:19.593724Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.587501,&quot;end_time&quot;:&quot;2023-01-09T11:31:19.596739&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:18.009238&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb18"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>}</span>
+                <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;subsample&quot;</span></span>
+                <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> [<span class="fl">.4</span>,<span class="fl">.5</span>,<span class="fl">.6</span>,<span class="fl">.7</span>,<span class="fl">.8</span>,<span class="fl">.9</span>]</span>
+                <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   subsample                                       auc
+                0        0.4    (0.8749532101660904, 0.83281692487631)
+                1        0.5  (0.8789542430190034, 0.8356286366243391)
+                2        0.6  (0.8804439995005579, 0.8371190653296372)
+                3        0.7  (0.8852418637174774, 0.8388110573107215)
+                4        0.8  (0.8868771320489373, 0.8385871061415084)
+                5        0.9  (0.8880784719598278, 0.8414592031099557)
+                </code></pre>
+                </div>
+                </div>
+                <div id="d80bbb28" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.1235e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:19.638606&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:19.617371&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking 0.7</li>
+                </ul>
+                </div>
+                <div id="dd97a350" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:2.092e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:19.681641&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:19.660721&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  4.2. Tune colsample_bytree.</b></div>
+                <p><strong>Tips:</strong> Keep it small in range 0.5-0.9.</p>
+                </div>
+                <div id="634b26b1" class="cell code" data-execution_count="14"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:19.725603Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:19.725067Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:21.744933Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:21.744149Z&quot;}"
+                data-papermill="{&quot;duration&quot;:2.044487,&quot;end_time&quot;:&quot;2023-01-09T11:31:21.747309&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:19.702822&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb20"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;subsample&quot;</span>:<span class="fl">0.7</span>}</span>
+                <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;colsample_bytree&quot;</span></span>
+                <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> [<span class="fl">.4</span>,<span class="fl">.5</span>,<span class="fl">.6</span>,<span class="fl">.7</span>,<span class="fl">.8</span>,<span class="fl">.9</span>]</span>
+                <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   colsample_bytree                                       auc
+                0               0.4   (0.8737438808751801, 0.831927418798438)
+                1               0.5  (0.8781175336774438, 0.8371252843166564)
+                2               0.6  (0.8793282404547682, 0.8362558750372221)
+                3               0.7  (0.8815593124156965, 0.8382064256388843)
+                4               0.8  (0.8818068187259996, 0.8414608580897104)
+                5               0.9  (0.8824219339976163, 0.8391185793280422)
+                </code></pre>
+                </div>
+                </div>
+                <div id="cb8e7294" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4389e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:21.777908&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:21.763519&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking 0.8</li>
+                </ul>
+                </div>
+                <div id="44d28e59" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4331e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:21.806830&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:21.792499&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  4.3. Tune scale_pos_weight.</b></div>
+                <p><strong>Tips:</strong> Based on class imbalance.</p>
+                </div>
+                <div id="6fb8e7e1" class="cell code" data-execution_count="15"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:21.839114Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:21.838053Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:22.439351Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:22.438088Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.619167,&quot;end_time&quot;:&quot;2023-01-09T11:31:22.441527&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:21.822360&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb22"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,</span>
+                <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;subsample&quot;</span>:<span class="fl">0.7</span>,<span class="st">&quot;colsample_bytree&quot;</span>:<span class="fl">.8</span>}</span>
+                <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;scale_pos_weight&quot;</span></span>
+                <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> [<span class="fl">.5</span>,<span class="dv">1</span>,<span class="dv">2</span>]</span>
+                <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   scale_pos_weight                                       auc
+                0               0.5  (0.8793958985004761, 0.8381736971719818)
+                1               1.0  (0.8818068187259996, 0.8414608580897104)
+                2               2.0  (0.8810854054804358, 0.8366761184232949)
+                </code></pre>
+                </div>
+                </div>
+                <div id="678ff8cf" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4587e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:22.472734&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:22.458147&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking 1</li>
+                </ul>
+                </div>
+                <div id="9e5bcb23" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4584e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:22.501989&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:22.487405&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  5. Tuning Regularization Parameters (alpha,lambda).</b></div>
+                </div>
+                <div id="bdac541b" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4421e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:22.531263&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:22.516842&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  5.1. Tune alpha.</b></div>
+                <p><strong>Tips:</strong> Based on class imbalance.</p>
+                </div>
+                <div id="939cf98a" class="cell code" data-execution_count="16"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:22.561904Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:22.561570Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:26.551916Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:26.551116Z&quot;}"
+                data-papermill="{&quot;duration&quot;:4.008287,&quot;end_time&quot;:&quot;2023-01-09T11:31:26.554157&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:22.545870&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb24"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,</span>
+                <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;subsample&quot;</span>:<span class="fl">0.7</span>,<span class="st">&quot;colsample_bytree&quot;</span>:<span class="fl">.8</span>, <span class="st">&quot;scale_pos_weight&quot;</span>:<span class="dv">1</span>}</span>
+                <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;reg_alpha&quot;</span></span>
+                <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> np.linspace(start<span class="op">=</span><span class="fl">0.001</span>, stop<span class="op">=</span><span class="dv">1</span>, num<span class="op">=</span><span class="dv">20</span>).tolist()</span>
+                <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>    reg_alpha                                       auc
+                0    0.001000  (0.8818047689235573, 0.8414642805838721)
+                1    0.053579  (0.8822512519204411, 0.8400495473072034)
+                2    0.106158  (0.8816533897741998, 0.8393925267300872)
+                3    0.158737  (0.8817818509762845, 0.8406296490672798)
+                4    0.211316  (0.8801161063692018, 0.8397169942954633)
+                5    0.263895  (0.8812037168173367, 0.8392127901963959)
+                6    0.316474  (0.8801615034837067, 0.8427679621158068)
+                7    0.369053  (0.8805653368213827, 0.8404140823263765)
+                8    0.421632  (0.8802277851530302, 0.8402395041940075)
+                9    0.474211  (0.8803759440342087, 0.8421274755689788)
+                10   0.526789  (0.8803912729575127, 0.8423146821519907)
+                11   0.579368  (0.8801605635521235, 0.8414003162278721)
+                12   0.631947  (0.8819615487131747, 0.8424679296448012)
+                13   0.684526  (0.8812525217771652, 0.8419542782384447)
+                14   0.737105  (0.8800798281136639, 0.8411308776060921)
+                15   0.789684   (0.8791173070125374, 0.843057560946075)
+                16   0.842263  (0.8800692484855718, 0.8442545484482243)
+                17   0.894842  (0.8790444602851833, 0.8393354812370287)
+                18   0.947421  (0.8796063533992223, 0.8406622971346293)
+                19   1.000000   (0.8784791031845056, 0.841360884610965)
+                </code></pre>
+                </div>
+                </div>
+                <div id="b4220168" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4736e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:26.584820&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:26.570084&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking .15</li>
+                </ul>
+                </div>
+                <div id="1931ae0c" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4868e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:26.614478&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:26.599610&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  5.2. Tune lambda.</b></div>
+                <p><strong>Tips:</strong> Based on class imbalance.</p>
+                </div>
+                <div id="1f09a840" class="cell code" data-execution_count="17"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:26.645462Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:26.645110Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:30.999848Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:30.998931Z&quot;}"
+                data-papermill="{&quot;duration&quot;:4.372906,&quot;end_time&quot;:&quot;2023-01-09T11:31:31.002098&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:26.629192&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb26"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.5</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,</span>
+                <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;subsample&quot;</span>:<span class="fl">0.7</span>,<span class="st">&quot;colsample_bytree&quot;</span>:<span class="fl">.8</span>, <span class="st">&quot;scale_pos_weight&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;reg_alpha&quot;</span>:<span class="fl">0.15</span>}</span>
+                <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;reg_lambda&quot;</span></span>
+                <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> np.linspace(start<span class="op">=</span><span class="fl">0.001</span>, stop<span class="op">=</span><span class="dv">1</span>, num<span class="op">=</span><span class="dv">20</span>).tolist()</span>
+                <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>    reg_lambda                                       auc
+                0     0.001000  (0.8842321498802038, 0.8369315944875698)
+                1     0.053579  (0.8846942202574949, 0.8367595558776119)
+                2     0.106158  (0.8842139683915015, 0.8376755628888233)
+                3     0.158737  (0.8841648054675174, 0.8374257380594093)
+                4     0.211316  (0.8846029132722426, 0.8409101483580509)
+                5     0.263895  (0.8849316913321706, 0.8349999831449061)
+                6     0.316474  (0.8827466914234432, 0.8407336856742689)
+                7     0.369053  (0.8835788031788671, 0.8399715195787192)
+                8     0.421632    (0.883240239698053, 0.839815382235226)
+                9     0.474211  (0.8833454760444799, 0.8381444821333328)
+                10    0.526789  (0.8817612864701729, 0.8376539639984177)
+                11    0.579368  (0.8820436530763995, 0.8367212403795014)
+                12    0.631947  (0.8814519611406787, 0.8389461863625524)
+                13    0.684526  (0.8808375865994101, 0.8382765202241252)
+                14    0.737105  (0.8809840506591808, 0.8395892670674611)
+                15    0.789684  (0.8814380192185137, 0.8398002164520746)
+                16    0.842263   (0.8822586609494353, 0.840774913104777)
+                17    0.894842  (0.8812572158281702, 0.8421072055782199)
+                18    0.947421  (0.8815423976980001, 0.8404889892591069)
+                19    1.000000   (0.881010486305841, 0.8407738594877234)
+                </code></pre>
+                </div>
+                </div>
+                <div id="7fe1b447" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4842e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:31.032871&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:31.018029&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking 1</li>
+                </ul>
+                </div>
+                <div id="b65a2fae" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.457e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:31.062355&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:31.047785&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  6. Lastly, Reduce Learning Rate and add more trees</b></div>
+                </div>
+                <div id="d5050bc0" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4663e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:31.092029&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:31.077366&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:6px;color:black;padding-left: 60px;font-size:120%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500">
+                <b>  6.1. Reduce Learning rate.</b></div>
+                </div>
+                <div id="4e7e7589" class="cell code" data-execution_count="18"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:31.123301Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:31.122912Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:33.135604Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:33.134838Z&quot;}"
+                data-papermill="{&quot;duration&quot;:2.03114,&quot;end_time&quot;:&quot;2023-01-09T11:31:33.137911&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:31.106771&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb28"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,</span>
+                <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;subsample&quot;</span>:<span class="fl">0.7</span>,<span class="st">&quot;colsample_bytree&quot;</span>:<span class="fl">.8</span>, <span class="st">&quot;scale_pos_weight&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;reg_alpha&quot;</span>:<span class="fl">0.15</span>,</span>
+                <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;reg_lambda&quot;</span>:<span class="dv">1</span>}</span>
+                <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>V_PARAM_NAME <span class="op">=</span> <span class="st">&quot;learning_rate&quot;</span></span>
+                <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>V_PARAM_VALUES <span class="op">=</span> np.linspace(start<span class="op">=</span><span class="fl">0.01</span>, stop<span class="op">=</span><span class="fl">0.3</span>, num<span class="op">=</span><span class="dv">10</span>).tolist()</span>
+                <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>xgb_helper(PARAMETERS,V_PARAM_NAME<span class="op">=</span>V_PARAM_NAME,V_PARAM_VALUES<span class="op">=</span>V_PARAM_VALUES)<span class="op">;</span></span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>   learning_rate                                       auc
+                0       0.010000   (0.855713530270808, 0.8334207445339894)
+                1       0.042222  (0.8587092932455096, 0.8348147563720609)
+                2       0.074444   (0.862042487494276, 0.8357581120451331)
+                3       0.106667  (0.8658326130454131, 0.8380194134948816)
+                4       0.138889   (0.867456218936832, 0.8397551989588203)
+                5       0.171111  (0.8710396787562106, 0.8411854139672925)
+                6       0.203333   (0.873634746455022, 0.8417298506166315)
+                7       0.235556  (0.8742498286647391, 0.8442379624397564)
+                8       0.267778  (0.8758428845033487, 0.8421168040274616)
+                9       0.300000  (0.8763744967034954, 0.8431341804372676)
+                </code></pre>
+                </div>
+                </div>
+                <div id="26d1843f" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4888e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:33.168949&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:33.154061&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="pointers">Pointers:</h3>
+                <ul>
+                <li>Taking .3</li>
+                </ul>
+                </div>
+                <div id="926b08ee" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.4675e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:33.198570&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:33.183895&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;padding-left: 45px;font-size:150%;text-align:left;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>  Full Model</b></div>
+                </div>
+                <div id="30fd98c6" class="cell code" data-execution_count="19"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:33.230045Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:33.229097Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:34.698620Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:34.697673Z&quot;}"
+                data-papermill="{&quot;duration&quot;:1.488209,&quot;end_time&quot;:&quot;2023-01-09T11:31:34.701584&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:33.213375&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb30"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>,<span class="st">&quot;max_depth&quot;</span>:<span class="dv">5</span>,<span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">1</span>,</span>
+                <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;gamma&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;subsample&quot;</span>:<span class="fl">0.7</span>,<span class="st">&quot;colsample_bytree&quot;</span>:<span class="fl">.8</span>, <span class="st">&quot;scale_pos_weight&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;reg_alpha&quot;</span>:<span class="fl">0.15</span>,</span>
+                <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;reg_lambda&quot;</span>:<span class="dv">1</span>,<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.3</span>}</span>
+                <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> xgb.XGBClassifier( tree_method<span class="op">=</span><span class="st">&quot;gpu_hist&quot;</span>,objective<span class="op">=</span><span class="st">&quot;binary:logistic&quot;</span>,eval_metric<span class="op">=</span><span class="st">&quot;auc&quot;</span>,max_depth<span class="op">=</span><span class="dv">5</span>,min_child_weight<span class="op">=</span><span class="dv">1</span>,</span>
+                <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>            gamma<span class="op">=</span><span class="dv">1</span>,subsample<span class="op">=</span><span class="fl">0.7</span>,colsample_bytree<span class="op">=</span><span class="fl">.8</span>, scale_pos_weight<span class="op">=</span><span class="dv">1</span>,reg_alpha<span class="op">=</span><span class="fl">0.15</span>,</span>
+                <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>           reg_lambda<span class="op">=</span><span class="dv">1</span>,learning_rate<span class="op">=</span> <span class="fl">0.3</span>,n_estimators<span class="op">=</span><span class="dv">800</span>)</span>
+                <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>clf.fit(X_train,y_train)</span>
+                <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+                <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>clf.save_model(<span class="st">&quot;categorical-model.json&quot;</span>)</span></code></pre></div>
+                </div>
+                <div id="a134aa72" class="cell code" data-execution_count="20"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:34.735004Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:34.733522Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:34.749134Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:34.748474Z&quot;}"
+                data-papermill="{&quot;duration&quot;:3.4135e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:34.751124&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:34.716989&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb31"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> clf.predict(X_test)</span></code></pre></div>
+                </div>
+                <div id="21259981" class="cell code" data-execution_count="21"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:34.784076Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:34.783787Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:34.794735Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:34.793652Z&quot;}"
+                data-papermill="{&quot;duration&quot;:2.9189e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:34.797153&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:34.767964&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb32"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
+                <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, pred, target_names<span class="op">=</span>[<span class="st">&quot;0&quot;</span>,<span class="st">&quot;1&quot;</span>]))</span></code></pre></div>
+                <div class="output stream stdout">
+                <pre><code>              precision    recall  f1-score   support
+                
+                           0       0.81      0.72      0.76       673
+                           1       0.75      0.83      0.79       680
+                
+                    accuracy                           0.78      1353
+                   macro avg       0.78      0.78      0.78      1353
+                weighted avg       0.78      0.78      0.78      1353
+                
+                </code></pre>
+                </div>
+                </div>
+                <div id="a0901591" class="cell code" data-execution_count="22"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:34.828930Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:34.827997Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:35.054929Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:35.053934Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.244862,&quot;end_time&quot;:&quot;2023-01-09T11:31:35.057084&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:34.812222&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb34"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> plot_roc_curve</span>
+                <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plot_roc_curve(clf, X_test, y_test)</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="22">
+                <pre><code>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x7f73c76dbd10&gt;</code></pre>
+                </div>
+                <div class="output display_data">
+                <p><img
+                src="./img/xgboost/img1.webp" /></p>
+                </div>
+                </div>
+                <div id="f6b978d5" class="cell code" data-execution_count="23"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:35.090664Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:35.089819Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:35.098037Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:35.096844Z&quot;}"
+                data-papermill="{&quot;duration&quot;:2.6854e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:35.100019&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:35.073165&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb36"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_auc_score</span>
+                <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>roc_auc_score(y_test,pred)</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="23">
+                <pre><code>0.7765033650904642</code></pre>
+                </div>
+                </div>
+
+                <div id="64b88f72" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.6173e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.228703&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.212530&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <hr />
+                </div>
+                <div id="341912af" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.6346e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.267475&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.251129&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <hr />
+                </div>
+                <div id="ab93a05b" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.6144e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.300028&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.283884&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:20px;color:black;margin:0;font-size:200%;text-align:center;display:fill;border-radius:5px;background-color:#d9d9d9;overflow:hidden;font-weight:500">Which parameter does what?</div>
+                </div>
+                <div id="3c8de75e" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.554e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.331825&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.316285&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="-5-which-parameter-does-what">📒 5. Which parameter does
+                what?</h1>
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Control Overfitting</b></div>
+                <p>When you observe high training accuracy, but low test accuracy, it is
+                likely that you encountered overfitting problem. There are in general
+                two ways that you can control overfitting in XGBoost:</p>
+                <ul>
+                <li><strong>The first way is to directly control model
+                complexity.</strong>
+                <ul>
+                <li>This includes <strong>max_depth, min_child_weight</strong> and
+                <strong>gamma</strong>.</li>
+                </ul></li>
+                <li><strong>The second way is to add randomness to make training robust
+                to noise.</strong>
+                <ul>
+                <li>This includes <strong>subsample</strong> and
+                <strong>colsample_bytree</strong>.</li>
+                <li>You can also reduce stepsize <strong>eta</strong>. Remember to
+                increase <strong>num_round</strong> when you do so.</li>
+                </ul></li>
+                </ul>
+                </div>
+                <div id="ecce3299" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5594e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.363414&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.347820&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:120%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Control Overfitting - Code Example : Method 1</b></div>
+                </div>
+                <div id="85b7b902" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5569e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.394530&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.378961&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="normal-condition">Normal Condition</h3>
+                </div>
+                <div id="1a7d942e" class="cell code" data-execution_count="25"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:37.427557Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:37.427145Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:37.705779Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:37.704997Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.297807,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.707937&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.410130&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb39"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>}</span>
+                <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>xgb_helper(PARAMETERS)</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="25">
+                <div>
+                <style scoped>
+                    .dataframe tbody tr th:only-of-type {
+                        vertical-align: middle;
+                    }
+                
+                    .dataframe tbody tr th {
+                        vertical-align: top;
+                    }
+                
+                    .dataframe thead th {
+                        text-align: right;
+                    }
+                </style>
+                <table border="1" class="dataframe">
+                  <thead>
+                    <tr style="text-align: right;">
+                      <th></th>
+                      <th>train-auc-mean</th>
+                      <th>train-auc-std</th>
+                      <th>test-auc-mean</th>
+                      <th>test-auc-std</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>0</th>
+                      <td>0.858413</td>
+                      <td>0.002187</td>
+                      <td>0.821862</td>
+                      <td>0.005628</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td>0.870282</td>
+                      <td>0.001689</td>
+                      <td>0.828690</td>
+                      <td>0.004939</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td>0.876322</td>
+                      <td>0.000856</td>
+                      <td>0.835879</td>
+                      <td>0.002703</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td>0.880106</td>
+                      <td>0.001456</td>
+                      <td>0.838758</td>
+                      <td>0.004261</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td>0.884137</td>
+                      <td>0.001624</td>
+                      <td>0.838674</td>
+                      <td>0.003967</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td>0.887057</td>
+                      <td>0.001697</td>
+                      <td>0.841544</td>
+                      <td>0.003510</td>
+                    </tr>
+                    <tr>
+                      <th>6</th>
+                      <td>0.889695</td>
+                      <td>0.002341</td>
+                      <td>0.842214</td>
+                      <td>0.005057</td>
+                    </tr>
+                    <tr>
+                      <th>7</th>
+                      <td>0.891214</td>
+                      <td>0.002497</td>
+                      <td>0.842708</td>
+                      <td>0.005743</td>
+                    </tr>
+                    <tr>
+                      <th>8</th>
+                      <td>0.892886</td>
+                      <td>0.002178</td>
+                      <td>0.843644</td>
+                      <td>0.005887</td>
+                    </tr>
+                    <tr>
+                      <th>9</th>
+                      <td>0.893928</td>
+                      <td>0.002417</td>
+                      <td>0.844092</td>
+                      <td>0.005543</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                <div id="77127784" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5733e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.740929&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.725196&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <p><strong>So, the difference between train and test AUC score is about
+                0.05, aka 5% - which is quite higher.</strong></p>
+                <p>Let's regularise.</p>
+                </div>
+                <div id="ede860cf" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5619e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.772481&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.756862&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h3 id="overfitting-controlled">Overfitting Controlled</h3>
+                </div>
+                <div id="a0373276" class="cell code" data-execution_count="26"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:37.806455Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:37.804929Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:37.934674Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:37.933993Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.148486,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.936759&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.788273&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb40"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>, <span class="st">&quot;max_depth&quot;</span>:<span class="dv">2</span> , <span class="st">&quot;min_child_weight&quot;</span>:<span class="dv">3</span>, <span class="st">&quot;gamma&quot;</span>:<span class="dv">2</span>}</span>
+                <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>xgb_helper(PARAMETERS)</span></code></pre></div>
+                <div class="output execute_result" data-execution_count="26">
+                <div>
+                <style scoped>
+                    .dataframe tbody tr th:only-of-type {
+                        vertical-align: middle;
+                    }
+                
+                    .dataframe tbody tr th {
+                        vertical-align: top;
+                    }
+                
+                    .dataframe thead th {
+                        text-align: right;
+                    }
+                </style>
+                <table border="1" class="dataframe">
+                  <thead>
+                    <tr style="text-align: right;">
+                      <th></th>
+                      <th>train-auc-mean</th>
+                      <th>train-auc-std</th>
+                      <th>test-auc-mean</th>
+                      <th>test-auc-std</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>0</th>
+                      <td>0.756095</td>
+                      <td>0.006712</td>
+                      <td>0.745616</td>
+                      <td>0.012709</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td>0.794688</td>
+                      <td>0.003016</td>
+                      <td>0.787055</td>
+                      <td>0.012553</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td>0.807168</td>
+                      <td>0.003095</td>
+                      <td>0.800497</td>
+                      <td>0.013173</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td>0.813550</td>
+                      <td>0.003732</td>
+                      <td>0.807774</td>
+                      <td>0.011470</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td>0.816639</td>
+                      <td>0.003505</td>
+                      <td>0.810455</td>
+                      <td>0.011466</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td>0.817854</td>
+                      <td>0.003483</td>
+                      <td>0.812003</td>
+                      <td>0.011679</td>
+                    </tr>
+                    <tr>
+                      <th>6</th>
+                      <td>0.821096</td>
+                      <td>0.004441</td>
+                      <td>0.814993</td>
+                      <td>0.011331</td>
+                    </tr>
+                    <tr>
+                      <th>7</th>
+                      <td>0.825188</td>
+                      <td>0.002974</td>
+                      <td>0.818432</td>
+                      <td>0.010964</td>
+                    </tr>
+                    <tr>
+                      <th>8</th>
+                      <td>0.828995</td>
+                      <td>0.002206</td>
+                      <td>0.821516</td>
+                      <td>0.010546</td>
+                    </tr>
+                    <tr>
+                      <th>9</th>
+                      <td>0.830942</td>
+                      <td>0.001293</td>
+                      <td>0.824446</td>
+                      <td>0.009938</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                <div id="4c168dae" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.6577e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:37.970726&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.954149&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <p><strong>So, the difference between train and test AUC score is less
+                than 0.01, aka 1% - which is quite better.</strong></p>
+                </div>
+                <div id="7e80b4d4" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5819e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.002586&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:37.986767&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:120%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Control Overfitting - Code Example : Method 2</b></div>
+                </div>
+                <div id="c0d75c7a" class="cell code" data-execution_count="27"
+                data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-01-09T11:31:38.035902Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-01-09T11:31:38.035562Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-01-09T11:31:38.196524Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-01-09T11:31:38.195817Z&quot;}"
+                data-papermill="{&quot;duration&quot;:0.18011,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.198675&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.018565&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div class="sourceCode" id="cb41"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>PARAMETERS<span class="op">=</span>{<span class="st">&quot;objective&quot;</span>:<span class="st">&#39;binary:logistic&#39;</span>,<span class="st">&quot;eval_metric&quot;</span>:<span class="st">&quot;auc&quot;</span>, <span class="st">&quot;subsample&quot;</span>:<span class="fl">0.3</span>,<span class="st">&quot;colsample_bytree&quot;</span>:<span class="fl">0.3</span>,<span class="st">&quot;eta&quot;</span>:<span class="fl">.05</span>}</span>
+                <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>xgb_helper(PARAMETERS,<span class="dv">25</span>) <span class="co">#increasing num bossting round to 15</span></span></code></pre></div>
+                <div class="output execute_result" data-execution_count="27">
+                <div>
+                <style scoped>
+                    .dataframe tbody tr th:only-of-type {
+                        vertical-align: middle;
+                    }
+                
+                    .dataframe tbody tr th {
+                        vertical-align: top;
+                    }
+                
+                    .dataframe thead th {
+                        text-align: right;
+                    }
+                </style>
+                <table border="1" class="dataframe">
+                  <thead>
+                    <tr style="text-align: right;">
+                      <th></th>
+                      <th>train-auc-mean</th>
+                      <th>train-auc-std</th>
+                      <th>test-auc-mean</th>
+                      <th>test-auc-std</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>0</th>
+                      <td>0.795186</td>
+                      <td>0.003369</td>
+                      <td>0.777080</td>
+                      <td>0.012016</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td>0.802556</td>
+                      <td>0.013406</td>
+                      <td>0.784662</td>
+                      <td>0.018255</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td>0.805264</td>
+                      <td>0.012572</td>
+                      <td>0.784439</td>
+                      <td>0.015186</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td>0.811922</td>
+                      <td>0.010274</td>
+                      <td>0.788479</td>
+                      <td>0.010984</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td>0.814276</td>
+                      <td>0.009995</td>
+                      <td>0.788180</td>
+                      <td>0.011646</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td>0.817306</td>
+                      <td>0.009768</td>
+                      <td>0.787911</td>
+                      <td>0.007396</td>
+                    </tr>
+                    <tr>
+                      <th>6</th>
+                      <td>0.817554</td>
+                      <td>0.011856</td>
+                      <td>0.788386</td>
+                      <td>0.007400</td>
+                    </tr>
+                    <tr>
+                      <th>7</th>
+                      <td>0.819985</td>
+                      <td>0.013085</td>
+                      <td>0.791502</td>
+                      <td>0.012313</td>
+                    </tr>
+                    <tr>
+                      <th>8</th>
+                      <td>0.821693</td>
+                      <td>0.013683</td>
+                      <td>0.794037</td>
+                      <td>0.013249</td>
+                    </tr>
+                    <tr>
+                      <th>9</th>
+                      <td>0.827255</td>
+                      <td>0.004718</td>
+                      <td>0.799101</td>
+                      <td>0.009761</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                <div id="362d5f86" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.7638e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.233271&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.215633&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <p><strong>So, now the difference between train and test AUC score is
+                less than 0.035, aka 3.5% - which is better than normal.</strong></p>
+                </div>
+                <div id="489076c2" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.603e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.265519&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.249489&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Faster training performance</b></div>
+                <p>There’s a parameter called <strong>tree_method</strong>, set it to
+                <strong>hist</strong> or <strong>gpu_hist</strong> for faster
+                computation.</p>
+                </div>
+                <div id="c4c20e94" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.584e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.297477&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.281637&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <div style="padding:10px;color:black;margin:0;font-size:150%;text-align:center;display:fill;border-radius:5px;background-color:#f5f2f2;overflow:hidden;font-weight:500"><b>Handle Imbalanced Dataset</b></div>
+                <p>For common cases such as ads clickthrough log, the dataset is
+                extremely imbalanced. This can affect the training of XGBoost model, and
+                there are two ways to improve it.</p>
+                <ul>
+                <li><strong>If you care only about the overall performance metric (AUC)
+                of your prediction</strong>
+                <ul>
+                <li>Balance the positive and negative weights via
+                <strong>scale_pos_weight</strong></li>
+                <li>Use AUC for evaluation</li>
+                </ul></li>
+                <li><strong>If you care about predicting the right probability</strong>
+                <ul>
+                <li>In such a case, you cannot re-balance the dataset</li>
+                <li>Set parameter <strong>max_delta_step</strong> to a finite number
+                (say 1) to help convergence</li>
+                </ul></li>
+                </ul>
+                </div>
+                <div id="7056b988" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5819e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.329279&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.313460&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <hr />
+                </div>
+                <div id="b8698f23" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.7355e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.363048&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.345693&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <hr />
+                </div>
+                <div id="7af4b101" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.6165e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.395341&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.379176&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                <h1 id="-references">📄 References</h1>
+                <ul>
+                <li><a href="https://www.kaggle.com/discussions/general/197466">XGBoost
+                tips &amp; tricks</a></li>
+                <li><a
+                href="https://towardsdatascience.com/binary-classification-xgboost-hyperparameter-tuning-scenarios-by-non-exhaustive-grid-search-and-c261f4ce098d">Binary
+                Classification: XGBoost Hyperparameter Tuning Scenarios</a></li>
+                <li><a
+                href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/">Complete
+                Guide to Parameter Tuning in XGBoost with codes in Python - Aarshay
+                Jain</a></li>
+                <li><a
+                href="https://xgboost.readthedocs.io/en/stable/tutorials/param_tuning.html">Notes
+                on Parameter Tuning</a></li>
+                <li><a
+                href="https://xgboost.readthedocs.io/en/stable/parameter.html">XGBoost
+                Parameters</a></li>
+                <li><a
+                href="https://towardsdatascience.com/l1-and-l2-regularization-explained-874c3b03f668">L1
+                and L2 Regularization — Explained | by Soner Yıldırım</a></li>
+                <li><a
+                href="https://medium.com/@azmine_wasi/xgboost-wrestling-with-hyperparameters-detailed-guide-part-01-3ecc8280f02b">XGBoost
+                | Wrestling with Hyperparameters</a></li>
+                </ul>
+                </div>
+                <div id="a8b506a1" class="cell markdown"
+                data-papermill="{&quot;duration&quot;:1.5934e-2,&quot;end_time&quot;:&quot;2023-01-09T11:31:38.427402&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-01-09T11:31:38.411468&quot;,&quot;status&quot;:&quot;completed&quot;}"
+                data-tags="[]">
+                </div>
+
+
+    <p></br></br></br></p>
+
+    <div class="block-share">
+    
+        <h5>Share this article</h5>
+        <ul class="social mt-20">
+        <li><a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-facebook"></i></a></li>
+        <li><a onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-twitter"></i></a></li>
+        <li><a onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-linkedin"></i></a></li>
+    </ul>
+    </div>
+    
+    <p></br></br></br></p>
+    
+<p>Copyright &copy; 2025 Azmine Toushik Wasi. All rights reserved.<br /><br /></p>
+                </div>
+            
+        </div>
+    
+    
+    <script type="text/javascript" async src='../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJaxb198.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP8GJQMDNP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SP8GJQMDNP');
+</script>
+
+<!-- Google analytics -->
+</body>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from maria-antoniak.github.io/2023/06/26/llms-with-care.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Feb 2024 04:23:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+   <title>বাংলায় Federated Learning | Azmine Toushik Wasi</title>
+    <!-- <title>Using LLMs With Care</title> -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Azmine Toushik Wasi, CV, Machine Learning, Research">
+    <meta name="author" content="Azmine Toushik Wasi">
+    <link rel="shortcut icon" type="image/webp" href="./resources/images/browser.jpg"/>
+    
+    
+    
+    
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rumii2luqs");
+</script>
+    
+    <meta name="description" content="Azmine Toushik Wasi | ML Research (Medical AI, AI4Science, GNN, HAI, NLP) | Kaggle GM | Explorer">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    
+    <!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/syntax.css" rel="stylesheet" >
+    <link rel="preload" href="../css/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    
+    <!-- Facebook Open Graph -->
+    <meta name="og:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="og:title" content="বাংলায় Federated Learning | Azmine Toushik Wasi">
+    <meta name="og:type" content="article">
+    <meta property="og:image" content="img\federated-learning.webp">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="1200">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="বাংলায় Federated Learning | Azmine Toushik Wasi">
+    <meta name="twitter:description" content="Wasi | AI/ML Research (GNN, XAI, CO, HAI) 📊 Kaggle Grandmaster 📝 Explorer">
+    <meta name="twitter:image" content="img\federated-learning.webp">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            <span id="author-name" class="alignable pull-left">
+                <a href="index.html" style="text-decoration:none">  Azmine Toushik Wasi</a>
+            </br><span style="font-size: 11pt; font-weight: 400; padding-bottom: 2px;">Aspiring AI Researcher and Engineering Student</span></span>
+                <ul class="alignable pull-right navbar-ul">
+                        <li class="alignable pull-right nav-list"><b><a href="../others.html">Blog</a></b></li>
+                        <li class="alignable pull-right nav-list"><a href="../experiences.html">Experience</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../education.html">Education</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../publications.html">Publications</a></li>
+                        <li class="alignable pull-right nav-list"><a href="../index.html">Research</a></li>
+                </ul>
+            </div>
+        <div style="clear:both"></div>
+        <hr>
+        
+            <div class="container content">
+                <p></br></p>
+                <h1>বাংলায় Federated Learning</h1>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <p></br></p>
+
+
+
+                <p >রাফি, নাফি, শাফি তিন বন্ধু। তুখোড় ব্রিলিয়ান্ট তিনজনই। গ্র্যাজুয়েশন হলো কদিন আগে, এখন নিজদের পায়ে দাড়ানোর পালা। যুগের সাথে তাল মিলাতে মাথায় ভূত চেপেছে আর্টিফিশিয়াল ইন্টেলিজেন্সের। কেমন হয়, যদি একটা বাংলা পার্সোনাল এসিস্ট্যান্ট এপ বানানো যায়?</p>
+
+                <p>এপ হয়েও গেলো দেখতে দেখতে, কোম্পানি লঞ্চও হলো। সবাই খুব পছন্দও করলো। সমস্যা শুরু তারপর। সাধারণভাবে, মেশিন লার্নিং মডেল রান করতে দরকার। যতো বেশি এবং যত ডাইভার্সিফাইড ডেটা, তত ভালো। আর মডেলগুলো রান হয়, সেন্ট্রালি, কোম্পানির সার্ভারে। সমস্যা কী তাহলে? এতো পার্সোনাল ডেটা কোম্পানির সার্ভারে রাখতে অনেক কাস্টোমারই ভয় পাচ্ছে, যদি লিক হয়ে যায়? রাফি ভাবলো, আচ্ছা, এতো ডেটা যদি না নেই? ডেটা ছাড়া মডেল ইম্প্রুভ করবি কীভাবে? শাফির জবাব।
+                    আমরাও একটু ভাবি, কী করা যায়? ডেটা কম নেয়া পসিবল না। কিন্তু আমার মডেল ট্রেইন করাতে হবে। উপায় একটা আছে! কী সেটা?
+                    আমরা ডেটাগুলো যদি আমাদের সার্ভারে না আনি, তাহলেই তো হচ্ছে, তাইনা? সার্ভারে না আনলে লিক হওয়ার ঝামেলা নাই, হলেও আমাদের কাধে আসছে না এর দায়! নাফি বললো। আমরা যদি কোনোভাবে ইউজারদের মোবাইলেই মডেলটা রান করায়ে ফেলি? তাহলে, তো আর সার্ভারে ডেটা নেয়া লাগলো না, মডেলও ইম্প্রুভ হলো!
+                    শুনতে কিছুটা ইন্টারেস্টিং আর ভীতিকর লাগছে তাইনা?
+                    এটাই ফেদেরেটেড লার্নিং!</p>
+                    <div style="margin:20px">
+                        <img alt="" style="width:100%" src="img/federated-learning/image4.webp">
+                        <p style="text-align: center; font-size:small;">ফেদেরেটেড লার্নিং (nVIDIA Blog)</p>
+                    </div>
+                    <h2 style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;" id="-">ইন্টারেস্টিং কেনো?</h2>
+                    <p>আইডিয়াটা মজার। সেন্ট্রাল সিস্টেম, তথা সব ডেটা সার্ভারে নিয়ে সেন্ট্রালি মডেল ট্রেইন না করে, বিভিন্ন ডিভাইসে ডিভাইসে রান করাবো। আর, পরে প্যারামিটারগুলা এনক্রিপডেট অবস্থায় সার্ভারে নিয়ে নিবো। একটা ডি-সেন্ট্রালাইজড মেথডে শিফট হচ্ছে প্রসেসটা।
+                    ভীতিকর কেনো? বা রে! আমার ফোনে ও মডেল চালাবে! মেশিন লার্নিং মডেলে তো অনেক পাওয়ার লাগে, গ্রাফিকস প্রসেসিং লাগে। আমার ব্যাটারির চার্জ? আমার ফোনের হায়াতও তো কমে যাবে!</p>
+                    <p >আসলেই কী তাই? 
+                    এবার একটু বিস্তারিত জানি কীভাবে এটা কাজ করে, আমাদের লাভ-লস আসলেই কিছু আছে কিনা!</p>
+                    <h2 style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;" id="-">ফেদেরেটেড লার্নিং কী?</h2>
+                    <p>একটা মেশিন লার্নিং মডেলের পারফমেন্স অনেকটুকুই নির্ভর করে তার ট্রেনিং ডেটার উপর। ডেটা যত রেলেভেন্ট হয়, তত ভালো। আর সবচেয়ে রেলেভেন্ট ডেটা কোথায় থাকে? ইউজারদের ডিভাইসে। এখন ডিভাইসে থাকা ডেটাই আমি সেন্ট্রাল সাভারে না এনে ডিভাইসেই রান করে সেটার মাধ্যমে আমার মেইন মডেল ইম্প্রুভ করার কাজ করতে পারি। এটাই হলো ফেদেরেটেড লার্নিং। আমরা সেন্ট্রালাইজড মডেল ট্রেইন করবো ডিসেন্ট্রালাইজড ডেটায়। 
+                    আমাদের ফোনেই মডেল রান হলে, ফোনে ব্যাটারির চার্জ? 
+                    নাহ, ব্যাটারির চার্জে সমস্যা হবেনা। যখন ভালো চার্জ থাকবে ফোনে, চার্জড অবস্থায় থাকবে এন্ড কোনো কাজ করছিনা এমন, তখন এপটা মডেল চালায়ে প্যারামিটার গুলা সেভ করে বসে থাকবে। পরে ইন্টারনেট সংযোগ পেলে টুক করে মেইন সার্ভারে পাঠিয়ে দিবে। মাত্র ১-২ মিনিটেই ট্রেইন হয়ে যাবে এ মডেল।</p>
+                    
+                    <div style="margin:20px">
+                        <img alt="" style="width:100%" src="img/federated-learning/image3.webp">
+                        <p style="text-align: center; font-size:small;">অলস ফোনে মডেল ট্রেইন হচ্ছে (Google AI Blog)</p>
+                    </div>
+                    
+                    <h2 style="text-align: left; font-size: 16px; font-weight: 800; padding-bottom: 10px;" id="-">সব ফোনেই হবে?</h2>
+                    <p>নাহ। প্রতিবার কিছু সিলেক্টেড ডিভাইসে হবে। মেইন সার্ভার মডেল এসব প্ল্যান করবে কাকে কখন কি ট্রেইনের কাজ দেয়া যায়। সে হিসেবে কয়েক মেগাবাইটের ছোটো একটা মডেল পাঠাবে ফোনে। ফোনের এপ সেটা পেয়ে পার্ফেক্ট টাইমের অপেক্ষায় থাকবে। পেলে ১-২ মিনিটেই ট্রেইন করে প্যারামিটারগুলা সেন্ট্রাল সার্ভারে পাঠায়ে দিয়ে সব ডিলিট করে ফেলবে। আসল ডেটা সার্ভারে যাবে না! </p>
+                    <h3 style="text-align: left; font-size: 16px; font-weight: 800; padding-bottom: 10px;" id="-">আচ্ছা, ডেটা ট্রান্সফারের সময় চুরি হলে?</h3>
+                    <p>না! তাও হবেনা! ফুল এনক্রিপটেড থাকবে! তারপর, সার্ভার ডিভাইস থেকে ট্রেইনড ডেটা পাওয়ার পর সেগুলো একসাথে করে ডিক্রিপ্ট করবে। এ টেকনোলজির নাম ‘সিকিউর এগ্রেগেশন’। এতে আগে এনক্রিপটেড ডেটাগুলো একত্র করে পরে ডিক্রিপ্ট করা হয়। এতে সার্ভার নিজেও জানতে পারেনা কোন প্যারামিটার কোন ডিভাইস থেকে এসেছে। তারপর প্যারামিটারগুলা এনালাইজ করে সে নিজের মেইন মডেল আপডেট করে নেয়। 
+                    তাহলে, ফেদেরেটেড লার্নিং এর মাধ্যমে কোনো ডেটা লিক ছাড়াই, কারো কোনো ক্ষয়ক্ষতি ছাড়াই, আরো ভালো রোবাস্ট মডেল রেডি হবে! ডেটা ডিভাইসে থাকায় একদম লেটেস্ট ডেটা সে ইউজ করতে পারবে; লাখ লাখ ইউজার থেকে একসাথে এভাবে শিখতে পারলে মডেল খুব দ্রুতই আরো ভালো পারফর্ম করবে।</p>
+                    
+                    <div style="margin:20px">
+                        <img alt="" style="width:100%" src="img/federated-learning/image2.webp">
+                        <p style="text-align: center; font-size:small;">ফেদেরেটেড লার্নিং (Google AI Blog)</p>
+                    </div>
+                    
+                    <p>উপরের ছবিতে যদি দেখি এখানে A প্রান্তে আছে আমাদের ইউজার, B তে তার ডিভাইস। C তে আমাদের সার্ভারে মেইন মডেল। মেইন মডেল সার্ভার থেকে একটা করে মডেল পাঠাবে ডিভাইসে। ডিভাইস সেটা ট্রেইন করবে। তার নিজস্ব ডেটা অনুযায়ী মডেলের প্যারামিটারগুলো ভিন্ন ভিন্ন আসবে। সেগুলো একত্র করে মেইন মডেল নিজেকে আপডেট করে নিবে। যেনো বায়াস বা ওভারফিটিং না হয়, সেজন্য প্রয়োজনমতো ফাংশনস চেঞ্জ করা যাবে মেইন মডেলে।</p>
+                    <hr>
+                    <h2 style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;" id="-">কোথায় কোথায় ব্যবহার করা যেতে পারে?</h2>
+                    <p>সেলফ ড্রাইভিং কারে প্রথমত। আমার গাড়ি কোথায় কখন ছিল, এ ডেটা গাড়ির কোম্পানির সার্ভারে রাখতে কে চায়? এটা খুবই পার্সোনাল ইনফো ও বিশাল সিকিউরিটির প্রশ্ন! কিন্তু, আমার তো রেগুলার আপডেট করা চাই মডেল! উপায়? ফেদেরেটেড লার্নিং! গাড়িতেই মডেল ট্রেইন হয়ে ইনফো সার্ভারে গিয়ে মেইন মডেল ইম্প্রুভ হয়ে যাবে কোনো পার্সোনাল ইনফো লিকের কোনো সম্ভাবনা ছাড়াই!
+                    হাসপাতালে রোগ নির্ণয়ের কোনো মডেল নিয়ে কাজ করলে এটা খুব ভালো অপশন হতে পারে! এমাজন এলেক্সা হতে পারে! বা, হালের জনপ্রিয় চ্যাটজিপিটি-তেই এরকম কিছু করা যেতে পারে! </p>
+                
+                <hr>
+                    <h2 style="text-align: left; font-size: 18px; font-weight: 800; padding-bottom: 10px;" id="-">কীভাবে এলো এই প্রযুক্তি এবং এখন কোথায় ব্যবহার হচ্ছে?</h2>
+                    <p>২০১৭ সালে টেক-জায়ান্ট গুগল ফেদেরেটেড লার্নিং ইন্ট্রোডিউস করে। এরপর থেকে গুগল এক্টিবলি কাজ করে যাচ্ছে এটার পেছনে। গুগল তার গুগল কিবোর্ডে এখন ইউজ করছে এটা। কখন? আমরা গুগল সার্চ করলে সাজেশনস দেখায় অনেক, তাইনা? এ ইনফো-টা সেভ করে রাখে বডেল যে, আমরা কোন সাজেশনে ক্লিক করছি। পরে এ ডেটা দিয়ে ফেদেরেটেড মেথডে সে মেইন মডেলে আপডেট করে, যেন পরেরবার আরো ভালো সাজেশন দেখাতে পারে!
+                    </p>
+                
+                    <div style="margin:20px">
+                        <img alt="" style="width:100%" src="img/federated-learning/image1.gif">
+                        <p style="text-align: center; font-size:small;">গুগল কিবোর্ডে ফেদেরেটেড লার্নিং</p>
+                    </div>
+                    <p>
+                        তাছাড়াও গুগল কিবোর্ডে ইমোজি প্রিডিকশন, নেক্সট ওয়ার্ড প্রিডিকশনসহ আরো নানা কাজে ব্যবহৃত হচ্ছে এ প্রযুক্তি! তারপর গুগল পিক্সেলের ফোনের Now Playing ফিচারও ফেদেরেটেড লার্নিং সাপোর্টেড। গুগল স্পিচেও এ প্রযুক্তি ব্যবহার করছে গুগল। </p>
+                    <hr>
+                    <p>সবই বুঝলাম, কিন্তু নামটা Federated Learning কেনো? Federation শব্দটা চেনা লাগে? আমরা সবাই-ই শুনেছি, তাইনা? ফেডারেশন কী? একাধিক মানুষের কম্বিনেশন, ক্লাবের মতো। এখানেও মেইন মডেলটা অনেকগুলা ছোট মডেলের কম্বিনেশন থেকে শিখে খুব দ্রুত এন্ড ইফিসিয়েন্টলি। একটা ফেডারেশনের মতোই অনেকগুলো ডিভাইস একসাথে মিলে কোলাবোরেশনের মাধ্যমে মেশিন লার্নিং মডেল ট্রেইন করার কাজ করে বলে। তাই এর নাম Federated Learning! আর এজন্যই, দশে মিলে করি কাজ, হারি জিতি নাহি লাজ!</p>
+                    
+
+
+    <p></br></br></br></p>
+
+    <div class="block-share">
+    
+        <h5>Share this article</h5>
+        <ul class="social mt-20">
+        <li><a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-facebook"></i></a></li>
+        <li><a onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-twitter"></i></a></li>
+        <li><a onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href.replace('fage.afa.aef', '')), '_blank');"><i class="icon-linkedin"></i></a></li>
+    </ul>
+    </div>
+    
+    <p></br></br></br></p>
+    
+<p>Copyright &copy; 2025 Azmine Toushik Wasi. All rights reserved.<br /><br /></p>
+                </div>
+            
+        </div>
+    
+    
+    <script type="text/javascript" async src='../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJaxb198.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP8GJQMDNP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SP8GJQMDNP');
+</script>
+
+<!-- Google analytics -->
+</body>
