@@ -1,40 +1,33 @@
-// script.js
+// Page Contents nav scrollspy (mirrors original behavior).
+(function () {
+  const navContainer = document.getElementById('navbar');
+  if (!navContainer) return;
 
-document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.getElementById('navbar');
-    const headers = document.querySelectorAll('h2');
-    if (!navbar || !headers.length) return;
+  const headings = Array.from(document.querySelectorAll('h2[id]'));
+  if (!headings.length) return;
 
-    // Dynamically populate the navbar
-    headers.forEach(header => {
-        const link = document.createElement('a');
-        link.href = `#${header.id}`;
-
-        const icon = header.querySelector('[data-lucide], svg.lucide');
-        if (icon) {
-            link.appendChild(icon.cloneNode(true));
-            link.appendChild(document.createTextNode(' ' + header.textContent.trim()));
-        } else {
-            link.textContent = header.textContent;
-        }
-
-        navbar.appendChild(link);
-    });
-
-    // Function to update the active link based on scroll position
-    function updateActiveLink() {
-        let index = headers.length;
-
-        while (--index && window.scrollY + 300 < headers[index].offsetTop) {}
-
-        const navLinks = navbar.querySelectorAll('a');
-        navLinks.forEach((link) => link.classList.remove('active'));
-        if (navLinks[index]) {
-            navLinks[index].classList.add('active');
-        }
+  headings.forEach(h => {
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    // Clone the heading's icon (either the <i data-lucide> placeholder, if
+    // Lucide hasn't rendered yet, or the rendered <svg>) into the sidebar link.
+    const icon = h.querySelector('[data-lucide], svg.lucide');
+    if (icon) {
+      a.appendChild(icon.cloneNode(true));
+      a.appendChild(document.createTextNode(' ' + h.textContent.trim()));
+    } else {
+      a.textContent = h.textContent.trim();
     }
+    navContainer.appendChild(a);
+  });
 
-    // Add scroll event listener
-    window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink();  // Initialize the active link on page load
-});
+  const links = Array.from(navContainer.querySelectorAll('a'));
+  window.addEventListener('scroll', () => {
+    let current = headings[0].id;
+    const y = window.scrollY + 120;
+    for (const h of headings) {
+      if (h.offsetTop <= y) current = h.id;
+    }
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  }, { passive: true });
+})();
