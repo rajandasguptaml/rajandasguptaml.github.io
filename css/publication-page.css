@@ -1,5 +1,7 @@
-/* Publications page: filter pills and list layout. Colours come from css/main.css. */
+/* Publication lists (homepage and Publications page): filter pills, paper rows,
+   and resource links. Colours come from the theme variables in css/main.css. */
 
+/* ---------- research-area filter ---------- */
 .selector{margin-top:4px;
 margin-bottom:8px;
 line-height:1.8}
@@ -14,13 +16,149 @@ transition:transform 0.08s ease, background-color 0.12s ease}
 
 .selector .button-pdfxx:active{transform:translateY(0)}
 
-.core-section li + li{margin-top:6px}
-
 @media (max-width: 768px){
 .selector .button-pdfxx,
 .selector .button-pdf{margin-bottom:6px}
 }
 
-/* Room for two-digit list markers such as [10] */
+/* ---------- paper rows ---------- */
 .core-section ol{padding-left:36px}
-.core-section ol>li:before{left:-36px}
+
+.core-section ol > li{position:relative;
+box-sizing:border-box;
+margin:0;
+padding:1.05rem 0.15rem 1.2rem;
+border-bottom:1px solid var(--line)}
+
+/* [n] marker, with room for two digits such as [10] */
+.core-section ol > li:before{top:1.05rem;
+left:-36px;
+white-space:nowrap;
+line-height:1.5;
+color:var(--muted);
+font-size:var(--font-meta)}
+
+.core-section ol > li p.single-paper-f{max-width:100%;
+margin:0;
+color:var(--muted);
+font-size:var(--font-entry);
+line-height:1.58;
+overflow-wrap:anywhere}
+
+/* the row keeps its colour on hover; only the links react */
+.core-section ol > li p.single-paper-f:hover{color:var(--muted)}
+
+/* The first link (or bare <strong>) in an entry is the paper title. */
+.core-section ol > li p.single-paper-f > a:first-child,
+.core-section ol > li p.single-paper-f > strong:first-child{color:var(--text);
+font-size:17px;
+font-weight:700;
+line-height:1.35;
+text-decoration:none}
+
+.core-section ol > li p.single-paper-f > a:first-child:hover{color:var(--hover);
+text-decoration:underline;
+text-decoration-color:var(--hover)}
+
+.core-section ol > li p.single-paper-f a:not(:first-child){color:var(--muted);
+font-size:var(--font-entry)}
+
+.core-section ol > li p.single-paper-f a:not(:first-child):hover,
+.core-section ol > li p.single-paper-f a:not(:first-child):hover span{color:var(--hover)}
+
+.core-section ol > li p.single-paper-f .venue,
+.core-section ol > li p.single-paper-f .pub-link{color:var(--hl-text);
+font-weight:600}
+
+.core-section ol > li p.single-paper-f .author-me{color:var(--text);
+font-weight:650}
+
+/* ---------- resource links: PDF, DOI, arXiv ---------- */
+.publication-actions{display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:0.25rem;
+margin-top:0.3rem}
+
+.publication-resource-link,
+.publication-action-button{display:inline-flex;
+align-items:center;
+min-height:1.25rem;
+box-sizing:border-box;
+border:1px solid var(--hl);
+border-radius:7px;
+padding:0.06rem 0.45rem;
+background:transparent;
+color:var(--muted);
+font-family:inherit;
+font-size:var(--font-meta);
+font-weight:500;
+line-height:1.25;
+text-decoration:none;
+cursor:pointer;
+transition:background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease}
+
+.publication-resource-link:hover,
+.publication-resource-link:focus-visible,
+.publication-action-button:hover,
+.publication-action-button:focus-visible,
+.publication-action-button[aria-expanded="true"]{background:var(--hl);
+border-color:var(--hl);
+color:var(--on-hl);
+font-weight:500;
+text-decoration:none}
+
+/* ---------- expandable Abstract and BibTeX panels (built by js/publications.js) ---------- */
+.publication-details{margin-top:0.2rem}
+
+.publication-box{box-sizing:border-box;
+width:100%;
+margin:0.15rem 0 0;
+border:1px solid var(--line);
+border-left:2px solid var(--hl);
+border-radius:8px;
+padding:0.4rem 0.6rem;
+background:var(--card);
+color:var(--muted);
+font-size:var(--font-meta);
+line-height:1.5;
+overflow-wrap:anywhere}
+
+.publication-box[hidden]{display:none}
+
+.publication-bibtex{margin:0;
+white-space:pre-wrap;
+font-family:Consolas, "Courier New", monospace;
+font-size:0.75rem;
+color:var(--text)}
+
+.publication-copy-button{display:inline-flex;
+align-items:center;
+min-height:1.25rem;
+margin-top:0.35rem;
+border:1px solid var(--hl);
+border-radius:7px;
+padding:0.06rem 0.45rem;
+background:transparent;
+color:var(--hl-text);
+font-family:inherit;
+font-size:var(--font-meta);
+font-weight:600;
+line-height:1.25;
+cursor:pointer}
+
+.publication-copy-button:hover,
+.publication-copy-button:focus-visible{background:var(--hl);
+color:var(--on-hl)}
+
+.section-note{color:var(--muted);
+font-size:var(--font-entry);
+margin:6px 0 0}
+
+@media (max-width: 650px){
+.core-section ol > li{padding:0.9rem 0.15rem 1rem}
+.core-section ol > li:before{top:0.9rem}
+.publication-resource-link,
+.publication-action-button,
+.publication-copy-button{min-height:1.4rem}
+}

@@ -8,25 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Rajan Das Gupta, Publications, Machine Learning, Clinical AI, Multimodal">
     <meta name="author" content="Rajan Das Gupta">
-    <link rel="icon" type="image/png" href="./resources/images/favicon.png"/>
+    <link rel="icon" type="image/png" href="./resources/images/favicon.png?v=11"/>
 
 
     <meta name="description" content="Rajan Das Gupta | Publications in Clinical AI, Multimodal Learning, Explainable ML, Low-Resource NLP">
-    <link rel="stylesheet" href="css/main.css?v=9">
-    <link href="css/syntax.css?v=9" rel="stylesheet" >
-    <link rel="stylesheet" href="css/publication-page.css?v=9">
+    <link rel="stylesheet" href="css/main.css?v=11">
+    <link rel="stylesheet" href="css/publication-page.css?v=11">
+
+    <link rel="canonical" href="https://rajandasguptaml.github.io/publications.html">
 
     <!-- Facebook Open Graph -->
-    <meta name="og:description" content="Publications in Clinical AI, Multimodal Learning, Explainable ML, Low-Resource NLP">
-    <meta name="og:title" content="Rajan Das Gupta | Publications">
-    <meta name="og:type" content="article">
+    <meta property="og:description" content="Publications in Clinical AI, Multimodal Learning, Explainable ML, Low-Resource NLP">
+    <meta property="og:title" content="Rajan Das Gupta | Publications">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rajandasguptaml.github.io/publications.html">
+    <meta property="og:image" content="https://rajandasguptaml.github.io/resources/images/me_cropped.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Rajan Das Gupta | Publications">
     <meta name="twitter:description" content="Publications in Clinical AI, Multimodal Learning, Explainable ML, Low-Resource NLP">
+    <meta name="twitter:image" content="https://rajandasguptaml.github.io/resources/images/me_cropped.jpg">
 
-    <script src="js/theme.js?v=9"></script>
+    <script src="js/theme.js?v=11"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -35,6 +39,7 @@
             <a href="index.html" style="text-decoration:none">  Rajan Das Gupta</a>
         </br><span style="font-size: 11pt; font-weight: 400; padding-bottom: 2px;">AI Researcher in Clinical Decision Support</span></span>
             <ul class="alignable pull-right navbar-ul">
+                    <li class="alignable pull-right nav-list"><a target="_blank" href="resources/Rajan_Das_Gupta_CV.pdf">CV</a></li>
                     <li class="alignable pull-right nav-list"><a href="others.html">Others</a></li>
                     <li class="alignable pull-right nav-list"><a href="experiences.html">Experience</a></li>
                     <li class="alignable pull-right nav-list"><a href="education.html">Education</a></li>
@@ -46,6 +51,7 @@
         <hr>
 
             <div class="container content">
+<h1 class="visually-hidden">Publications of Rajan Das Gupta</h1>
 
 
 <p><br/></p>
@@ -95,12 +101,28 @@
 <ol>
 
   <li id="NLP LowResource LLM">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="#"><strong>
-      REASOH: A Multi-Level Multi-Faceted Hindi Numerical Evaluation Suite for Foundation Models</strong></a>
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://aclanthology.org/2026.findings-emnlp.481/"><strong>
+      HI-REASO: A Multi-Level Multi-Faceted Hindi Mathematical Evaluation Suite for Foundation Models</strong></a>
       <br />
       Md Tanzib Hosain, <span class="author-me">Rajan Das Gupta</span>, Zannatul Fardaush Tripty, Md Kishor Morol</br>
       <span class="venue">EMNLP 2026 (Findings)</span>, The Association for Computational Linguistics (<b>CORE A*</b>).
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://aclanthology.org/2026.findings-emnlp.481.pdf">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.18653/2026.findings-emnlp.481">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://github.com/rajandasguptaml/HI-REASOH_Dataset">Code &amp; Data</a>
+    </div>
+    <div data-publication-abstract hidden>Large Language Models (LLMs) have shown impressive capabilities across many language understanding tasks; however, their ability to perform numerical reasoning remains fragile, particularly outside English. This limitation is especially concerning for Hindi, a language with hundreds of millions of speakers but relatively little focused evaluation in numerically grounded reasoning. In this work, we present HI-REASO, a benchmark designed to systematically evaluate numerical reasoning in Hindi. The benchmark comprises six complementary task types and 3k instances drawn from educational materials, real-world problem formulations, and commonsense reasoning scenarios. We assess a range of state-of-the-art LLMs using Hindi-native prompting as well as cross-lingual prompting and cross-lingual chain-of-thought reasoning. Across all settings, models consistently underperform compared to human baselines, with the largest performance degradation observed when reasoning is conducted directly in Hindi. While cross-lingual strategies offer partial improvements, they do not close the gap. Our findings reveal fundamental shortcomings in current LLMs’ numerical reasoning abilities under Hindi-native conditions and motivate the development of models and training paradigms that better support linguistically diverse numerical reasoning. We publicly release the code and data at https://github.com/kraritt/hi-reaso.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Hosain_2026,
+  title     = {HI-REASO: A Multi-Level Multi-Faceted Hindi Mathematical Evaluation Suite for Foundation Models},
+  url       = {http://dx.doi.org/10.18653/2026.findings-emnlp.481},
+  doi       = {10.18653/2026.findings-emnlp.481},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
+  publisher = {Association for Computational Linguistics},
+  author    = {Hosain, Md Tanzib and Gupta, Rajan Das and Tripty, Zannatul Fardaush and Morol, Md Kishor},
+  year      = {2026},
+  pages     = {10090--10112}
+}</pre>
   </li>
 
   <li id="ClinicalAI RAG Multimodal XAI">
@@ -109,8 +131,24 @@
       <br />
       <span class="author-me">Rajan Das Gupta</span>, Md Kishor Morol, Nafiz Fahad, Md Tanzib Hosain, S. B. Z. Choya, Md Jakir Hossen</br>
       <span class="venue">ICMLA 2025</span>, 24th International Conference on Machine Learning and Applications. <em>First author.</em>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2511.02490"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2511.02490">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ICMLA66185.2025.00224">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.02490">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>As the global burden of Alzheimer’s disease (AD) continues to grow, early and accurate detection has become increasingly critical, especially in regions with limited access to advanced diagnostic tools. We propose BRAINS (Biomedical Retrieval-Augmented Intelligence for Neurodegeneration Screening) to address this challenge. This novel system harnesses the powerful reasoning capabilities of Large Language Models (LLMs) for Alzheimer’s detection and monitoring. BRAINS features a dual-module architecture: a cognitive diagnostic module and a case-retrieval module. The Diagnostic Module utilises LLMs fine-tuned on cognitive and neuroimaging datasets—including MMSE, CDR scores, and brain volume metrics—to perform structured assessments of Alzheimer’s risk. Meanwhile, the Case Retrieval Module encodes patient profiles into latent representations and retrieves similar cases from a curated knowledge base. These auxiliary cases are fused with the input profile via a Case Fusion Layer to enhance contextual understanding. The combined representation is then processed with clinical prompts for inference. Evaluations on real-world datasets demonstrate BRAINS effectiveness in classifying disease severity and identifying early signs of cognitive decline. This system not only shows strong potential as an assistive tool for scalable, explainable, and early-stage Alzheimer’s disease detection, but also offers hope for future applications in the field.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Gupta_2025,
+  title     = {BRAINS: A Retrieval-Augmented System for Alzheimer’s Detection and Monitoring},
+  url       = {http://dx.doi.org/10.1109/ICMLA66185.2025.00224},
+  doi       = {10.1109/icmla66185.2025.00224},
+  booktitle = {2025 International Conference on Machine Learning and Applications (ICMLA)},
+  publisher = {IEEE},
+  author    = {Gupta, Rajan Das and Kishor Morol, Md and Fahad, Nafiz and Hosain, Md Tanzib and Binte Zilani Choya, Sumaya and Hossen, Md Jakir},
+  year      = {2025},
+  month     = Dec,
+  pages     = {1473--1478}
+}</pre>
   </li>
 
   <li id="ClinicalAI XAI AppliedML">
@@ -119,17 +157,75 @@
       <br />
       <span class="author-me">Rajan Das Gupta</span>, Xiaobin Wu, Xun Liu, Jiaqi He</br>
       <span class="venue">ICICML 2025</span>, 4th Intl. Conf. on Image Processing, Computer Vision and Machine Learning. <em>First author.</em>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2601.17767"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2601.17767">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ICICML67980.2025.11333523">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.17767">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Cardiovascular disease (CVD) remains the foremost cause of mortality worldwide, underscoring the urgent need for intelligent and data-driven diagnostic tools. Traditional predictive models often struggle to generalize across heterogeneous datasets and complex physiological patterns. To address this, we propose a hybrid ensemble framework that integrates deep learning architectures—Convolutional Neural Networks (CNN) and Long Short-Term Memory (LSTM)—with classical machine learning algorithms, including K-Nearest Neighbor (KNN) and Extreme Gradient Boosting (XGB), using an ensemble voting mechanism. This approach combines the representational power of deep networks with the interpretability and efficiency of traditional models. Experiments on two publicly available Kaggle datasets demonstrate that the proposed model achieves superior performance, reaching 82.30% accuracy on Dataset I and 97.10% on Dataset II, with consistent gains in precision, recall, and F1-score. These findings underscore the robustness and clinical potential of hybrid AI frameworks for predicting cardiovascular disease and facilitating early intervention. Furthermore, this study directly supports the United Nations Sustainable Development Goal 3 (Good Health and Well-being) by promoting early diagnosis, prevention, and management of non-communicable diseases through innovative, data-driven healthcare solutions.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Gupta_2025,
+  title     = {HyCARD-Net: A Synergistic Hybrid Intelligence Framework for Cardiovascular Disease Diagnosis},
+  url       = {http://dx.doi.org/10.1109/ICICML67980.2025.11333523},
+  doi       = {10.1109/icicml67980.2025.11333523},
+  booktitle = {2025 4th International Conference on Image Processing, Computer Vision and Machine Learning (ICICML)},
+  publisher = {IEEE},
+  author    = {Gupta, Rajan Das and Wu, Xiaobin and Liu, Xun and He, Jiaqi},
+  year      = {2025},
+  month     = Nov,
+  pages     = {1365--1370}
+}</pre>
   </li>
 
   <li id="ClinicalAI XAI AppliedML">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="#"><strong>
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://doi.org/10.1145/3792746.3792782"><strong>
       Locally Interpretable Surrogate-Guided Neural Framework for Multi-Class Liver Cirrhosis Staging</strong></a>
       <br />
       <span class="author-me">Rajan Das Gupta</span>, Xiaobin Wu, Xun Liu, Jiaqi He</br>
       <span class="venue">ICHIH 2025</span>, 4th Intl. Conf. on Health Big Data and Intelligent Healthcare. <em>First author.</em>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/3792746.3792782">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3792746.3792782">DOI</a>
+    </div>
+    <div data-publication-abstract hidden>Liver cirrhosis remains a major global health burden, affecting an estimated 1.70 billion individuals worldwide, yet clinical staging continues to rely on coarse, partially subjective scoring systems with limited granularity and interpretability. This work introduces an explainable machine learning framework for multi-class cirrhosis stage classification that integrates a nonlinear multilayer perceptron (MLP) with Local Interpretable Model-Agnostic Explanations (LIME) to provide faithful, instance-level reasoning. The model is trained on a clinically inspired dataset derived from the Mayo Clinic primary biliary cirrhosis cohort and expanded to 25,000 records using class-conditional kernel density estimation (KDE) with bandwidth selected via Silverman’s rule and physiological-constraint filtering to ensure distribution-preserving, clinically plausible synthetic augmentation. The pipeline incorporates rigorous preprocessing—including KNN imputation, one-hot encoding, mutual-information-based feature selection, and min–max normalization—to enhance data quality and model stability. The proposed framework achieves 92% accuracy and demonstrates competitive performance against strong baselines such as Random Forests, Logistic Regression, and LightGBM. LIME-based explanations highlight clinically coherent biomarkers and expose potential failure modes, improving transparency and supporting safe clinical integration. By coupling robust predictive performance with interpretable decision pathways, this work advances trustworthy AI for hepatology and contributes to global health objectives under United Nations Sustainable Development Goal 3.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Gupta_2025,
+  series    = {ICHIH 2025},
+  title     = {Locally Interpretable Surrogate-Guided Neural Framework for Multi-Class Liver Cirrhosis Staging},
+  url       = {http://dx.doi.org/10.1145/3792746.3792782},
+  doi       = {10.1145/3792746.3792782},
+  booktitle = {Proceedings of the 2025 4th International Conference on Health Big Data and Intelligent Healthcare},
+  publisher = {ACM},
+  author    = {Gupta, Rajan Das and Wu, Xiaobin and Liu, Xun and He, Jiaqi},
+  year      = {2025},
+  month     = Dec,
+  pages     = {219--223},
+  collection = {ICHIH 2025}
+}</pre>
+  </li>
+
+  <li id="ClinicalAI XAI AppliedML">
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://doi.org/10.1109/CCAT68690.2025.00034"><strong>
+      PredictDR: Interpretable Deep Learning for Diabetic Retinopathy Risk Stratification From Clinical Data</strong></a>
+      <br />
+      <span class="author-me">Rajan Das Gupta</span>, Xiaobin Wu, Xun Liu, Jiaqi He</br>
+      <span class="venue">CCAT 2025</span>, 4th International Conference on Computer Applications Technology, pp. 166-170. <em>First author.</em>
+    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/CCAT68690.2025.00034">DOI</a>
+    </div>
+    <div data-publication-abstract hidden>Diabetic retinopathy (DR) is a leading cause of preventable vision loss worldwide and a key challenge in addressing non-communicable diseases under United Nations Sustainable Development Goal 3 (SDG 3: Good Health and Well-Being). Most current approaches rely on imaging-based methods that are costly and difficult to scale, limiting health equity in lowresource settings. We introduce PredictDR, an interpretable deep learning framework that predicts and stratifies DR risk directly from structured clinical data. Using the Diabetes Complications Data Set (2016-2021, n=3,000), a deep neural network (DNN) was trained on routinely collected health records and compared with five machine learning models: logistic regression, decision trees, naïve Bayes, random forest, and support vector machines. PredictDR outperformed all baselines, capturing nonlinear interactions among key predictors such as HbA1c, blood pressure, and nephropathy. Shapley Additive Explanations (SHAP) quantified feature contributions, confirming alignment with known risk factors and highlighting additional comorbidities. By enabling earlier detection and efficient resource use, this framework supports precision diabetes care, strengthens universal health coverage, and directly advances SDG 3.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Gupta_2025,
+  title     = {PredictDR: Interpretable Deep Learning for Diabetic Retinopathy Risk Stratification From Clinical Data},
+  url       = {http://dx.doi.org/10.1109/CCAT68690.2025.00034},
+  doi       = {10.1109/ccat68690.2025.00034},
+  booktitle = {2025 4th International Conference on Computer Applications Technology (CCAT)},
+  publisher = {IEEE},
+  author    = {Gupta, Rajan Das and Wu, Xiaobin and Liu, Xun and He, Jiaqi},
+  year      = {2025},
+  month     = Nov,
+  pages     = {166--170}
+}</pre>
   </li>
 
   <li id="HCI LLM Multimodal">
@@ -138,8 +234,25 @@
       <br />
       <span class="author-me">Rajan Das Gupta</span>, Md. Tanzib Hosain, M. Firoz Mridha, Salah Uddin Ahmed</br>
       <span class="venue">HCII 2025</span> (Human-Computer Interaction International), pp. 59-69. <em>First author.</em>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2503.06552"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2503.06552">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-3-031-93864-1_5">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.06552">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>LLM chatbot interfaces allow students to get instant, interactive assistance with homework, but doing so carelessly may not advance educational objectives. In this study, an interactive homework help system based on DeepSeek R1 is developed and first implemented for students enrolled in a large computer science beginning programming course. In addition to an assist button in a well-known code editor, our assistant also has a feedback option in our command-line automatic evaluator. It wraps student work in a personalized prompt that advances our educational objectives without offering answers straight away. We have discovered that our assistant can recognize students' conceptual difficulties and provide ideas, plans, and template code in pedagogically appropriate ways. However, among other mistakes, it occasionally incorrectly labels the correct student code as incorrect or encourages students to use correct-but-lesson-inappropriate approaches, which can lead to long and frustrating journeys for the students. After discussing many development and deployment issues, we provide our conclusions and future actions.</div>
+    <pre data-publication-bibtex hidden>@inbook{Gupta_2025,
+  title     = {Multimodal Programming in Computer Science with Interactive Assistance Powered by Large Language Model},
+  isbn      = {9783031938641},
+  issn      = {1611-3349},
+  url       = {http://dx.doi.org/10.1007/978-3-031-93864-1_5},
+  doi       = {10.1007/978-3-031-93864-1_5},
+  booktitle = {Human-Computer Interaction},
+  publisher = {Springer Nature Switzerland},
+  author    = {Gupta, Rajan Das and Hosain, Md. Tanzib and Mridha, M. F. and Ahmed, Salah Uddin},
+  year      = {2025},
+  pages     = {59--69}
+}</pre>
   </li>
 
   <li id="Multimodal VLM CV AppliedML">
@@ -148,8 +261,24 @@
       <br />
       <span class="author-me">Rajan Das Gupta</span>, Md Yeasin Rahat, Nafiz Fahad, A. Ahmed, Liew Tze Hui</br>
       <span class="venue">AIBDF 2025</span>, 5th Intl. Symposium on Artificial Intelligence and Big Data. <em>First author.</em>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2508.09818"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2508.09818">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/AIBDF67964.2025.11440858">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2508.09818">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>This study investigates the use of large language models (LLMs) for human behavior understanding by jointly leveraging motion and video data. We argue that integrating these complementary modalities is essential for capturing both fine-grained motion dynamics and contextual semantics of human actions, addressing the limitations of prior motion-only or video- only approaches. To this end, we propose ViMoNet, a multimodal vision-language framework trained through a two-stage alignment and instruction-tuning strategy that combines precise motion-text supervision with large-scale video-text data. We further introduce VIMOS, a multimodal dataset comprising human motion sequences, videos, and instruction-level annotations, along with ViMoNet-Bench, a standardized benchmark for evaluating behavior-centric reasoning. Experimental results demonstrate that ViMoNet consistently outperforms existing methods across caption generation, motion understanding, and human behavior interpretation tasks. The proposed framework shows significant potential in assistive healthcare applications, such as elderly monitoring, fall detection, and early identification of health risks in aging populations. This work contributes to United Nations Sustainable Development Goal 3 (SDG 3: Good Health and Well-being) by enabling accessible AI-driven tools that promote universal health coverage, reduce preventable health issues, and enhance overall well-being.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Das_Gupta_2025,
+  title     = {ViMoNet: A Multimodal Vision-Language Framework for Human Behavior Understanding from Motion and Video},
+  url       = {http://dx.doi.org/10.1109/AIBDF67964.2025.11440858},
+  doi       = {10.1109/aibdf67964.2025.11440858},
+  booktitle = {2025 5th International Symposium on Artificial Intelligence and Big Data (AIBDF)},
+  publisher = {IEEE},
+  author    = {Das Gupta, Rajan and Wei, Lei and Rahat, Md Yeasin and Fahad, Nafiz and Ahmed, Abir and Liew, Tze Hui},
+  year      = {2025},
+  month     = Dec,
+  pages     = {1025--1029}
+}</pre>
   </li>
 
   <li id="VLM CV AppliedML">
@@ -157,19 +286,53 @@
       VLAgeBench: Benchmarking Large Vision-Language Models for Zero-Shot Human Age Estimation</strong></a>
       <br />
       R. H. Sajib, M. K. Morol, <span class="author-me">Rajan Das Gupta</span>, M. S. Mahmood, S. S. Das</br>
-      <span class="venue">ICCIT 2026</span>, 28th International Conference on Computer and Information Technology.
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2603.26015"><span class="pub-link">[PDF]</span></a>
+      <span class="venue">ICCIT 2025</span>, 28th International Conference on Computer and Information Technology.
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2603.26015">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ICCIT68739.2025.11490216">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.26015">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Human age estimation from facial images represents a challenging computer vision task with significant applications in biometrics, healthcare, and human-computer interaction. While traditional deep learning approaches require extensive labeled datasets and domain-specific training, recent advances in large vision-language models (LVLMs) offer the potential for zero-shot age estimation. This study presents a comprehensive zeroshot evaluation of state-of-the-art Large Vision-Language Models (LVLMs) for facial age estimation, a task traditionally dominated by domain-specific convolutional networks and supervised learning. We assess the performance of GPT-4o, Claude 3.5 Sonnet, and LLaMA 3.2 Vision on two benchmark datasets, UTKFace and FG-NET, without any fine-tuning or task-specific adaptation. Using eight evaluation metrics, including MAE, MSE, RMSE, MAPE, MBE, $R^{2}$, CCC, and $\pm 5$-year accuracy, we demonstrate that general-purpose LVLMs can deliver competitive performance in zero-shot settings. Our findings highlight the emergent capabilities of LVLMs for accurate biometric age estimation and position these models as promising tools for real-world applications. Additionally, we highlight performance disparities linked to image quality and demographic subgroups, underscoring the need for fairness-aware multimodal inference. This work introduces a reproducible benchmark and positions LVLMs as promising tools for real-world applications in forensic science, healthcare monitoring, and human-computer interaction. The benchmark focuses on strict zero-shot inference without finetuning and highlights remaining challenges related to prompt sensitivity, interpretability, computational cost, and demographic fairness.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Sajib_2025,
+  title     = {VLAgeBench: Benchmarking Large Vision-Language Models for Zero-Shot Human Age Estimation},
+  url       = {http://dx.doi.org/10.1109/ICCIT68739.2025.11490216},
+  doi       = {10.1109/iccit68739.2025.11490216},
+  booktitle = {2025 28th International Conference on Computer and Information Technology (ICCIT)},
+  publisher = {IEEE},
+  author    = {Sajib, Rakib Hossain and Morol, Md Kishor and Gupta, Rajan Das and Mahmood, Mohammad Sakib and Das, Shuvra Smaran},
+  year      = {2025},
+  month     = Dec,
+  pages     = {1184--1189}
+}</pre>
   </li>
 
   <li id="ClinicalAI XAI CV">
     <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://arxiv.org/abs/2506.09161"><strong>
       From Explanations to Architecture: Explainability-Driven CNN Refinement for Brain Tumor Classification in MRI</strong></a>
       <br />
-      <span class="author-me">Rajan Das Gupta</span>, Mushfiqur Abir, Shanjida Akter, Jakir Hossen</br>
+      <span class="author-me">Rajan Das Gupta</span>, Md Imrul Hasan Showmick, Lei Wei, Mushfiqur Rahman Abir, Shanjida Akter, Md Yeasin Rahat, Md Jakir Hossen</br>
       <span class="venue">BIC 2026</span>, 2026 6th International Conference on Bioinformatics and Intelligent Computing. <em>First author.</em>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2506.09161"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.09161">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1145/3809986.3810119">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.09161">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Recent brain tumor classification methods often report high accuracy but rely on deep, over-parameterized architectures with limited interpretability, making it difficult to determine whether predictions are driven by tumor-relevant evidence or spurious cues such as background artifacts or normal tissue. We propose an explainable convolutional neural network (CNN) framework that enhances model transparency without sacrificing classification accuracy. This approach supports more trustworthy AI in healthcare and contributes to SDG 3: Good Health and Well-being by enabling more dependable MRI-based brain tumor diagnosis and earlier detection. Rather than using explainable AI solely for post hoc visualization, we employ Grad-CAM to quantify layer-wise relevance and guide the removal of low-contribution layers, reducing unnecessary depth and parameters while encouraging attention to discriminative tumor regions. We further validate the model’s decision rationale using complementary explainability methods, combining Grad-CAM for spatial localization with SHAP and LIME for attribution-based verification. Experiments on multi-class brain MRI datasets show that the proposed model achieves 98.21% accuracy on the primary dataset and 95.74% accuracy on an unseen dataset, indicating strong cross-dataset generalization. Overall, the proposed approach balances simplicity, transparency, and accuracy, supporting more trustworthy and clinically applicable brain tumor classification for improved health outcomes and non-invasive disease detection.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Gupta_2026,
+  series    = {BIC 2026},
+  title     = {From Explanations to Architecture: Explainability-Driven CNN Refinement for Brain Tumor Classification in MRI},
+  url       = {http://dx.doi.org/10.1145/3809986.3810119},
+  doi       = {10.1145/3809986.3810119},
+  booktitle = {Proceedings of the 2026 6th International Conference on Bioinformatics and Intelligent Computing},
+  publisher = {ACM},
+  author    = {Gupta, Rajan Das and Showmick, Imrul Hasan and Wei, Lei and Abir, Mushfiqur Rahman and Akter, Shanjida and Rahat, Yeasin and Hossen, Jakir},
+  year      = {2026},
+  month     = Mar,
+  pages     = {853--860},
+  collection = {BIC 2026}
+}</pre>
   </li>
 
   <li id="HCI AppliedML">
@@ -178,28 +341,24 @@
       <br />
       T. H. Sakib, S. J. Mojumder, <span class="author-me">Rajan Das Gupta</span>, M. I. H. Showmick, M. Y. Rahat, et al.</br>
       <span class="venue">MECON 2025</span>, Multimedia University Engineering Conference.
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2506.09153"><span class="pub-link">[PDF]</span></a>
     </p>
-  </li>
-
-  <li id="Forecasting AppliedML">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://arxiv.org/abs/2506.09851"><strong>
-      Advancing Exchange Rate Forecasting: Leveraging Machine Learning and AI for Enhanced Accuracy in Global Financial Markets</strong></a>
-      <br />
-      M. Y. Rahat, <span class="author-me">Rajan Das Gupta</span>, N. R. Rahman, S. R. Pritom, S. R. Shakir, M. I. H. Showmick, et al.</br>
-      <span class="venue">MECON 2025</span>, Multimedia University Engineering Conference.
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2506.09851"><span class="pub-link">[PDF]</span></a>
-    </p>
-  </li>
-
-  <li id="Energy Forecasting AppliedML">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://arxiv.org/abs/2506.16095"><strong>
-      Intelligent Operation and Maintenance and Prediction Model Optimization for Improving Wind Power Generation Efficiency</strong></a>
-      <br />
-      Xun Liu, Xiaobin Wu, Jiaqi He, <span class="author-me">Rajan Das Gupta</span></br>
-      <span class="venue">ICHORA 2025</span>, 7th Intl. Congress on Human-Computer Interaction, Optimization and Robotic Applications.
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2506.16095"><span class="pub-link">[PDF]</span></a>
-    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.09153">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/MECON67253.2025.11276934">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.09153">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Realtime face orientation recognition is a cutting-edge technology meant to track and analyze facial movements in virtual environments such as online interviews, remote meetings, and virtual classrooms. As the demand for virtual interactions grows, it becomes increasingly important to measure participant engagement, attention, and overall interaction. This research presents a novel solution that leverages the Media Pipe Face Mesh framework to identify facial landmarks and extract geometric data for calculating Euler angles, which determines head orientation in real time. The system tracks 3D facial landmarks and uses this data to compute head movements with a focus on accuracy and responsiveness. By studying Euler angles, the system can identify a user’s head orientation with an accuracy of 90%, even at a distance of up to four feet. This capability offers significant enhancements for monitoring user interaction, allowing for more immersive and interactive virtual experiences. The proposed method shows its reliability in evaluating participant attentiveness during online assessments and meetings. Its application goes beyond engagement analysis, potentially providing a means for improving the quality of virtual communication, fostering better understanding between participants, and ensuring a higher level of interaction in digital spaces. This study offers a basis for future developments in enhancing virtual user experiences by integrating real-time facial tracking technologies, paving the way for more adaptive and interactive web-based platforms.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Sakib_2025,
+  title     = {Real-Time Confidence Detection through Facial Expressions and Hand Gestures},
+  url       = {http://dx.doi.org/10.1109/MECON67253.2025.11276934},
+  doi       = {10.1109/mecon67253.2025.11276934},
+  booktitle = {2025 Multimedia University Engineering Conference (MECON)},
+  publisher = {IEEE},
+  author    = {Sakib, Tanjil Hasan and Mojumder, Samia Jahan and Gupta, Rajan Das and Showmick, Md Imrul Hasan and Rahat, Md. Yeasin and Hossen, Md. Jakir},
+  year      = {2025},
+  month     = July,
+  pages     = {1--7}
+}</pre>
   </li>
 
   <li id="NLP LowResource Fairness">
@@ -208,8 +367,24 @@
       <br />
       M. A. H. Reaj, <span class="author-me">Rajan Das Gupta</span>, J. S. Pritha, A. Al Noman, A. Ahmed, GM Mohiuddin, et al.</br>
       <span class="venue">ICON-SONICS 2025</span>, 4th Intl. Conf. on Smart Cities, Automation &amp; Intelligent Computing Systems.
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2601.17764"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2601.17764">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ICON-SONICS67145.2025.11309238">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.17764">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Large Language Models (LLMs) have achieved significant success in recent years; yet, issues of intrinsic gender bias persist, especially in nonEnglish languages. Although current research mostly emphasizes English, the linguistic and cultural biases inherent in Global South languages, like Bengali, are little examined. This research seeks to examine the characteristics and magnitude of gender bias in Bengali, evaluating the efficacy of current approaches in identifying and alleviating Bias. We use several methods to extract gender-biased utterances, including lexicon-based mining, computational classification models, translation-based comparison analysis, and GPT-based bias creation. Our research indicates that the straight application of English-centric bias detection frameworks to Bengali is severely constrained by language disparities and socio-cultural factors that impact implicit biases. To tackle these difficulties, we executed two field investigations inside rural and lowincome areas, gathering authentic insights on gender Bias. The findings demonstrate that gender Bias in Bengali presents distinct characteristics relative to English, requiring a more localized and context-sensitive methodology. Additionally, our research emphasizes the need of integrating community-driven research approaches to identify culturally relevant biases often neglected by automated systems. Our research enhances the ongoing discussion around gender bias in AI by illustrating the need to create linguistic tools specifically designed for underrepresented languages. This study establishes a foundation for further investigations into bias reduction in Bengali and other Indic languages, promoting the development of more inclusive and fair NLP systems.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Reaj_2025,
+  title     = {Cross-Lingual Probing and Community-Grounded Analysis of Gender Bias in Low-Resource Bengali},
+  url       = {http://dx.doi.org/10.1109/ICON-SONICS67145.2025.11309238},
+  doi       = {10.1109/icon-sonics67145.2025.11309238},
+  booktitle = {2025 4th International Conference on Smart Cities, Automation &amp;amp;amp; Intelligent Computing Systems (ICON-SONICS)},
+  publisher = {IEEE},
+  author    = {Reaj, Md Asgor Hossain and Gupta, Rajan Das and Pritha, Jui Saha and Noman, Abdullah Al and Ahmed, Abir and Mohiuddin, Golam Md and Liew, Tze Hui},
+  year      = {2025},
+  month     = Oct,
+  pages     = {37--44}
+}</pre>
   </li>
 
   <li id="HCI">
@@ -218,26 +393,21 @@
       <br />
       <span class="author-me">Rajan Das Gupta</span>, A. Rahman, M. I. H. Showmick, M. Y. Rahat, M. J. Hossen</br>
       <span class="venue">6th Intl. Conf. on Computer, Information Technology and Intelligent Computing, 2025</span>. <em>First author.</em>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2506.08549"><span class="pub-link">[PDF]</span></a>
     </p>
-  </li>
-
-</ol>
-</div>
-
-
-<div class="core-section">
-<h2 id="book-chapter">📖 Book Chapters</h2>
-<hr>
-<ol>
-
-  <li id="Energy AppliedML">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="#"><strong>
-      Optimization of Electric Vehicle Battery Management Systems Using Machine Learning Algorithms: Affordable and Clean Energy</strong></a>
-      <br />
-      Xun Liu, Xiaobin Wu, Jiaqi He, <span class="author-me">Rajan Das Gupta</span></br>
-      <span class="venue">Intl. Conf. on Innovative Computing and Communication, pp. 589-607, 2025</span>.
-    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.08549">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.08549">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Modern technology driven information systems are part of our daily lives. However, this deep integration poses new challenges to the human computer interaction (HCI) professionals. With the rapid growth of mobile and cloud computing and the Internet of Things (IoT), the demand for HCI specialists to design user-friendly and adaptable interfaces has never been more pressing. Especially for diverse user groups such as children, the elderly and people with disabilities who need interfaces tailored to their needs regardless of time and location. This study reviewed 50 recent papers on HCI interface design for modern information systems. The goal is to see how well these methods address the demands of current technology. The findings show that most HCI design methods are still based on old desktop models and do not support mobile users and location-based services well. Most existing interface design guidelines do not align with the flexibility and dynamism of emerging technologies. The goal of this study is to improve interface design by combining agile methodologies with human-centered design principles. Future studies should also incorporate both qualitative and quantitative approaches, particularly in the context of cloud-based technologies and organizational information systems. This approach aims to bridge the gap between current interface design practices and the changing technological landscape.</div>
+    <pre data-publication-bibtex hidden>@misc{gupta2026exploringconvergencehcievolving,
+      title={Exploring the Convergence of HCI and Evolving Technologies in Information Systems},
+      author={Rajan Das Gupta and Ashikur Rahman and Md Imrul Hasan Showmick and Md. Yeasin Rahat and Md. Jakir Hossen},
+      year={2026},
+      eprint={2506.08549},
+      archivePrefix={arXiv},
+      primaryClass={cs.HC},
+      url={https://arxiv.org/abs/2506.08549},
+}</pre>
   </li>
 
 </ol>
@@ -254,9 +424,28 @@
       A Deep Learning and Machine Learning Approach to Predict Neonatal Death in the Context of Sao Paulo</strong></a>
       <br />
       M. Raihan, P. K. Saha, <span class="author-me">Rajan Das Gupta</span>, A. Z. M. Kabir, A. A. Tamanna, et al.</br>
-      <span class="venue">International Journal of Public Health Science (IJPHS) 2025</span>.
-      <a target="_blank" aria-label="PDF" href="https://rajandasguptaml.github.io/publication/conference-paper/conference-paper.pdf"><span class="pub-link">[PDF]</span></a>
+      <span class="venue">International Journal of Public Health Science (IJPHS)</span>, vol. 13, no. 1, 2024.
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://ijphs.iaescore.com/index.php/IJPHS/article/download/22577/13952">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.11591/ijphs.v13i1.22577">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.16929">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>Neonatal death is still a concerning reality for underdeveloped and even for some of the developed countries. Worldwide data indicate that 26.693 babies out of 1,000 births according to Macro Trades. To reduce the death early prediction of endangered baby is crucial. An early prediction enables the opportunity to take ample care of the child and mother so that an early child death can be avoided. Machine learning was used to figure out whether a newborn baby is at risk. To train the predictive model historical data of 1.4 million newborn child data was used. Machine learning and deep learning techniques such as Logical regression, K nearest neighbor, Random Forest classifier, Extreme gradient boosting (XGboost), convolutional neural network, long short-term memory (LSTM). were implemented using the dataset to find out the most robust model which model is the most accurate to identify the mortality of a newborn. From all the machine learning algorithms, the XGboost and random classifier had the best accuracy with 94%, and from the deep learning model, the LSTM had the best outcome with 99% accuracy. Thus, using LSTM of the model shall be best suited to predict whether precaution for a child is necessary.</div>
+    <pre data-publication-bibtex hidden>@article{Raihan_2024,
+  title     = {A deep learning and machine learning approach to predict neonatal death in the context of São Paulo},
+  volume    = {13},
+  issn      = {2252-8806},
+  url       = {http://dx.doi.org/10.11591/ijphs.v13i1.22577},
+  doi       = {10.11591/ijphs.v13i1.22577},
+  number    = {1},
+  journal   = {International Journal of Public Health Science (IJPHS)},
+  publisher = {Institute of Advanced Engineering and Science},
+  author    = {Raihan, Mohon and Saha, Plabon Kumar and Gupta, Rajan Das and Kabir, A Z M Tahmidul and Tamanna, Afia Anjum and Harun-Ur-Rashid, MD. and Salam, Adnan Bin Abdus and Anjum, MD Tanvir and Kabir, A Z M Ahteshamul},
+  year      = {2024},
+  month     = Mar,
+  pages     = {179}
+}</pre>
   </li>
 
 </ol>
@@ -269,17 +458,21 @@
 <ol>
 
   <li id="NLP LowResource LLM">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="#"><strong>
-      ZEnQA: A Parallel Dzongkha-English Evaluation Suite for Foundation Models on Low-resource Multilingual Reasoning</strong></a>
+    <p class="single-paper-f"><strong>
+      ZEnQA: A Parallel Dzongkha-English Evaluation Suite for Foundation Models on Low-resource Multilingual Reasoning</strong>
       <br />
       Md Tanzib Hosain, <span class="author-me">Rajan Das Gupta</span>, Md Kishor Morol</br>
       <span class="venue">EMNLP 2026</span> ▪ <span class="review-badge">In review</span>.
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2505.18638">arXiv: earlier version (DZEN)</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://github.com/rajandasguptaml/DzEnQA-Dataset">Data</a>
+    </div>
   </li>
 
   <li id="NLP LowResource LLM">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="#"><strong>
-      BanglaEcomBench: A Comprehensive Evaluation of Bangla E-commerce Knowledge in Large Language Models</strong></a>
+    <p class="single-paper-f"><strong>
+      BanglaEcomBench: A Comprehensive Evaluation of Bangla E-commerce Knowledge in Large Language Models</strong>
       <br />
       Md Tanzib Hosain, <span class="author-me">Rajan Das Gupta</span>, Md Kishor Morol</br>
       <span class="venue">KDD 2026</span> ▪ <span class="review-badge">In review</span>.
@@ -287,8 +480,8 @@
   </li>
 
   <li id="ClinicalAI NLP LLM">
-    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="#"><strong>
-      Towards Conversational Assistants for Stroke Self-Care: Using Large Language Models to Generate Post-Stroke Self-Care Conversations</strong></a>
+    <p class="single-paper-f"><strong>
+      Towards Conversational Assistants for Stroke Self-Care: Using Large Language Models to Generate Post-Stroke Self-Care Conversations</strong>
       <br />
       <span class="author-me">Rajan Das Gupta</span>, Md Tanzib Hosain, Md Kishor Morol</br>
       <span class="venue">SIGDIAL 2026</span> ▪ <span class="review-badge">In review</span>.
@@ -301,9 +494,131 @@
       <br />
       M. A. H. Reaj, <span class="author-me">Rajan Das Gupta</span>, M. Y. Rahat, N. Fahad, M. J. Hasan, T. H. Liew</br>
       <span class="venue">arXiv:2508.11334</span> (2025).
-      <a target="_blank" aria-label="URL" href="https://arxiv.org/abs/2508.11334"><span class="pub-link">[arXiv]</span></a>
-      <a target="_blank" aria-label="PDF" href="https://arxiv.org/pdf/2508.11334"><span class="pub-link">[PDF]</span></a>
     </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2508.11334">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2508.11334">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>We introduce GANDiff FR, the first synthetic framework that precisely controls demographic and environmental factors to measure, explain, and reduce bias with reproducible rigor. GANDiff FR unifies StyleGAN3-based identity-preserving generation with diffusion-based attribute control, enabling fine-grained manipulation of pose around 30 degrees, illumination (four directions), and expression (five levels) under ceteris paribus conditions. We synthesize 10,000 demographically balanced faces across five cohorts validated for realism via automated detection (98.2%) and human review (89%) to isolate and quantify bias drivers. Benchmarking ArcFace, CosFace, and AdaFace under matched operating points shows AdaFace reduces inter-group TPR disparity by 60% (2.5% vs. 6.3%), with illumination accounting for 42% of residual bias. Cross-dataset evaluation on RFW, BUPT, and CASIA WebFace confirms strong synthetic-to-real transfer (r 0.85). Despite around 20% computational overhead relative to pure GANs, GANDiff FR yields three times more attribute-conditioned variants, establishing a reproducible, regulation-aligned (EU AI Act) standard for fairness auditing. Code and data are released to support transparent, scalable bias evaluation.</div>
+    <pre data-publication-bibtex hidden>@misc{reaj2025gandifffrhybridgan,
+      title={GANDiff FR: Hybrid GAN Diffusion Synthesis for Causal Bias Attribution in Face Recognition},
+      author={Md Asgor Hossain Reaj and Rajan Das Gupta and Md Yeasin Rahat and Nafiz Fahad and Md Jawadul Hasan and Tze Hui Liew},
+      year={2025},
+      eprint={2508.11334},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2508.11334},
+}</pre>
+  </li>
+
+</ol>
+</div>
+
+
+<div class="core-section">
+<h2 id="other-pubs">📂 Other Publications</h2>
+<hr>
+<p class="section-note">Applied machine learning work outside my main research area.</p>
+<ol>
+
+  <li id="Forecasting AppliedML">
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://arxiv.org/abs/2506.09851"><strong>
+      Advancing Exchange Rate Forecasting: Leveraging Machine Learning and AI for Enhanced Accuracy in Global Financial Markets</strong></a>
+      <br />
+      M. Y. Rahat, <span class="author-me">Rajan Das Gupta</span>, N. R. Rahman, S. R. Pritom, S. R. Shakir, M. I. H. Showmick, et al.</br>
+      <span class="venue">MECON 2025</span>, Multimedia University Engineering Conference.
+    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.09851">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/MECON67253.2025.11276931">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.09851">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>The prediction of foreign exchange rates, such as the US Dollar (USD) to Bangladeshi Taka (BDT), plays a pivotal role in global financial markets, influencing trade, investments, and economic stability. This study leverages historical USD/BDT exchange rate data from 2018 to 2023, sourced from Yahoo Finance, to develop advanced machine learning models for accurate forecasting. A Long Short-Term Memory (LSTM) neural network is employed, achieving an exceptional accuracy of 99.449%, a Root Mean Square Error (RMSE) of 0.9858, and a test loss of 0.8523, significantly outperforming traditional methods like ARIMA (RMSE 1.342). Additionally, a Gradient Boosting Classifier (GBC) is applied for directional prediction, with back testing on a $10,000 initial capital revealing a 40.82% profitable trade rate, though resulting in a net loss of $20,653.25 over 49 trades. The study analyzes historical trends, showing a decline in BDT/USD rates from 0.012 to 0.009, and incorporates normalized daily returns to capture volatility. These findings highlight the potential of deep learning in forex forecasting, offering traders and policymakers robust tools to mitigate risks. Future work could integrate sentiment analysis and real-time economic indicators to further enhance model adaptability in volatile markets.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Rahat_2025,
+  title     = {Advancing Exchange Rate Forecasting: Leveraging Machine Learning and AI for Enhanced Accuracy in Global Financial Markets},
+  url       = {http://dx.doi.org/10.1109/MECON67253.2025.11276931},
+  doi       = {10.1109/mecon67253.2025.11276931},
+  booktitle = {2025 Multimedia University Engineering Conference (MECON)},
+  publisher = {IEEE},
+  author    = {Rahat, Md. Yeasin and Das Gupta, Rajan and Rahman, Nur Raisa and Roy Pritom, Sudipto and Shakir, Samiur Rahman and Imrul Hasan Showmick, Md and Hossen, Md. Jakir},
+  year      = {2025},
+  month     = July,
+  pages     = {1--5}
+}</pre>
+  </li>
+
+  <li id="Energy Forecasting AppliedML">
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://arxiv.org/abs/2506.16095"><strong>
+      Intelligent Operation and Maintenance and Prediction Model Optimization for Improving Wind Power Generation Efficiency</strong></a>
+      <br />
+      Xun Liu, Xiaobin Wu, Jiaqi He, <span class="author-me">Rajan Das Gupta</span></br>
+      <span class="venue">ICHORA 2025</span>, 7th Intl. Congress on Human-Computer Interaction, Optimization and Robotic Applications.
+    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.16095">PDF</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ICHORA65333.2025.11017307">DOI</a>
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.16095">arXiv</a>
+    </div>
+    <div data-publication-abstract hidden>This study explores the effectiveness of predictive maintenance models and the optimization of intelligent Operation and Maintenance (O&amp;M) systems in improving wind power generation efficiency. Through qualitative research, structured interviews were conducted with five wind farm engineers and maintenance managers, each with extensive experience in turbine operations. Using thematic analysis, the study revealed that while predictive maintenance models effectively reduce downtime by identifying major faults, they struggle with detecting smaller, gradual failures. Key challenges, such as false positives, sensor malfunctions, and the integration of new models with older turbines, were also identified. Advanced technologies like digital twins, SCADA systems, and condition monitoring have enhanced turbine maintenance but require further improvements, particularly in AI refinement and real-time data integration. The findings highlight the need for continued development to optimize wind turbine performance and support the broader adoption of renewable energy.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Liu_2025,
+  title     = {Intelligent Operation and Maintenance and Prediction Model Optimization for Improving Wind Power Generation Efficiency},
+  url       = {http://dx.doi.org/10.1109/ICHORA65333.2025.11017307},
+  doi       = {10.1109/ichora65333.2025.11017307},
+  booktitle = {2025 7th International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA)},
+  publisher = {IEEE},
+  author    = {Liu, Xun and Wu, Xiaobin and He, Jiaqi and Gupta, Rajan Das},
+  year      = {2025},
+  month     = May,
+  pages     = {1--7}
+}</pre>
+  </li>
+
+  <li id="AppliedML">
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://doi.org/10.1109/ICRTCST68392.2026.11545399"><strong>
+      Innovative Infrastructure for Decent Work and Economic Growth: Integrating Smart Technologies in Automotive Manufacturing</strong></a>
+      <br />
+      Xiaobin Wu, Xun Liu, Jiaqi He, <span class="author-me">Rajan Das Gupta</span></br>
+      <span class="venue">ICRTCST 2026</span>, 6th International Conference on Recent Trends in Computer Science and Technology, pp. 1004-1008.
+    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1109/ICRTCST68392.2026.11545399">DOI</a>
+    </div>
+    <div data-publication-abstract hidden>The presented paper suggests a smart infrastructure platform to the automotive industry that would support the idea of advancing decent work and economic growth (SDG 8), industry, innovation, and infrastructure (SDG 9) by applying Industry 4.0 technologies. The framework combines robotic automation, Cyber-Physical Systems (CPS), and the Industrial Internet of Things (IIoT) to improve the safety of the workplace, the quality of employment, and sustainable development in the long run. With a Hybrid Edge-AI and Federated Blockchain (HEAFB), one can carry out the processing of location- and time-sensitive information in a secure manner, predictive maintenance, data sovereignty, resource optimization, and intelligent human-machine cooperation. Human-Centric Digital Twin (HCDT) simulates operations to enhance ergonomics, labour productivity, and health of workers, which are consistent with good health and well-being (SDG 3). Such a multilevel computerized system ensures the maximization of the stability of operations, their flexibility, and inclusivity of the workforce through AI-assisted recommendations on task assignments and application of skills. Furthermore, the framework promotes responsible production and consumption (SDG 12) and climate action (SDG 13) because it reduces the impact on the environment and contributes to sustainable industrial operations. The suggested solution can serve as the roadmap to changing the conventional manufacturing of autos and turning the industry into an intelligent, safe, and eco-friendly one.</div>
+    <pre data-publication-bibtex hidden>@inproceedings{Wu_2026,
+  title     = {Innovative Infrastructure for Decent Work and Economic Growth: Integrating Smart Technologies in Automotive Manufacturing},
+  url       = {http://dx.doi.org/10.1109/ICRTCST68392.2026.11545399},
+  doi       = {10.1109/icrtcst68392.2026.11545399},
+  booktitle = {2026 6th International Conference on Recent Trends in Computer Science and Technology (ICRTCST)},
+  publisher = {IEEE},
+  author    = {Wu, Xiaobin and Liu, Xun and He, Jiaqi and Gupta, Rajan Das},
+  year      = {2026},
+  month     = Jan,
+  pages     = {1004--1008}
+}</pre>
+  </li>
+
+  <li id="Energy AppliedML">
+    <p class="single-paper-f"><a target="_blank" aria-label="URL" href="https://doi.org/10.1007/978-981-96-7137-3_41"><strong>
+      Optimization of Electric Vehicle Battery Management Systems Using Machine Learning Algorithms: Affordable and Clean Energy</strong></a>
+      <br />
+      Xun Liu, Xiaobin Wu, Jiaqi He, <span class="author-me">Rajan Das Gupta</span></br>
+      <span class="venue">Intl. Conf. on Innovative Computing and Communication, pp. 589-607, 2025</span>.
+    </p>
+    <div class="publication-actions">
+      <a class="publication-resource-link" target="_blank" rel="noopener" href="https://doi.org/10.1007/978-981-96-7137-3_41">DOI</a>
+    </div>
+    <pre data-publication-bibtex hidden>@inbook{Liu_2025,
+  title     = {Optimization of Electric Vehicle Battery Management Systems Using Machine Learning Algorithms: Affordable and Clean Energy},
+  isbn      = {9789819671373},
+  issn      = {2367-3389},
+  url       = {http://dx.doi.org/10.1007/978-981-96-7137-3_41},
+  doi       = {10.1007/978-981-96-7137-3_41},
+  booktitle = {Innovative Computing and Communications},
+  publisher = {Springer Nature Singapore},
+  author    = {Liu, Xun and Wu, Xiaobin and He, Jiaqi and Das Gupta, Rajan},
+  year      = {2025},
+  pages     = {589--607}
+}</pre>
   </li>
 
 </ol>
@@ -366,7 +681,8 @@
   <h4>Page Contents</h4>
 </div>
 
-  <script defer src="js/script.js?v=9"></script>
+  <script defer src="js/publications.js?v=11"></script>
+  <script defer src="js/script.js?v=11"></script>
 
 </body>
 </html>

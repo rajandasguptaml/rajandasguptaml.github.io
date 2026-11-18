@@ -179,6 +179,17 @@ padding:0;
 overflow:hidden;
 visibility:hidden}
 
+/* Page heading for search engines and screen readers; the visible title is the site header */
+.visually-hidden{position:absolute;
+width:1px;
+height:1px;
+margin:-1px;
+padding:0;
+overflow:hidden;
+clip:rect(0, 0, 0, 0);
+white-space:nowrap;
+border:0}
+
 /* Accent text: venue names, resource links, totals */
 .venue,
 .pub-link,
@@ -311,6 +322,9 @@ line-height:1.3}
 margin:0 0 2px 3px;
 font-weight:800;
 line-height:1.3}
+
+.stats-metrics{font-weight:400;
+margin-left:6px}
 
 .inner-row{display:flex;
 gap:3px}
