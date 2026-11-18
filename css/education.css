@@ -1,0 +1,110 @@
+/* Education page: timeline layout. Colours come from the theme variables in css/main.css. */
+
+.education-content{padding-top:30px;
+padding-bottom:36px}
+
+.education-content h2{scroll-margin-top:24px}
+
+.education-content h3{font-size:var(--font-title);
+font-weight:700;
+line-height:1.25;
+margin:0 0 7px}
+
+.education-content a:hover{font-weight:inherit}
+
+.education-content a:focus-visible{outline:2px solid var(--hl);
+outline-offset:4px}
+
+/* ---------- degrees ---------- */
+.education-content .degree{position:relative;
+border-left:1px solid var(--line);
+padding:0 0 4px 27px;
+margin:0 0 26px}
+
+.education-content .degree::before{content:"";
+position:absolute;
+top:9px;
+left:-6px;
+width:10px;
+height:10px;
+border-radius:50%;
+background:var(--hl);
+box-shadow:0 0 0 4px var(--bg)}
+
+.education-content .degree-heading{display:flex;
+align-items:baseline;
+justify-content:space-between;
+gap:8px 20px;
+flex-wrap:wrap}
+
+.education-content .degree-heading h3{margin:0}
+
+.education-content .degree-date{color:var(--muted);
+font-size:var(--font-meta);
+letter-spacing:.06em;
+text-transform:uppercase;
+margin:0}
+
+.education-content .institution{margin:8px 0 4px;
+font-style:italic}
+
+.education-content .discipline{color:var(--muted);
+margin:0 0 8px}
+
+.education-content .degree p{margin-bottom:6px}
+
+/* ---------- summer schools, training, certifications ---------- */
+.education-content > ul.education-timeline{display:block;
+list-style:none;
+padding:0;
+margin:14px 0 22px}
+
+.education-content > ul.education-timeline > li{position:relative;
+margin:0;
+padding:0 0 14px 27px;
+border-left:1px solid var(--line);
+font-size:var(--font-entry);
+line-height:1.5;
+overflow-wrap:anywhere}
+
+.education-content > ul.education-timeline > li::before{content:"";
+position:absolute;
+top:8px;
+left:-6px;
+width:10px;
+height:10px;
+border-radius:50%;
+background:var(--hl);
+box-shadow:0 0 0 4px var(--bg)}
+
+.education-content > ul.education-timeline > li:last-child{padding-bottom:8px}
+
+.education-content > ul > li p{margin:0 0 6px}
+.education-content > ul > li p:last-child{margin-bottom:0}
+
+.education-content .card-meta{color:var(--muted);
+font-size:var(--font-meta);
+line-height:1.5}
+
+.education-content .credential-link{color:var(--hl-text);
+font-size:var(--font-meta);
+font-weight:400;
+text-decoration:none;
+display:inline-block;
+margin-top:4px}
+
+.education-content .credential-link:hover{text-decoration:underline;
+color:var(--hl-text)}
+
+.education-content .section-intro{margin:10px 0 16px}
+
+.education-content .education-footer{border-top:1px solid var(--line);
+padding-top:20px;
+margin-top:40px;
+color:var(--muted);
+font-size:var(--font-meta)}
+
+@media (max-width: 650px){
+.education-content .degree{padding-left:20px}
+.education-content > ul.education-timeline > li{padding-left:20px}
+}
