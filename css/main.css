@@ -102,6 +102,8 @@ font-size:var(--font-nav)}
 .alignable,.pull-left,.pull-right{display:inline-block}
 .pull-left{float:left}
 .pull-right{float:right}
+/* menu links sit in reading order in the markup, so they must not float individually */
+.navbar-ul .nav-list{float:none}
 
 /* ============================================================
    Layout
