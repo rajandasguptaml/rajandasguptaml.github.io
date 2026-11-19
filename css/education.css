@@ -104,6 +104,24 @@ margin-top:40px;
 color:var(--muted);
 font-size:var(--font-meta)}
 
+/* ---------- experience page: bullets inside an entry, and group labels ---------- */
+.education-content .degree ul{margin:6px 0 0;
+padding:0 0 0 18px;
+font-size:var(--font-entry);
+line-height:1.5}
+
+.education-content .degree ul > li{margin:0 0 4px}
+
+.education-content .degree .discipline{font-size:var(--font-entry)}
+
+.education-content .group-title{color:var(--muted);
+font-size:var(--font-meta);
+font-weight:700;
+letter-spacing:.06em;
+text-transform:uppercase;
+margin:18px 0 0;
+scroll-margin-top:24px}
+
 @media (max-width: 650px){
 .education-content .degree{padding-left:20px}
 .education-content > ul.education-timeline > li{padding-left:20px}
